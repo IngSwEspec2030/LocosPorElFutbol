@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import {HomeService} from './home.service';
 
 @Component({
     selector: 'app-one-four',
@@ -9,11 +10,21 @@ import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-boo
 export class HomeOneComponent implements OnInit {
 
     hoveredDate: NgbDate | null = null;
-
     fromDate: NgbDate | null;
     toDate: NgbDate | null;
 
-    constructor(private calendar: NgbCalendar, public formatter: NgbDateParserFormatter) {
+    activities: any;
+
+    constructor(private calendar: NgbCalendar,
+                public formatter: NgbDateParserFormatter,
+                private homeService: HomeService) {
+
+    }
+
+    ngOnInit(): void {
+        setTimeout(() => {
+            this.activities = this.homeService.getActivities();
+        }, 1000);
 
     }
 
@@ -43,9 +54,6 @@ export class HomeOneComponent implements OnInit {
     validateInput(currentValue: NgbDate | null, input: string): NgbDate | null {
         const parsed = this.formatter.parse(input);
         return parsed && this.calendar.isValid(NgbDate.from(parsed)) ? NgbDate.from(parsed) : currentValue;
-    }
-
-    ngOnInit(): void {
     }
 
 }
