@@ -13,7 +13,7 @@
         <div class="main-search-wrap">
             <form>
                 <div class="row">
-                    <div class="col-lg-4 col-md-12">
+                    <div class="col-lg-5 col-md-12">
                         <div class="form-group">
                             <label><i class='bx bx-walk'></i></label>
                             <input type="text" placeholder="¿ Qué sitio quieres descubrir ?">
@@ -37,60 +37,17 @@
                     </div>
 
                     <!-- Inicio calendario -->
-                    <div class="col-lg-2 col-md-6 calendar-row">
-                        <div class="form-group hidden calendar">
-                            <div class="input-group">
-                                <input name="datepicker"
-                                       class="form-control"
-                                       ngbDatepicker
-                                       #datepicker="ngbDatepicker"
-                                       [autoClose]="'outside'"
-                                       (dateSelect)="onDateSelection($event)"
-                                       [displayMonths]="2"
-                                       [dayTemplate]="t"
-                                       outsideDays="hidden"
-                                       [startDate]="fromDate!">
-                                <ng-template #t let-date let-focused="focused">
-                                    <span class="custom-day"
-                                          [class.focused]="focused"
-                                          [class.range]="isRange(date)"
-                                          [class.faded]="isHovered(date) || isInside(date)"
-                                          (mouseenter)="hoveredDate = date"
-                                          (mouseleave)="hoveredDate = null">
-                                      {{ date.day }}
-                                    </span>
-                                </ng-template>
-                            </div>
-                        </div>
                         <div class="form-group">
                             <div class="input-group calendar_1">
                                 <label class="calendar"><i class='bx bx-calendar'></i></label>
-                                <input #dpFromDate
-                                       class="form-control input-calendar" placeholder="Fecha de inicio"
-                                       name="dpFromDate"
-                                       [value]="formatter.format(fromDate)"
-                                       (input)="fromDate = validateInput(fromDate, dpFromDate.value)"
-                                       (click)="datepicker.toggle()">
-
+                                <input class="form-control fix" placeholder="Fecha de viaje"
+                                       name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"
+                                       (click)="d.toggle()">
+                                <div class="input-group-append">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-2 col-md-6 calendar-row">
-                        <div class="form-group ml-2">
-
-                            <div class="input-group calendar_2">
-                                <label class="calendar"><i class='bx bx-calendar'></i></label>
-                                <input #dpToDate
-                                       class="form-control input-calendar" placeholder="Fecha final"
-                                       name="dpToDate"
-                                       [value]="formatter.format(toDate)"
-                                       (input)="toDate = validateInput(toDate, dpToDate.value)"
-                                       (click)="datepicker.toggle()">
-
-                            </div>
-                        </div>
-                    </div>
                     <!-- fin calendario -->
 
                 </div>
