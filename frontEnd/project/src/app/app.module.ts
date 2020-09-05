@@ -44,6 +44,7 @@ import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -89,11 +90,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     RegisterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
