@@ -12,7 +12,7 @@ export class HomeService {
     constructor(private http: HttpClient) {
     }
 
-    getActivities() {
+    getActivities(): Promise<Activity[]> {
         return new Promise((resolve, reject) => {
             const headers = {
                 'Content-Type': 'application/json'
