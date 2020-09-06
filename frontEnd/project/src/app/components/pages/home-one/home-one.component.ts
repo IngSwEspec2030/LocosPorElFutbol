@@ -16,11 +16,13 @@ export class HomeOneComponent implements OnInit {
 
     }
 
+    // @ts-ignore
     ngOnInit(): void {
-        setTimeout(() => {
-            this.activities = this.homeService.getActivities();
-        }, 1000);
+        this.getActivities();
+    }
 
+    private async getActivities() {
+        this.activities = await this.homeService.getActivities();
     }
 
 
