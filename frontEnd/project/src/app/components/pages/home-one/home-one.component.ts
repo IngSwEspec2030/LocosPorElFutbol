@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {HomeService} from './home.service';
+import {Activity} from '../../interfaces/activity.interface';
 
 @Component({
     selector: 'app-one-four',
@@ -10,17 +11,19 @@ import {HomeService} from './home.service';
 export class HomeOneComponent implements OnInit {
     model: NgbDateStruct;
 
-    activities: any;
+    activities: Activity[];
 
     constructor(private homeService: HomeService) {
-
     }
 
+    // @ts-ignore
     ngOnInit(): void {
-        setTimeout(() => {
-            this.activities = this.homeService.getActivities();
-        }, 1000);
+        this.getActivities();
+    }
 
+    private async getActivities(): Promise<Activity[]> {
+        this.activities = await this.homeService.getActivities();
+        return this.activities;
     }
 
 
