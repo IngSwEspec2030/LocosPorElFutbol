@@ -1,25 +1,22 @@
 import {Injectable} from '@angular/core';
-import {Activity} from '../../interfaces/activity.interface';
+import {Place} from '../../interfaces/place.interface';
 import {HttpClient} from '@angular/common/http';
-
 
 @Injectable({
     providedIn: 'root'
 })
-export class HomeService {
+export class HeaderService {
 
-    private url = 'https://run.mocky.io/v3/86231eec-22c0-4f6f-b24a-8608a89e0681';
     private placeUrl = 'https://run.mocky.io/v3/df80af57-3897-47b7-8229-4d3916f28dd2';
-
     constructor(private http: HttpClient) {
     }
 
-    getActivities(): Promise<Activity[]> {
+    getPlaces(): Promise<Place[]> {
         return new Promise((resolve, reject) => {
             const headers = {
                 'Content-Type': 'application/json'
             };
-            this.http.get<Activity[]>(this.url,
+            this.http.get<Place[]>(this.placeUrl,
                 {headers}).subscribe(result => {
                     resolve(result);
                 },
@@ -29,5 +26,4 @@ export class HomeService {
                 });
         });
     }
-
 }
