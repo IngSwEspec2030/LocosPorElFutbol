@@ -11,27 +11,21 @@
         <h1><span>Descubre</span> Sitios Maravillosos</h1>
 
         <div class="main-search-wrap">
-            <form>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
                 <div class="row">
                     <div class="col-lg-5 col-md-12">
                         <div class="form-group">
                             <label><i class='bx bx-walk'></i></label>
-                            <input type="text" placeholder="¿ Qué sitio quieres descubrir ?">
+                            <input type="text" formControlName="searchActivity" placeholder="¿ Qué sitio quieres descubrir ?">
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6">
                         <div class="form-group">
                             <label><i class='bx bx-world'></i></label>
-                            <select>
-                                <option>Destinos</option>
-                                <option>Shops</option>
-                                <option>Hotels</option>
-                                <option>Restaurants</option>
-                                <option>Fitness</option>
-                                <option>Events</option>
-                                <option>Services</option>
-                                <option>Other</option>
+                            <select formControlName="searchPlace" >
+                                <option selected="selected">Lugares</option>
+                                <option *ngFor="let place of places" [ngValue]="place">{{place.name}}</option>
                             </select>
                         </div>
                     </div>
@@ -41,7 +35,7 @@
                             <div class="input-group calendar_1">
                                 <label class="calendar"><i class='bx bx-calendar'></i></label>
                                 <input class="form-control fix" placeholder="Fecha de viaje"
-                                       name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker"
+                                       name="dp" formControlName="searchCalendar" ngbDatepicker #d="ngbDatepicker"
                                        (click)="d.toggle()">
                                 <div class="input-group-append">
                             </div>
@@ -53,15 +47,17 @@
                 </div>
 
                 <div class="main-search-btn">
-                    <button type="submit">Buscar <i class='bx bx-search-alt'></i></button>
+                    <button type="submit">
+                        Buscar <i class='bx bx-search-alt'></i>
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-
-<section class="listing-categories-area bg-F7F9FB pt-100 pb-70">
+<!-- Poner en version final -->
+<!--<section class="listing-categories-area bg-F7F9FB pt-100 pb-70">
     <div class="container">
         <div class="section-title">
             <span class="sub-title">Lista de Categorías</span>
@@ -81,8 +77,8 @@
             <div class="col-lg-3 col-sm-6 col-md-4">
                 <div class="single-listing-category">
                     <a routerLink="/listing-four">
-                        <i class='bx bxs-planet'></i>
-                        Extremo
+                        <i class='bx bxs-briefcase-alt-2'></i>
+                        Multi Actividades
                     </a>
                 </div>
             </div>
@@ -90,8 +86,8 @@
             <div class="col-lg-3 col-sm-6 col-md-4">
                 <div class="single-listing-category">
                     <a routerLink="/listing-four">
-                        <i class='bx bx-drink'></i>
-                        Trekking
+                        <i class='bx bxs-binoculars'></i>
+                        Exploración
                     </a>
                 </div>
             </div>
@@ -108,7 +104,7 @@
             <div class="col-lg-3 col-sm-6 col-md-4">
                 <div class="single-listing-category">
                     <a routerLink="/listing-four">
-                        <i class='bx bx-calendar-star'></i>
+                        <i class='bx bx-home-heart'></i>
                         Familiar
                     </a>
                 </div>
@@ -117,7 +113,7 @@
             <div class="col-lg-3 col-sm-6 col-md-4">
                 <div class="single-listing-category">
                     <a routerLink="/listing-four">
-                        <i class='bx bx-walk'></i>
+                        <i class='bx bx-aperture'></i>
                         Grupos
                     </a>
                 </div>
@@ -126,7 +122,7 @@
             <div class="col-lg-3 col-sm-6 col-md-4">
                 <div class="single-listing-category">
                     <a routerLink="/listing-four">
-                        <i class='bx bx-building-house'></i>
+                        <i class='bx bx-arrow-to-top'></i>
                         Alto Nivel
                     </a>
                 </div>
@@ -135,16 +131,16 @@
             <div class="col-lg-3 col-sm-6 col-md-4">
                 <div class="single-listing-category">
                     <a routerLink="/listing-four">
-                        <i class='bx bx-buildings'></i>
-                        Pasadia
+                        <i class='bx bxs-wink-smile'></i>
+                        Individual
                     </a>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section>-->
 
-<section class="listing-area pt-100 pb-70">
+<section #actividades class="listing-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
             <span class="sub-title">Descubre</span>
@@ -166,7 +162,7 @@
 
                     <div class="listing-content">
                         <div class="content">
-                            <h3><a routerLink="/listing-details">{{activity.nombreActividad}}</a></h3>
+                            <h3><a routerLink="/listing-details" [queryParams]="{id: activity.idActividad}" >{{activity.nombreActividad}}</a></h3>
                             <span class="location"><i class='bx bx-map'></i>
                                 {{activity.nombreDepartamento}},
                                 {{activity.nombreSitioTuristico}}
