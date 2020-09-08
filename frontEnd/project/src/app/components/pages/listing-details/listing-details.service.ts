@@ -7,7 +7,7 @@ export class ListingDetailsService {
 
   constructor() { }
 
-  getinfoBySiteId() : any{
+  getinfoBySiteId(id:number) : any{
 
     return [
         {
