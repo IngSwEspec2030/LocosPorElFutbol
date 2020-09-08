@@ -1,0 +1,27 @@
+<div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Perfil del provedor</h4>
+      <button type="button" clasmodals="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+            <div class="listing-review-comments">
+                <div class="user-review">
+                    <img src="assets/img/user1.jpg" alt="image">
+                    
+                    <div class="review-rating">
+                        <span class="d-inline-block">Hotel 1</span>
+                    </div>
+
+                    <span class="d-block sub-comment">Id : 12333</span>
+                    <p>Very well built theme, couldn't be happier with it. Can't wait for future updates to see what else they add in.</p>
+                </div>
+            </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Ok</button>
+    </div>
+</div>
+
+  

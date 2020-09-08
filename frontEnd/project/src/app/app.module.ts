@@ -44,7 +44,8 @@ import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule} from '@angular/forms';
+import { FormsModule} from "@angular/forms";
+import { ProviderModalComponent } from './components/pages/listing-details/provider-modal/provider-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -89,7 +90,8 @@ import { HttpClientModule } from '@angular/common/http';
     ErrorComponent,
     ComingSoonComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProviderModalComponent
   ],
     imports: [
         BrowserModule,
