@@ -10,7 +10,6 @@ import {Activity} from '../../interfaces/activity.interface';
 })
 export class HomeOneComponent implements OnInit {
     model: NgbDateStruct;
-
     activities: Activity[];
 
     constructor(private homeService: HomeService) {
