@@ -1,9 +1,10 @@
 package com.servicios.lxe.dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class PaqueteDto {
+public class ActividadTuristicaDto{
 
 	private String nombreSitioTuristico;
 	private String nombreMunicipio;

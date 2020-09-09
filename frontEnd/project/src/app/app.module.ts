@@ -44,7 +44,7 @@ import { ComingSoonComponent } from './components/pages/coming-soon/coming-soon.
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProviderModalComponent } from './components/pages/listing-details/provider-modal/provider-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -101,7 +101,8 @@ import { HttpClientModule } from '@angular/common/http';
         NgbModule,
         ReactiveFormsModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
