@@ -8,8 +8,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class HomeService {
 
-    private url = 'https://run.mocky.io/v3/86231eec-22c0-4f6f-b24a-8608a89e0681';
-    private placeUrl = 'https://run.mocky.io/v3/df80af57-3897-47b7-8229-4d3916f28dd2';
+    private url = 'http://localhost:8080/getActivities';
 
     constructor(private http: HttpClient) {
     }
