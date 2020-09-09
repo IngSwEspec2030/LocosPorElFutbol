@@ -2,13 +2,9 @@ package com.servicios.lxe.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class ActividadTuristica implements Serializable{
@@ -30,6 +26,8 @@ public class ActividadTuristica implements Serializable{
 	private Integer estado;
 	@OneToOne
 	private SitioTuristico sitioTuristico;
+	@OneToMany(targetEntity=ProveedoresActividad.class, mappedBy="actividadTuristica")	   
+	private List<ProveedoresActividad> proveedoresActividad;
 	
 	public int getId_actividad() {
 		return id_actividad;
@@ -79,5 +77,13 @@ public class ActividadTuristica implements Serializable{
 	public void setSitioTuristico(SitioTuristico sitioTuristico) {
 		this.sitioTuristico = sitioTuristico;
 	}
+	public List<ProveedoresActividad> getProveedoresActividad() {
+		return proveedoresActividad;
+	}
+	public void setProveedoresActividad(List<ProveedoresActividad> proveedoresActividad) {
+		this.proveedoresActividad = proveedoresActividad;
+	}
+	
+	
 	
 }

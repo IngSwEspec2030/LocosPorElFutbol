@@ -15,7 +15,7 @@ import com.servicios.lxe.model.Imagen;
 
 
 @RestController
-@RequestMapping("/paquetes")
+@RequestMapping("/paquete")
 public class ConsultaActividadesTuristicas {
 
 	@Autowired
