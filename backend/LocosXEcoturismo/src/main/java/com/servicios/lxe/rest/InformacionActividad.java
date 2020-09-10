@@ -25,7 +25,6 @@ import com.servicios.lxe.model.Transporte;
 
 @CrossOrigin(origins="*")
 @RestController
-@RequestMapping("/informacionActividad")
 public class InformacionActividad {
 
 	
@@ -36,15 +35,19 @@ public class InformacionActividad {
 	@Autowired
 	private IHospedaje hospedaje;
 	
-	@GetMapping
+	@GetMapping("/informacionActividad")
 	public InformacionActividadTuristicaDto consultarInformacionActividad(@RequestParam Integer idActividad) {
 		InformacionActividadTuristicaDto result = new InformacionActividadTuristicaDto();
 		
 		ActividadTuristica  actividad = actividadTuristica.getOne(idActividad);
 		result.setNombreSitioTuristico(actividad.getSitioTuristico().getNombreSitio());
-		result.setDescripcion(actividad.getDescripcion());
-		result.setPrecioBase(actividad.getPrecioBase());
+		result.setDescripcionSitio(actividad.getSitioTuristico().getDescripcion());
+		result.setLatitud(actividad.getSitioTuristico().getIdLatitud());
+		result.setLongitud(actividad.getSitioTuristico().getIdLongitud());
 		result.setIdActividad(actividad.getId_actividad());
+		result.setNombreActividad(actividad.getNombreActividad());
+		result.setDescripcionActividad(actividad.getDescripcion());		
+		result.setPrecioBase(actividad.getPrecioBase());
 		result.setReview(actividad.getReview());
 		result.setImagenesActividad(obtenerImagenes(actividad.getSitioTuristico().getImagen()));
 		result.setEstado(actividad.getEstado());

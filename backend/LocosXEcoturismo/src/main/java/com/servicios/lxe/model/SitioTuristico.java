@@ -27,9 +27,9 @@ public class SitioTuristico implements Serializable{
 	@OneToOne
 	private Municipio idMunicipio;
 	@Column(name = "idLatitud")
-	private long idLatitud;
+	private String idLatitud;
 	@Column(name = "idLongitud")
-	private long idLongitud;
+	private String idLongitud;
 	@OneToMany(targetEntity=Imagen.class, mappedBy="sitioTuristico",cascade=CascadeType.ALL, fetch = FetchType.LAZY)	   
 	private List<Imagen> imagen;
 	
@@ -57,16 +57,16 @@ public class SitioTuristico implements Serializable{
 	public void setIdMunicipio(Municipio idMunicipio) {
 		this.idMunicipio = idMunicipio;
 	}
-	public long getIdLatitud() {
+	public String getIdLatitud() {
 		return idLatitud;
 	}
-	public void setIdLatitud(long idLatitud) {
+	public void setIdLatitud(String idLatitud) {
 		this.idLatitud = idLatitud;
 	}
-	public long getIdLongitud() {
+	public String getIdLongitud() {
 		return idLongitud;
 	}
-	public void setIdLongitud(long idLongitud) {
+	public void setIdLongitud(String idLongitud) {
 		this.idLongitud = idLongitud;
 	}
 	public List<Imagen> getImagen() {
