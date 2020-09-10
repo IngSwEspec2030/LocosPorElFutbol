@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Quotation } from "../../interfaces/quotation.interface";
 import { DomSanitizer } from '@angular/platform-browser';
 import { error } from '@angular/compiler/src/util';
+import { ActivityDetails } from '../../interfaces/activityDetails.interface';
 
 
 @Component({
@@ -41,19 +42,20 @@ export class ListingDetailsComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.queryParams.subscribe((params) => {
-            this.listingDetailsService.getinfoBySiteId(params.id).subscribe( response =>{
-                let details = response;
-                this.details = details[0];
-                this.arryPrices[0] = details[0].precioBase;
-                this.src='https://www.google.com/maps/embed/v1/place?q='+this.details.latitud+','+this.details.longitud+'&key=AIzaSyBCO2sM4U_hk39ps6YmJs5CTXUBPhkvkU8';
-                this.url=this.dom.bypassSecurityTrustResourceUrl(this.src); 
-            },
-            error => {
-                    
-            });
-         
+            this.getDetails(params.id);
         });
     }
+
+    private async getDetails(id: number): Promise<ActivityDetails[]> {
+        const details = await this.listingDetailsService.getActivities(id);
+        this.details = details;
+        this.arryPrices[0] = this.details.precioBase;
+        this.src='https://www.google.com/maps/embed/v1/place?q='+this.details.latitud+','+this.details.longitud+'&key=AIzaSyBCO2sM4U_hk39ps6YmJs5CTXUBPhkvkU8';
+        this.url=this.dom.bypassSecurityTrustResourceUrl(this.src); 
+        return this.details;
+
+    }
+
 
 
     loadContent(): void {
