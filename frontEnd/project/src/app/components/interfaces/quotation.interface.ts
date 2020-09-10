@@ -1,4 +1,5 @@
-export interface Quotation {
+export class Quotation {
+    
     fechaCotizacion: Date;
     fechaInicio: Date;
     fechaFin: Date;

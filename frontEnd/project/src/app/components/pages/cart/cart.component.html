@@ -17,19 +17,41 @@
                         <tr>
                             <th scope="col">Item</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Valor unitarios</th>
-                            <!-- <th scope="col">Quantity</th> -->
+                            <th scope="col">Valor unitario</th>
+                            <th scope="col">Personas</th>
                             <th scope="col">Total</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let item of cotizacion.seleccionProvedores">
                             <td class="product-thumbnail">
                                 <a routerLink="/products-details">
                                     <img src="assets/img/cotizacion_font.jpg" alt="item">
                                 </a>
                             </td> 
+                            
+                            <td class="product-name">
+                                <a routerLink="/products-details">{{item.nombre}}</a>
+                            </td>
+
+                            <td class="product-price">
+                                <span class="unit-amount">{{item.costoPersona | currency: "COP ":false:"2.0"}}</span>
+                            </td>
+
+                            <td class="product-quantity">
+                                <div class="input-counter">
+                                   
+                                    <input type="text" readonly="readonly" min="1" value="{{cotizacion.numPersonas}}">
+                            
+                                </div>
+                            </td>
+
+                            <td class="product-subtotal">
+                                <span class="subtotal-amount">{{item.costoPersona * cotizacion.numPersonas | currency: "COP ":false:"2.0"}}</span>
+
+                                <!-- <a routerLink="/cart" class="remove"><i class='bx bx-trash'></i></a> -->
+                            </td>
 
                         </tr>
                     </tbody>
@@ -39,12 +61,12 @@
             <div class="cart-buttons">
                 <div class="row align-items-center">
                     <div class="col-lg-7 col-sm-7 col-md-7">
-                        <a routerLink="/product-list" class="optional-btn">Continue Shopping</a>
+                        <!-- <a routerLink="/listing-details" class="default-btn">Descartar</a> -->
                     </div>
 
-                    <div class="col-lg-5 col-sm-5 col-md-5 text-right">
+                    <!-- <div class="col-lg-5 col-sm-5 col-md-5 text-right">
                         <a routerLink="/cart" class="default-btn">Update Cart</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -53,11 +75,13 @@
 
                 <ul>
                     <li>Subtotal <span> {{ subtotal | currency: "COP ":false:"2.0" }}</span></li>
-                    <li>IVA <span>{{ subtotal | currency: "COP ":false:"2.0" }}</span></li>
-                    <li>Total <span>{{ subtotal | currency: "COP ":false:"2.0" }}</span></li>
+                    <li>IVA <span>{{ iva | currency: "COP ":false:"2.0" }}</span></li>
+                    <li>Total <span>{{ total | currency: "COP ":false:"2.0" }}</span></li>
                 </ul>
                 
-                <a routerLink="/checkout" class="default-btn">Generar cotización</a>
+                <button type="button" (click)="cotizar()" class="default-btn success">Cotizar</button>
+                <a routerLink="/" class="default-btn danger">Descartar</a>
+
             </div>
         </form>
     </div>

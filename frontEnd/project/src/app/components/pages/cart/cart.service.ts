@@ -1,37 +1,24 @@
 import { Injectable } from "@angular/core";
+import { Quotation } from '../../interfaces/quotation.interface';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: "root",
 })
 export class CartService {
-    constructor() {}
 
-    getinfoBySiteId2(): any {
-        return [
-            {
-                seleccionProvedores: [
-                    {
-                        idActividad: 1,
-                        precioBase: 25000,
-                        nombre: "Salento Trakking Tour",
-                    },
-                    {
-                        idTransportadora: 1,
-                        costoPersona: 40000,
-                        nombre: "Expreso Gacela",
-                    },
-                    {
-                        idHospedaje: 1,
-                        costoPersona: 40000,
-                        nombre: "Hotel 1",
-                    },
-                ],
-                nombre: "",
-                email: "",
-                fechaCotizacion: "",
-                fechaInicio: "",
-                fechaFin: "",
-            },
-        ];
-    }
+    private url = "http://localhost:8080/crear/cotizacion"
+
+    constructor(private http: HttpClient) {}
+
+
+  public insertRunTicket(pTicket:Quotation) {
+    const headers = {
+        'Content-Type': 'application/json'
+    };
+    const vUrl = `${
+      this.url}`;
+    return this.http
+      .post(vUrl, pTicket, {headers})
+  }
 }

@@ -4,11 +4,10 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ProviderModalComponent } from "./provider-modal/provider-modal.component";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Quotation } from "../../interfaces/quotation.interface";
+import { QuotationDetails } from "../../interfaces/ctemporal.interface";
 import { DomSanitizer } from '@angular/platform-browser';
-import { error } from '@angular/compiler/src/util';
 import { ActivityDetails } from '../../interfaces/activityDetails.interface';
-
+import { ProviderSelection } from '../../interfaces/providerSelection..interface'
 
 @Component({
     selector: "app-listing-details",
@@ -16,14 +15,14 @@ import { ActivityDetails } from '../../interfaces/activityDetails.interface';
     styleUrls: ["./listing-details.component.scss"],
 })
 export class ListingDetailsComponent implements OnInit {
-    details: any;
+    details:any;
     hotelSelection: any;
-    arryPrices: Array<number> = [3];
+    arryPrices: Array<ProviderSelection>= new Array<ProviderSelection>(3);
     totalPrice: number;
     closeResult = "";
     frmGroup: FormGroup;
     submitted: boolean;
-    quotation: Quotation;
+    quotation: QuotationDetails = new QuotationDetails();
     src:string;
     url: any;
     base:boolean;
@@ -36,6 +35,7 @@ export class ListingDetailsComponent implements OnInit {
         private formBuilder: FormBuilder,
         private router: Router,
         private route: ActivatedRoute
+
     ) {
         this.loadContent();
     }
@@ -49,37 +49,43 @@ export class ListingDetailsComponent implements OnInit {
     private async getDetails(id: number): Promise<ActivityDetails[]> {
         const details = await this.listingDetailsService.getActivities(id);
         this.details = details;
-        this.arryPrices[0] = this.details.precioBase;
         this.src='https://www.google.com/maps/embed/v1/place?q='+this.details.latitud+','+this.details.longitud+'&key=AIzaSyBCO2sM4U_hk39ps6YmJs5CTXUBPhkvkU8';
         this.url=this.dom.bypassSecurityTrustResourceUrl(this.src); 
+        this.arryPrices[0]={id:this.details.idActividad,costoPersona:this.details.precioBase,nombre:this.details.nombreActividad};
         return this.details;
 
     }
 
+    getNumberoPersonas(personas:number)
+    {
+        let index=this.frmGroup.get("numPersonas").value;
+        let sum=index+personas;
+        this.frmGroup.get("numPersonas").setValue(sum);
+    }  
 
 
     loadContent(): void {
         this.frmGroup = this.formBuilder.group({
             txtName: [null, [Validators.required]],
-            txtEmail: [null, [Validators.required], Validators.maxLength(60), Validators.email],
-            txtDate: [null, [Validators.required]],
-            numPersonas: [1],
+            txtEmail: [null, [Validators.required], Validators.email],
+            txtDate: ['05/12/2020', [Validators.required]],
+            numPersonas: [1, [Validators.required]],
             txtMessage: [null],
-            // activity: [null, [Validators.required]],
-            // transportProvider: [null, [Validators.required]],
-            // hotelProvider: [null, [Validators.required]],
+        
         });
     }
 
-    calculateTotalPrice(price: number, type: string) {
+    calculateTotalPrice(item: any, type: string) {
         this.base=true;
         if (type == "t") {
-            this.arryPrices[1] = price;
+            this.arryPrices[1]={id:item.idTransportadora,costoPersona:item.costoPersona,nombre:item.transportadora};
         } else {
-            this.arryPrices[2] = price;
+            this.arryPrices[2]={id:item.idHospedaje,costoPersona:item.costoPersona,nombre:item.nombre};
         }
-
-        this.totalPrice = this.arryPrices.reduce(
+        
+        this.totalPrice = this.arryPrices
+        .map(c => c.costoPersona)
+        .reduce(
             (sum: number, values) => sum + values,
             0
         );
@@ -96,13 +102,16 @@ export class ListingDetailsComponent implements OnInit {
     }
  
     getQuotation() {
-        this.quotation.fechaCotizacion= new Date();
-        this.quotation.numPersonas=this.frmGroup.get("numPersons").value;
-        this.quotation.idHospedaje=this.frmGroup.get("").value;
-        this.quotation.idActividad=this.frmGroup.get("").value;
-        this.quotation.idTransporte=this.frmGroup.get("").value;
+
+        this.quotation.nombre=this.frmGroup.get("txtName").value;
+        this.quotation.email= this.frmGroup.get("txtEmail").value;
+        this.quotation.numPersonas=this.frmGroup.get("numPersonas").value;
         this.quotation.fechaInicio=this.frmGroup.get("txtDate").value;
         this.quotation.fechaFin=this.frmGroup.get("txtDate").value;
+        this.quotation.seleccionProvedores = this.arryPrices
+        this.quotation.fechaCotizacion = new Date();
+        localStorage.setItem("Cotizacion",JSON.stringify(this.quotation))
+
         this.router.navigate(['/cart']);
    }
 
