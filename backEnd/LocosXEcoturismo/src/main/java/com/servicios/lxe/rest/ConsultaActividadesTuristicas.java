@@ -26,7 +26,7 @@ public class ConsultaActividadesTuristicas {
 	private IActividadTuristica actividadTuristica ;
 	
 	@Autowired
-	private ActividadesDAO cotizacionDAO;
+	private ActividadesDAO actividadesDAO;
 	
 	@GetMapping("/getActivities")
 	private List<ActividadTuristicaDto> consultaPaquetes(){
@@ -60,7 +60,7 @@ public class ConsultaActividadesTuristicas {
 	}
 	
 	@GetMapping("/getActivities/{keyword}")
-	public List<Object[]> getUserById(@PathVariable String keyword) {
-		return cotizacionDAO.buscarPorParametros(keyword);
+	public List<Object[]> buscarActividades(@PathVariable String keyword) {
+		return actividadesDAO.buscarPorParametros(keyword);
 	}	
 }
