@@ -1,45 +1,71 @@
 package com.servicios.lxe.dto;
 
-import java.io.Serializable;
+
 import java.math.BigDecimal;
 import java.util.List;
 
 public class InformacionActividadTuristicaDto{
 
 	private String nombreSitioTuristico;
-	private String descripcion;
-	private BigDecimal precioBase;
+	private String descripcionSitio;
+	private String latitud;
+	private String longitud;
 	private Integer idActividad;
+	private String nombreActividad;
+	private String descripcionActividad;
+	private BigDecimal precioBase;	
 	private Integer review;
 	private List<String> imagenesActividad;
 	private Integer estado;
 	private List<ProveedorHospedajeDto> provedoresHospedaje;
 	private List<ProveedorTransporteDto> provedoresTransporte;
-	
-	
 	public String getNombreSitioTuristico() {
 		return nombreSitioTuristico;
 	}
 	public void setNombreSitioTuristico(String nombreSitioTuristico) {
 		this.nombreSitioTuristico = nombreSitioTuristico;
 	}
-	public String getDescripcion() {
-		return descripcion;
+	public String getDescripcionSitio() {
+		return descripcionSitio;
 	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setDescripcionSitio(String descripcionSitio) {
+		this.descripcionSitio = descripcionSitio;
 	}
-	public BigDecimal getPrecioBase() {
-		return precioBase;
+	public String getLatitud() {
+		return latitud;
 	}
-	public void setPrecioBase(BigDecimal precioBase) {
-		this.precioBase = precioBase;
+	public void setLatitud(String latitud) {
+		this.latitud = latitud;
+	}
+	public String getLongitud() {
+		return longitud;
+	}
+	public void setLongitud(String longitud) {
+		this.longitud = longitud;
 	}
 	public Integer getIdActividad() {
 		return idActividad;
 	}
 	public void setIdActividad(Integer idActividad) {
 		this.idActividad = idActividad;
+	}
+	public String getNombreActividad() {
+		return nombreActividad;
+	}
+	public void setNombreActividad(String nombreActividad) {
+		this.nombreActividad = nombreActividad;
+	}
+	public String getDescripcionActividad() {
+		return descripcionActividad;
+	}
+	public void setDescripcionActividad(String descripcionActividad) {
+		this.descripcionActividad = descripcionActividad;
+	}
+	public BigDecimal getPrecioBase() {
+		return precioBase;
+	}
+	public void setPrecioBase(BigDecimal precioBase) {
+		this.precioBase = precioBase;
 	}
 	public Integer getReview() {
 		return review;
@@ -71,4 +97,5 @@ public class InformacionActividadTuristicaDto{
 	public void setProvedoresTransporte(List<ProveedorTransporteDto> provedoresTransporte) {
 		this.provedoresTransporte = provedoresTransporte;
 	}
+
 }
