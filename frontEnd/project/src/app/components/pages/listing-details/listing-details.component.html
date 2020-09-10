@@ -14,8 +14,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <div class="listing-title">
-                        <h2>{{details.nombreSitioTuristico}}</h2>
-                        <p>{{details.descripcion}}</p>
+                        <h2>{{ details.nombreActividad }}</h2>
+                        <p>{{ details.descripcionActividad }}</p>
                     </div>
 
                     <!-- <div class="listing-meta">
@@ -43,16 +43,29 @@
                     <div class="listing-price">
                         <div class="listing-review">
                             <div class="review-stars">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
+                                <i class="bx bxs-star"></i>
                             </div>
-                            <span class="reviews-total d-inline-block">(2 opiniones)</span>
+                            <span class="reviews-total d-inline-block"
+                                >(2 opiniones)</span
+                            >
                         </div>
 
-                        <div class="price">{{totalPrice | currency: 'COP ':false:'2.0' }}</div>
+                        <div *ngIf="base; else noSelect" class="price">
+                            {{ totalPrice | currency: "COP ":false:"2.0" }}
+                        </div>
+                        <ng-template #noSelect>
+                            <div class="price">
+                                Base
+                                {{
+                                    arryPrices[0] | currency: "COP ":false:"2.0"
+                                }}
+                            </div>
+                        </ng-template>
+
                         <!-- <a routerLink="/listing-details" class="default-btn">Reservar ahora!</a> -->
                     </div>
                 </div>
@@ -60,97 +73,31 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-8 col-md-12" >
-                <div class="listing-details-image-slides owl-carousel owl-theme">
-                    <div class="listing-details-image text-center"  *ngFor="let img of details.imagenesActividad">
-                        <img src="{{img}}" alt="image">
+            <div class="col-lg-8 col-md-12">
+                <div
+                    class="listing-details-image-slides owl-carousel owl-theme"
+                >
+                    <div
+                        class="listing-details-image text-center"
+                        *ngFor="let img of details.imagenesActividad"
+                    >
+                        <img src="{{ img }}" alt="image" />
                     </div>
                 </div>
 
                 <div class="listing-details-desc">
-                    <h3>Descripción</h3>
-                    <p><strong>Hi! Welcome to Certified Graphic Design with Free Project Course, the only course you need to become a BI Analyst.</strong></p>
-                    <p>We are proud to present you this one-of-a-kind opportunity. There are several online listing teaching some of the skills related to the BI Analyst profession. The truth of the matter is that none of them completely prepare you.</p>
+                    <h3>
+                        {{ details.nombreSitioTuristico }},
+                        {{ details.nombreDepartamento }}
+                    </h3>
+                    <p>{{ details.descripcion }}</p>
 
-                    <ul class="description-features-list">
-                        <li>Feasibility and Economic Studies</li>
-                        <li>Design Coordination</li>
-                        <li>Pro Forma Financial Analysis</li>
-                        <li>Scheduling</li>
-                        <li>Contact Cegotiation</li>
-                    </ul>
-
-                    <h3>Comodidades</h3>
-
-                    <div class="amenities-list">
-                        <ul>
-                            <li>
-                                <span>
-                                    <i class='bx bx-check'></i>
-                                    Elevator in Building
-                                </span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class='bx bx-check'></i>
-                                    Instant Book
-                                </span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class='bx bx-check'></i>
-                                    Friendly Workspace
-                                </span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class='bx bx-check'></i>
-                                    Wireless Internet
-                                </span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class='bx bx-check'></i>
-                                    Free Parking on Premises
-                                </span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class='bx bx-check'></i>
-                                    Free Parking on Street
-                                </span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class='bx bx-check'></i>
-                                    Air Conditioned
-                                </span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class='bx bx-check'></i>
-                                    Live Music
-                                </span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class='bx bx-check'></i>
-                                    Accepting Credit Cards
-                                </span>
-                            </li>
-                            <li>
-                                <span>
-                                    <i class='bx bx-check'></i>
-                                    Pool
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
 
                     <h3>Ubicacion</h3>
 
                     <div id="map">
-                        <iframe src="https://maps.google.com/maps?q=salento%20quindio&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                        <!-- <iframe src="https://www.google.com/maps/embed/v1/place?q=4.633,-75.567&amp;key=AIzaSyBCO2sM4U_hk39ps6YmJs5CTXUBPhkvkU8"></iframe> -->
+                        <iframe [src]="url"></iframe>
                     </div>
 
                     <!-- <h3>Meet Your Author</h3>
@@ -173,7 +120,7 @@
                         </div>
                     </div> -->
 
-                    <div class="listing-review-comments">
+                    <!-- <div class="listing-review-comments">
                         <h3>3 Reviews</h3>
 
                         <div class="user-review">
@@ -232,10 +179,10 @@
                             <span class="d-block sub-comment">Perfect Coding!</span>
                             <p>Stunning design, very dedicated crew who welcome new ideas suggested by customers, nice support.</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
-                <div class="related-listing">
+                <!-- <div class="related-listing">
                     <h3>Related Listing</h3>
 
                     <div class="row">
@@ -349,7 +296,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <div class="col-lg-4 col-md-12">
@@ -360,13 +307,35 @@
                         <h3>Hospedaje</h3>
 
                         <ul *ngFor="let item of details.provedoresHospedaje">
-
-
-                            <li> <input type="radio" class="custom-radio" value="item.costoPersona" name="hotelSelection" (change)="calculateTotalPrice(item.costoPersona, 'h')"  >
-                                <span>{{item.nombre}}: {{item.costoPersona | currency: 'COP ':false:'2.0' }}</span>
-                                <button class=" default-btn btn-sm" type="button"  (click)="getProviderDetail(item)"><i class="bx bx-zoom-in"></i></button>  </li>
-                                <li><span></span></li>
-
+                            <li>
+                                <input
+                                    type="radio"
+                                    class="custom-radio"
+                                    value="item.costoPersona"
+                                    name="hotelSelection"
+                                    (change)="
+                                        calculateTotalPrice(
+                                            item.costoPersona,
+                                            'h'
+                                        )
+                                    "
+                                />
+                                <span
+                                    >{{ item.nombre }}:
+                                    {{
+                                        item.costoPersona
+                                            | currency: "COP ":false:"2.0"
+                                    }}</span
+                                >
+                                <button
+                                    class="default-btn btn-sm"
+                                    type="button"
+                                    (click)="getProviderDetail(item)"
+                                >
+                                    <i class="bx bx-zoom-in"></i>
+                                </button>
+                            </li>
+                            <li><span></span></li>
                         </ul>
                     </div>
 
@@ -375,56 +344,105 @@
                         <h3>Transporte</h3>
 
                         <ul *ngFor="let item of details.provedoresTransporte">
-                            <li> <input type="radio" class="custom-radio" value="item.costoPersona"  name="transportSelection" (change)="calculateTotalPrice(item.costoPersona, 't')" >
-                                <span>{{item.transportadora}}: {{item.costoPersona | currency: 'COP ':false:'2.0' }}</span>
-                            <button class=" default-btn btn-sm" type="button"  (click)="getProviderDetail(item)"><i class="bx bx-zoom-in"></i></button>  </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    class="custom-radio"
+                                    value="item.costoPersona"
+                                    name="transportSelection"
+                                    (change)="
+                                        calculateTotalPrice(
+                                            item.costoPersona,
+                                            't'
+                                        )
+                                    "
+                                />
+                                <span
+                                    >{{ item.transportadora }}:
+                                    {{
+                                        item.costoPersona
+                                            | currency: "COP ":false:"2.0"
+                                    }}</span
+                                >
+                                <button
+                                    class="default-btn btn-sm"
+                                    type="button"
+                                    (click)="getProviderDetail(item)"
+                                >
+                                    <i class="bx bx-zoom-in"></i>
+                                </button>
+                            </li>
                             <li><span></span></li>
                         </ul>
                     </div>
 
                     <div class="listing-book-table">
-
-                        <form>
+                        <form [formGroup]="frmGroup">
                             <div class="form-group">
                                 <label>Nombre:</label>
-                                <input type="text" class="form-control">
+                                <input
+                                    type="text"
+                                    formControlName="txtName"
+                                    class="form-control"
+                                />
                             </div>
 
                             <div class="form-group">
                                 <label>Email:</label>
-                                <input type="email" class="form-control">
+                                <input type="email" 
+                                formControlName="txtEmail"
+                                class="form-control" />
                             </div>
 
                             <div class="form-group">
                                 <label>Personas:</label>
                                 <div class="input-counter">
-                                    <span class="minus-btn"><i class='bx bx-minus'></i></span>
-                                    <input type="text" value="1">
-                                    <span class="plus-btn"><i class='bx bx-plus'></i></span>
+                                    <span class="minus-btn"
+                                        ><i class="bx bx-minus"></i
+                                    ></span>
+                                    <input type="text" 
+                                    formControlName="numPersonas" />
+                                    <span class="plus-btn"
+                                        ><i class="bx bx-plus"></i
+                                    ></span>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Fecha:</label>
-                                <input type="text" disabled="disabled" value="05/12/2020" class="form-control">
+                                <input
+                                    type="text"
+                                    disabled="disabled"
+                                    value="05/12/2020"
+                                    class="form-control"
+                                />
                             </div>
 
                             <div class="form-group">
                                 <label>Escribir Mensaje:</label>
-                                <textarea class="form-control" cols="30" rows="5"></textarea>
+                                <textarea
+                                    class="form-control"
+                                    formControlName="txtMessage"
+                                    cols="30"
+                                    rows="5"
+                                ></textarea>
                             </div>
 
-                            <button type="submit" class="default-btn">Reservar ahora!</button>
+                            <button type="button"  (click)="submit()" class="default-btn">
+                                Reservar ahora!
+                            </button>
+                            <ngb-toast header="I can be closed!" *ngIf="showToast" (hide)="showToast = false">
+                                
+                            </ngb-toast>
                         </form>
                     </div>
-
 
                     <div class="listing-contact">
                         <div class="text">
                             <div class="icon">
-                                <i class='bx bx-phone-call'></i>
+                                <i class="bx bx-phone-call"></i>
                             </div>
-                            <span>Emergency</span>
+                            <span>Linea de atención:</span>
                             <a href="tel:+098798768753">+0987-9876-8753</a>
                         </div>
                     </div>

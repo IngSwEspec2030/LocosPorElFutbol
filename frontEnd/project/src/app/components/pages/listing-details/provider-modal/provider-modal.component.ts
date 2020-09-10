@@ -9,7 +9,7 @@ import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class ProviderModalComponent implements OnInit {
   
-  @Input() name;
+  @Input() item;
   constructor (public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
