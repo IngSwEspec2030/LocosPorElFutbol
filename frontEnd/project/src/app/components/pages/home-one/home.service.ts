@@ -13,12 +13,13 @@ export class HomeService {
     constructor(private http: HttpClient) {
     }
 
-    getActivities(): Promise<Activity[]> {
+    getActivities(param?: string): Promise<Activity[]> {
         return new Promise((resolve, reject) => {
+            const url = (param) ? `${this.url}/${param}` : `${this.url}`;
             const headers = {
                 'Content-Type': 'application/json'
             };
-            this.http.get<Activity[]>(this.url,
+            this.http.get<Activity[]>(url,
                 {headers}).subscribe(result => {
                     resolve(result);
                 },

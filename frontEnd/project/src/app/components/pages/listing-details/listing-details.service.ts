@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ActivityDetails } from '../../interfaces/activityDetails.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -45,15 +46,26 @@ export class ListingDetailsService {
     ]
   }
 
+  getActivities(id:number): Promise<ActivityDetails[]> {
+    let params = new HttpParams().set('idActividad',id.toString())
 
-  getinfoBySiteId(id:number):Observable<any>{
-    const headers = {
-      'Content-Type': 'application/json'
-  };
-      let params = new HttpParams().set('idActividad',id.toString())
-      return this.http
-      .get(this.url,{headers, params, observe: 'response' });
-  }
+    return new Promise((resolve, reject) => {
+        const url = `${this.url}` ;
+        const headers = {
+            'Content-Type': 'application/json'
+        };
+        this.http.get<any[]>(url,
+            {params,headers}).subscribe(result => {
+                resolve(result);
+            },
+            error => {
+                console.info(error);
+                reject(error);
+            });
+    });
+}
+
+
 
 
 

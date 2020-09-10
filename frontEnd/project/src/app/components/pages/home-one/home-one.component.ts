@@ -3,7 +3,7 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {HomeService} from './home.service';
 import {Activity} from '../../interfaces/activity.interface';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-one-four',
@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class HomeOneComponent implements OnInit {
     model: NgbDateStruct;
     activities: Activity[];
+    bkActivities: Activity[];
 
     @ViewChild('actividades') actividades: ElementRef;
 
@@ -33,12 +34,30 @@ export class HomeOneComponent implements OnInit {
 
     private async getActivities(): Promise<Activity[]> {
         this.activities = await this.homeService.getActivities();
+        this.bkActivities = this.activities;
+        return this.activities;
+    }
+
+    private async getActivitiesByParam(param?: string): Promise<Activity[]> {
+        const filterActivities = await this.homeService.getActivities(param);
+        const filteredAct = filterActivities.map(el => el[0]);
+        this.activities = this.activities.filter(act => {
+            if (filteredAct.includes(act.idActividad)) {
+                return true;
+            }
+            return false;
+        });
         return this.activities;
     }
 
     onSubmit(): void {
-        console.log(this.form.value);
-        localStorage.setItem('fechaViaje', JSON.stringify(this.form.value.searchCalendar));
+        if (!this.form.value.searchActivity) {
+            this.getActivities();
+        } else {
+            this.activities = this.bkActivities;
+            localStorage.setItem('fechaViaje', JSON.stringify(this.form.value.searchCalendar));
+            this.getActivitiesByParam(this.form.value.searchActivity);
+        }
         this.actividades.nativeElement.scrollIntoView();
     }
 
