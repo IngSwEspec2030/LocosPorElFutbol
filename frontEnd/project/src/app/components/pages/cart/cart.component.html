@@ -24,7 +24,7 @@
                     </thead>
 
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let item of seleccionProvedores">
                             <td class="product-thumbnail">
                                 <a routerLink="/products-details">
                                     <img src="assets/img/cotizacion_font.jpg" alt="item">
@@ -32,113 +32,23 @@
                             </td>
 
                             <td class="product-name">
-                                <a routerLink="/products-details">Ham Salad</a>
+                                <a routerLink="/products-details">{{item.nombre}}</a>
                             </td>
 
                             <td class="product-price">
-                                <span class="unit-amount">$20.00</span>
+                                <span class="unit-amount">{{item.costoPersona}}</span>
                             </td>
 
-                            <td class="product-quantity">
+                            <!-- <td class="product-quantity">
                                 <div class="input-counter">
                                     <span class="minus-btn"><i class='bx bx-minus'></i></span>
                                     <input type="text" min="1" value="1">
                                     <span class="plus-btn"><i class='bx bx-plus'></i></span>
                                 </div>
-                            </td>
+                            </td> -->
 
                             <td class="product-subtotal">
-                                <span class="subtotal-amount">$20.00</span>
-
-                                <a routerLink="/cart" class="remove"><i class='bx bx-trash'></i></a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="product-thumbnail">
-                                <a routerLink="/products-details">
-                                    <img src="assets/img/products/img2.jpg" alt="item">
-                                </a>
-                            </td>
-
-                            <td class="product-name">
-                                <a routerLink="/products-details">Fresh Cappuccino</a>
-                            </td>
-
-                            <td class="product-price">
-                                <span class="unit-amount">$25.00</span>
-                            </td>
-
-                            <td class="product-quantity">
-                                <div class="input-counter">
-                                    <span class="minus-btn"><i class='bx bx-minus'></i></span>
-                                    <input type="text" min="1" value="1">
-                                    <span class="plus-btn"><i class='bx bx-plus'></i></span>
-                                </div>
-                            </td>
-
-                            <td class="product-subtotal">
-                                <span class="subtotal-amount">$25.00</span>
-
-                                <a routerLink="/cart" class="remove"><i class='bx bx-trash'></i></a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="product-thumbnail">
-                                <a routerLink="/products-details">
-                                    <img src="assets/img/products/img3.jpg" alt="item">
-                                </a>
-                            </td>
-
-                            <td class="product-name">
-                                <a routerLink="/products-details">Honey Cake</a>
-                            </td>
-
-                            <td class="product-price">
-                                <span class="unit-amount">$11.00</span>
-                            </td>
-
-                            <td class="product-quantity">
-                                <div class="input-counter">
-                                    <span class="minus-btn"><i class='bx bx-minus'></i></span>
-                                    <input type="text" min="1" value="1">
-                                    <span class="plus-btn"><i class='bx bx-plus'></i></span>
-                                </div>
-                            </td>
-
-                            <td class="product-subtotal">
-                                <span class="subtotal-amount">$11.00</span>
-
-                                <a routerLink="/cart" class="remove"><i class='bx bx-trash'></i></a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="product-thumbnail">
-                                <a routerLink="/products-details">
-                                    <img src="assets/img/products/img4.jpg" alt="item">
-                                </a>
-                            </td>
-
-                            <td class="product-name">
-                                <a routerLink="/products-details">Delicious Dish</a>
-                            </td>
-
-                            <td class="product-price">
-                                <span class="unit-amount">$50.00</span>
-                            </td>
-
-                            <td class="product-quantity">
-                                <div class="input-counter">
-                                    <span class="minus-btn"><i class='bx bx-minus'></i></span>
-                                    <input type="text" min="1" value="1">
-                                    <span class="plus-btn"><i class='bx bx-plus'></i></span>
-                                </div>
-                            </td>
-
-                            <td class="product-subtotal">
-                                <span class="subtotal-amount">$50.00</span>
+                                <span class="subtotal-amount">{{item.costoPersona}}</span>
 
                                 <a routerLink="/cart" class="remove"><i class='bx bx-trash'></i></a>
                             </td>
