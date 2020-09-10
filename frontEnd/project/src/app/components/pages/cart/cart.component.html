@@ -15,10 +15,10 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">item</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Unit Price</th>
-                            <th scope="col">Quantity</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Valor unitarios</th>
+                            <!-- <th scope="col">Quantity</th> -->
                             <th scope="col">Total</th>
                         </tr>
                     </thead>
@@ -160,15 +160,15 @@
             </div>
 
             <div class="cart-totals">
-                <h3>Cart Totals</h3>
+                <h3>Total cotización</h3>
 
                 <ul>
-                    <li>Subtotal <span>$106.00</span></li>
-                    <li>Shipping <span>$4.00</span></li>
-                    <li>Total <span>$110.00</span></li>
+                    <li>Subtotal <span> {{ subtotal | currency: "COP ":false:"2.0" }}</span></li>
+                    <li>IVA <span>{{ subtotal | currency: "COP ":false:"2.0" }}</span></li>
+                    <li>Total <span>{{ subtotal | currency: "COP ":false:"2.0" }}</span></li>
                 </ul>
                 
-                <a routerLink="/checkout" class="default-btn">Cotizar</a>
+                <a routerLink="/checkout" class="default-btn">Generar cotización</a>
             </div>
         </form>
     </div>
