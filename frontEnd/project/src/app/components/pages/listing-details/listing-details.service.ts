@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListingDetailsService {
 
-  constructor() { }
+  private url = "http://localhost:8080/informacionActividad"
 
-  getinfoBySiteId(id:number) : any{
+  constructor(private http: HttpClient) { }
+
+  getinfoBySiteId2(id:number) : any{
 
     return [
         {
@@ -40,4 +44,17 @@ export class ListingDetailsService {
         }
     ]
   }
+
+
+  getinfoBySiteId(id:number):Observable<any>{
+    const headers = {
+      'Content-Type': 'application/json'
+  };
+      let params = new HttpParams().set('idActividad',id.toString())
+      return this.http
+      .get(this.url,{headers, params, observe: 'response' });
+  }
+
+
+
 }

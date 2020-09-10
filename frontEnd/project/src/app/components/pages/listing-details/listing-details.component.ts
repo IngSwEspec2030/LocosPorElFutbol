@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Quotation } from "../../interfaces/quotation.interface";
 import { DomSanitizer } from '@angular/platform-browser';
+import { error } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -40,11 +41,17 @@ export class ListingDetailsComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.queryParams.subscribe((params) => {
-            let details = this.listingDetailsService.getinfoBySiteId(params.id);
-            this.details = details[0];
-            this.arryPrices[0] = details[0].precioBase;
-            this.src='https://www.google.com/maps/embed/v1/place?q='+this.details.latitud+','+this.details.longitud+'&key=AIzaSyBCO2sM4U_hk39ps6YmJs5CTXUBPhkvkU8';
-            this.url=this.dom.bypassSecurityTrustResourceUrl(this.src); 
+            this.listingDetailsService.getinfoBySiteId(params.id).subscribe( response =>{
+                let details = response;
+                this.details = details[0];
+                this.arryPrices[0] = details[0].precioBase;
+                this.src='https://www.google.com/maps/embed/v1/place?q='+this.details.latitud+','+this.details.longitud+'&key=AIzaSyBCO2sM4U_hk39ps6YmJs5CTXUBPhkvkU8';
+                this.url=this.dom.bypassSecurityTrustResourceUrl(this.src); 
+            },
+            error => {
+                    
+            });
+         
         });
     }
 
