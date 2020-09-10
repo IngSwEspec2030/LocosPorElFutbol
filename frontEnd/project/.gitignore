@@ -8,7 +8,7 @@
 /bazel-out
 backend/LocosXEcoturismo/src/main/resources/application.properties
 .idea/
-
+frontEnd/.idea/
 # dependencies
 /node_modules
 
