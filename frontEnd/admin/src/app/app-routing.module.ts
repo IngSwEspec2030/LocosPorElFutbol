@@ -6,6 +6,7 @@ import { MyProfileComponent } from './components/pages/my-profile/my-profile.com
 import { InvoiceComponent } from './components/pages/invoice/invoice.component';
 import { MyListingComponent } from './components/pages/my-listing/my-listing.component';
 import { AddListingComponent } from './components/pages/add-listing/add-listing.component';
+import {AddActivityComponent} from './components/pages/add-activity/add-activity.component';
 
 const routes: Routes = [
     {path: '', component: DashboardComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
     {path: 'my-profile', component: MyProfileComponent},
     {path: 'invoice', component: InvoiceComponent},
     {path: 'my-listing', component: MyListingComponent},
+    {path: 'add-activity', component: AddActivityComponent},
     {path: 'add-listing', component: AddListingComponent}
 ];
 

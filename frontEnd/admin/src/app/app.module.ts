@@ -13,6 +13,7 @@ import {InvoiceComponent} from './components/pages/invoice/invoice.component';
 import {MyListingComponent} from './components/pages/my-listing/my-listing.component';
 import {WebAnalyticsComponent} from './components/charts/web-analytics/web-analytics.component';
 import {AddListingComponent} from './components/pages/add-listing/add-listing.component';
+import {AddActivityComponent} from './components/pages/add-activity/add-activity.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import {AddListingComponent} from './components/pages/add-listing/add-listing.co
         InvoiceComponent,
         MyListingComponent,
         WebAnalyticsComponent,
-        AddListingComponent
+        AddListingComponent,
+        AddActivityComponent
     ],
     imports: [
         BrowserModule,
