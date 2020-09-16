@@ -1,0 +1,153 @@
+<div class="breadcrumb-area">
+    <h1>Agregar Actividad</h1>
+
+    <ol class="breadcrumb">
+        <li class="item"><a routerLink="/"><i class='bx bx-home-alt'></i></a></li>
+
+        <li class="item">Dashboard</li>
+
+        <li class="item">Agregar Actividad</li>
+    </ol>
+</div>
+
+<div class="add-listing-box mb-30">
+    <h3>Información Básica</h3>
+
+    <form>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label><i class='bx bx-briefcase-alt'></i> Nombre de Actividad:</label>
+                    <input type="text" class="form-control" placeholder="Name of your business">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label><i class='bx bx-duplicate'></i> Categoría:</label>
+                    <select>
+                        <option>Todas las categorías</option>
+                        <option>Shops</option>
+                        <option>Hotels</option>
+                        <option>Restaurants</option>
+                        <option>Fitness</option>
+                        <option>Events</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                    <label><i class='bx bx-duplicate'></i> Sitio Turístico:</label>
+                    <select>
+                        <option>Todos los sitios turísticos</option>
+                        <option>Shops</option>
+                        <option>Hotels</option>
+                        <option>Restaurants</option>
+                        <option>Fitness</option>
+                        <option>Events</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="add-listing-box mb-30">
+    <h3>Descripción de Actividad</h3>
+
+    <form>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label><i class='bx bx-text'></i> </label>
+                    <textarea cols="30" rows="7" class="form-control" placeholder="Details..."></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="add-listing-box mb-30">
+    <h3>Imágenes de Actividad</h3>
+
+    <form>
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="form-group">
+                    <div class="add-list-media-header">
+                        <label class="radio">
+                            <input type="radio" name="header-media" value="background-image" checked>
+                            <span>Imágenes</span>
+                        </label>
+                    </div>
+
+                    <div class="add-list-media-wrap">
+                        <div class="text">
+                            <span>
+                                <i class='bx bx-image-add'></i>
+                                Click para agregar imagenes
+                            </span>
+                        </div>
+                        <input type="file" class="upload">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+
+<div class="add-listing-box mb-30">
+    <h3>Precio Base</h3>
+
+    <form>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <label><i class='bx bx-purchase-tag'></i> Precio:</label>
+                    <input type="text" class="form-control" placeholder="$542">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="add-listing-box mb-30">
+    <h3>Estado</h3>
+
+    <form>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <ul class="facilities-list">
+                        <li>
+                            <label class="checkbox">
+                                <input type="radio" name="facilities-list" value="1" checked>
+                                <span>Activa</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="radio" name="facilities-list" value="parking">
+                                <span>Inactiva</span>
+                            </label>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="add-listing-box mb-30">
+    <form>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <button type="submit" style="float: right">Guardar Actividad</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,8 +1,8 @@
 export class Quotation {
-    
-    fechaCotizacion: Date;
-    fechaInicio: Date;
-    fechaFin: Date;
+
+    fechaCotizacion?: Date;
+    fechaInicio: number;
+    fechaFin: number;
     idActividad: number;
     idTransporte: number;
     idHospedaje: number;

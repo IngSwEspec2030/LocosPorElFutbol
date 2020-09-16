@@ -15,8 +15,8 @@ export class CartComponent implements OnInit {
   total:number;
   cotizacion: QuotationDetails;
   quotation: Quotation = new Quotation();
-  constructor( private cartService:CartService) { 
-    
+  constructor( private cartService:CartService) {
+
   }
 
   ngOnInit(): void {
@@ -35,18 +35,18 @@ export class CartComponent implements OnInit {
 
   cotizar(){
     this.quotation.fechaCotizacion = this.cotizacion.fechaCotizacion;
-    this.quotation.fechaInicio = this.cotizacion.fechaInicio;
-    this.quotation.fechaFin = this.cotizacion.fechaFin;
+    this.quotation.fechaInicio = new Date(this.cotizacion.fechaInicio).valueOf();
+    this.quotation.fechaFin = new Date(this.cotizacion.fechaFin).valueOf();
     this.quotation.idActividad = this.cotizacion.seleccionProvedores[0].id;
     this.quotation.idHospedaje = this.cotizacion.seleccionProvedores[1].id;
     this.quotation.idTransporte = this.cotizacion.seleccionProvedores[2].id;
     this.quotation.numPersonas= this.cotizacion.numPersonas;
     this.cartService.insertRunTicket(this.quotation).subscribe(
       result => {
-      
+
       },
       err => {
-     
+
       }
     );
   }
@@ -54,6 +54,6 @@ export class CartComponent implements OnInit {
   discart(){
 
   }
-  
+
 
 }
