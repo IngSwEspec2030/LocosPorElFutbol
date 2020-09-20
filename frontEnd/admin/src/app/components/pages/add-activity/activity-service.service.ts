@@ -1,39 +1,41 @@
 import {Injectable} from '@angular/core';
-import {Activity} from '../../interfaces/activity.interface';
+import {ActivityInterface} from '../../interfaces/activity.interface';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
-export class ActivityServiceService {
+export class ActivityService {
 
-    private baseUrl = 'http://';
-    private createUrl = '';
+    private baseUrl = 'http://localhost:8080/';
 
     constructor(
         private http: HttpClient,
     ) {
     }
 
-    createActivity(activity: Activity) {
+    createActivity(activity: ActivityInterface) {
         return new Promise((resolve, reject) => {
             const activitySave = activity;
 
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+
             const formData = {
-                idActividad: activitySave.idActividad,
                 categoria: activitySave.categoria,
                 descripcion: activitySave.descripcion,
-                estado: activitySave.estado,
+                estado: parseInt(String(activitySave.estado), 10),
                 nombreActividad: activitySave.nombreActividad,
-                precioBase: activitySave.precioBase,
-                review: activitySave.review,
-                idSitio: activitySave.idSitio
+                precioBase: parseInt(activitySave.precioBase, 10),
+                review: activitySave.review || 5,
+                idSitio: 2//activitySave.idSitio
             };
-            return this.http.post<any>(`${this.baseUrl}activity/`, formData).subscribe(response => {
+            return this.http.post<any>(`${this.baseUrl}activity/create`, formData, {headers}).subscribe(response => {
                     resolve(response);
                 },
                 error => {
-                    //this.messageService.addError(error.error.message);
+                    // this.messageService.addError(error.error.message);
                     reject(error);
                 });
         });

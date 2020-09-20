@@ -9,29 +9,26 @@
         <li class="item">Agregar Actividad</li>
     </ol>
 </div>
-
-<div class="add-listing-box mb-30">
-    <h3>Información Básica</h3>
-
-    <form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="add-listing-box mb-30">
+        <h3>Información Básica</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="form-group">
                     <label><i class='bx bx-briefcase-alt'></i> Nombre de Actividad:</label>
-                    <input type="text" class="form-control" placeholder="Name of your business">
+                    <input formControlName="nombreActividad" type="text" class="form-control"
+                           placeholder="Nombre de actividad">
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label><i class='bx bx-duplicate'></i> Categoría:</label>
-                    <select>
-                        <option>Todas las categorías</option>
-                        <option>Shops</option>
-                        <option>Hotels</option>
-                        <option>Restaurants</option>
-                        <option>Fitness</option>
-                        <option>Events</option>
+                    <select formControlName="categoria">
+                        <option value="Trekking">Trekking</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Rivers">Rivers</option>
+                        <option value="HighLevel">HighLevel</option>
                     </select>
                 </div>
             </div>
@@ -39,39 +36,34 @@
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label><i class='bx bx-duplicate'></i> Sitio Turístico:</label>
-                    <select>
+                    <select formControlName="idSitio">
                         <option>Todos los sitios turísticos</option>
-                        <option>Shops</option>
-                        <option>Hotels</option>
-                        <option>Restaurants</option>
-                        <option>Fitness</option>
-                        <option>Events</option>
+                        <option value="1">Shops</option>
+                        <option value="2">Shops</option>
+                        <option value="3">Shops</option>
                     </select>
                 </div>
             </div>
         </div>
-    </form>
-</div>
+    </div>
 
-<div class="add-listing-box mb-30">
-    <h3>Descripción de Actividad</h3>
+    <div class="add-listing-box mb-30">
+        <h3>Descripción de Actividad</h3>
 
-    <form>
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="form-group">
                     <label><i class='bx bx-text'></i> </label>
-                    <textarea cols="30" rows="7" class="form-control" placeholder="Details..."></textarea>
+                    <textarea formControlName="descripcion" cols="30" rows="7" class="form-control"
+                              placeholder="Descripción de actividad"></textarea>
                 </div>
             </div>
         </div>
-    </form>
-</div>
+    </div>
 
-<div class="add-listing-box mb-30">
-    <h3>Imágenes de Actividad</h3>
+    <!--<div class="add-listing-box mb-30">
+        <h3>Imágenes de Actividad</h3>
 
-    <form>
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <div class="form-group">
@@ -96,41 +88,37 @@
 
 
         </div>
-    </form>
-</div>
+    </div>-->
 
-<div class="add-listing-box mb-30">
-    <h3>Precio Base</h3>
+    <div class="add-listing-box mb-30">
+        <h3>Precio Base</h3>
 
-    <form>
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="form-group">
                     <label><i class='bx bx-purchase-tag'></i> Precio:</label>
-                    <input type="text" class="form-control" placeholder="$542">
+                    <input formControlName="precioBase" type="text" class="form-control" placeholder="$542">
                 </div>
             </div>
         </div>
-    </form>
-</div>
+    </div>
 
-<div class="add-listing-box mb-30">
-    <h3>Estado</h3>
+    <div class="add-listing-box mb-30">
+        <h3>Estado</h3>
 
-    <form>
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="form-group">
                     <ul class="facilities-list">
                         <li>
                             <label class="checkbox">
-                                <input type="radio" name="facilities-list" value="1" checked>
+                                <input type="radio" formControlName="estado" name="estado" value="1">
                                 <span>Activa</span>
                             </label>
                         </li>
                         <li>
                             <label class="checkbox">
-                                <input type="radio" name="facilities-list" value="parking">
+                                <input type="radio" formControlName="estado" name="estado" value="0">
                                 <span>Inactiva</span>
                             </label>
                         </li>
@@ -139,15 +127,13 @@
                 </div>
             </div>
         </div>
-    </form>
-</div>
+    </div>
 
-<div class="add-listing-box mb-30">
-    <form>
+    <div class="add-listing-box mb-30">
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <button type="submit" style="float: right">Guardar Actividad</button>
             </div>
         </div>
-    </form>
-</div>
+    </div>
+</form>

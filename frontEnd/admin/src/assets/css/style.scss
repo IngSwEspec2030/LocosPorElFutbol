@@ -312,7 +312,7 @@ Sidemenu CSS
                     &:hover {
                         background-color: #f0f8fb;
                         color: $main-color;
-    
+
                         &::before {
                             width: 3px;
                         }
@@ -324,7 +324,7 @@ Sidemenu CSS
                     &.active {
                         background-color: #f0f8fb;
                         color: $main-color;
-    
+
                         &::before {
                             width: 3px;
                         }
@@ -337,7 +337,7 @@ Sidemenu CSS
                     .nav-link {
                         background-color: #f0f8fb;
                         color: $main-color;
-    
+
                         &::before {
                             width: 3px;
                         }
@@ -402,7 +402,7 @@ Sidemenu CSS
                             list-style-type: none;
                             padding-left: 15px;
                             margin-bottom: 0;
-        
+
                             .nav-item {
                                 .nav-link {
                                     color: #7e7e7e;
@@ -425,7 +425,7 @@ Sidemenu CSS
                                     }
                                     &:hover {
                                         color: $main-color;
-        
+
                                         .icon {
                                             color: $main-color;
                                         }
@@ -434,7 +434,7 @@ Sidemenu CSS
                                 &.mm-active, &.active {
                                     .nav-link {
                                         color: $main-color;
-        
+
                                         .icon {
                                             color: $main-color;
                                         }
@@ -504,13 +504,13 @@ Sidemenu CSS
     &:hover {
         &.toggle-sidemenu-area {
             width: 250px;
-    
+
             .sidemenu-header {
                 padding: 0 20px;
-    
+
                 .navbar-brand {
                     display: flex !important;
-                    
+
                     span {
                         opacity: 1;
                         visibility: visible;
@@ -574,7 +574,7 @@ Top Navbar CSS
                 margin: 6px 0;
                 transition: all .50s ease-in-out;
             }
-            &.active {                
+            &.active {
                 span {
                     &.top-bar {
                         transform: rotate(45deg);
@@ -594,7 +594,7 @@ Top Navbar CSS
         .nav-search-form {
             position: relative;
             width: 300px;
-    
+
             label {
                 display: block;
                 margin-bottom: 0;
@@ -633,12 +633,12 @@ Top Navbar CSS
         }
         .nav-item {
             margin-left: 15px;
-            
+
             .nav-link {
                 padding: 0;
                 color: #525f80;
                 font-weight: 500;
-    
+
                 &.dropdown-toggle {
                     &::after {
                         display: none;
@@ -666,7 +666,7 @@ Top Navbar CSS
                     border-radius: 50%;
                     font-size: 9px;
                     line-height: 12px;
-    
+
                     &.badge-secondary {
                         background: $main-color;
                         animation: pulse-secondary 2s infinite;
@@ -684,7 +684,7 @@ Top Navbar CSS
                     cursor: pointer;
                     top: 3px;
                     margin-right: 5px;
-    
+
                     &:hover {
                         color: $main-color;
                     }
@@ -712,7 +712,7 @@ Top Navbar CSS
                     visibility: hidden;
                     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
                     background-color: $white-color;
-    
+
                     &.show {
                         margin-top: 10px;
                         opacity: 1;
@@ -755,7 +755,7 @@ Top Navbar CSS
                         .dropdown-item {
                             padding: 5px 20px;
                             font-size: 14.5px;
-    
+
                             img {
                                 width: 27px;
                                 border-radius: 2px;
@@ -773,7 +773,7 @@ Top Navbar CSS
                     max-width: 350px;
                     border-radius: 5px 5px 0 0;
                     padding: 0;
-    
+
                     .dropdown-header {
                         border-radius: 5px 5px 0 0;
                         background-color: $main-color;
@@ -801,7 +801,7 @@ Top Navbar CSS
                         };
                         .dropdown-item {
                             padding: 7px 15px;
-    
+
                             .icon {
                                 width: 30px;
                                 height: 30px;
@@ -811,7 +811,7 @@ Top Navbar CSS
                                 text-align: center;
                                 color: $main-color;
                                 transition: $transition;
-    
+
                                 i {
                                     position: absolute;
                                     left: 0;
@@ -822,7 +822,7 @@ Top Navbar CSS
                             }
                             .content {
                                 padding-left: 15px;
-    
+
                                 span {
                                     color: $black-color;
                                     margin-bottom: 1px;
@@ -896,7 +896,7 @@ Top Navbar CSS
                         text-align: center;
                         padding: 10px 15px;
                         border-top: 1px solid #eeeeee;
-                        
+
                         .dropdown-item {
                             color: $main-color !important;
                             padding: 0;
@@ -916,7 +916,7 @@ Top Navbar CSS
                 font-size: 20px;
                 position: relative;
                 margin-right: 7px;
-    
+
                 i {
                     position: relative;
                     top: 3px;
@@ -929,7 +929,7 @@ Top Navbar CSS
                     max-width: 350px;
                     border-radius: 5px 5px 0 0;
                     padding: 0;
-    
+
                     .dropdown-header {
                         border-radius: 5px 5px 0 0;
                         background-color: #2962ff;
@@ -957,7 +957,7 @@ Top Navbar CSS
                         };
                         .dropdown-item {
                             padding: 7px 15px;
-    
+
                             .figure {
                                 img {
                                     width: 35px;
@@ -967,7 +967,7 @@ Top Navbar CSS
                             .content {
                                 width: 285px;
                                 padding-left: 12px;
-    
+
                                 span {
                                     color: $black-color;
                                     margin-bottom: 2px;
@@ -997,7 +997,7 @@ Top Navbar CSS
                         text-align: center;
                         padding: 10px 15px;
                         border-top: 1px solid #eeeeee;
-                        
+
                         .dropdown-item {
                             color: #2962ff !important;
                             padding: 0;
@@ -1017,7 +1017,7 @@ Top Navbar CSS
                 font-size: 20px;
                 position: relative;
                 margin-right: 7px;
-    
+
                 i {
                     position: relative;
                     top: 3px;
@@ -1031,7 +1031,7 @@ Top Navbar CSS
                     padding: 0;
                     left: 0;
                     right: auto;
-    
+
                     .dropdown-header {
                         border-radius: 5px 5px 0 0;
                         background-color: #2962ff;
@@ -1054,14 +1054,14 @@ Top Navbar CSS
                     }
                     .dropdown-body {
                         padding: 10px 5px;
-    
+
                         .dropdown-item {
                             -ms-flex: 0 0 25%;
                             flex: 0 0 25%;
                             max-width: 25%;
                             text-align: center;
                             padding: 8px 10px;
-    
+
                             span {
                                 margin-top: 8px;
                                 font-weight: 600;
@@ -1072,7 +1072,7 @@ Top Navbar CSS
                         text-align: center;
                         padding: 10px 15px;
                         border-top: 1px solid #eeeeee;
-                        
+
                         .dropdown-item {
                             color: #2962ff !important;
                             padding: 0;
@@ -1096,7 +1096,7 @@ Top Navbar CSS
             .nav-item {
                 .nav-link {
                     font-size: 22px;
-    
+
                     &:hover {
                         color: $main-color;
                     }
@@ -1131,14 +1131,14 @@ Top Navbar CSS
                 .dropdown-menu {
                     padding: 15px 15px 10px;
                     min-width: 230px;
-    
+
                     .dropdown-header {
                         padding: 0;
                         border-bottom: 1px solid #f2f4f9;
-    
+
                         .figure {
                             position: relative;
-    
+
                             img {
                                 width: 80px;
                                 height: 80px;
@@ -1165,7 +1165,7 @@ Top Navbar CSS
                         }
                         .nav-item {
                             margin-left: 0;
-    
+
                             .nav-link {
                                 color: $black-color;
                                 padding: 5px 15px 5px 38px;
@@ -1201,7 +1201,7 @@ Top Navbar CSS
                         margin: 10px -15px 0;
                         padding: 10px 15px 0;
                         border-top: 1px solid #eeeeee;
-    
+
                         ul {
                             padding-left: 0;
                             list-style-type: none;
@@ -1537,7 +1537,7 @@ Main Content CSS
                 background-color: #13bb37;
                 box-shadow: 1px 5px 24px 0 rgba(19, 187, 55, .15);
             }
-            .progress-list {        
+            .progress-list {
                 .bar-inner {
                     .bar {
                         background: #13bb37;
@@ -1552,7 +1552,7 @@ Main Content CSS
                 background-color: #ff4b00;
                 box-shadow: 1px 5px 24px 0 rgba(255, 75, 0, .15);
             }
-            .progress-list {        
+            .progress-list {
                 .bar-inner {
                     .bar {
                         background: #ff4b00;
@@ -1567,7 +1567,7 @@ Main Content CSS
                 background-color: #4788ff;
                 box-shadow: 1px 5px 24px 0 rgba(71, 136, 255, .15);
             }
-            .progress-list {        
+            .progress-list {
                 .bar-inner {
                     .bar {
                         background: #4788ff;
@@ -1931,7 +1931,7 @@ Main Content CSS
                     a {
                         background-color: #d1def5;
                         color: #4788ff;
-    
+
                         &:hover {
                             background-color: #4788ff;
                             color: $white-color;
@@ -2407,7 +2407,7 @@ Main Content CSS
                 background-color: $main-color;
                 color: #fcdedf;
             }
-        } 
+        }
     }
 }
 /*end-card-box-css*/
@@ -2487,7 +2487,7 @@ App Email CSS
                     .btn-primary {
                         color: $white-color;
                         background-color: $main-color;
-                    
+
                         &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>&.dropdown-toggle {
                             background-color: $main-color;
                             color: $white-color;
@@ -2635,7 +2635,7 @@ App Email CSS
             .email-list {
                 background-color: $white-color;
                 box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
-                
+
                 .email-list-header {
                     padding: 15px 20px;
                     border-bottom: 1px solid #e8ebf1;
@@ -2658,7 +2658,7 @@ App Email CSS
                             padding: 0;
                             font-size: 18px;
                             border-radius: 3px;
-    
+
                             i {
                                 position: absolute;
                                 left: 0;
@@ -2686,7 +2686,7 @@ App Email CSS
                                 visibility: hidden;
                                 transition: .3s;
                                 transform: unset !important;
-                
+
                                 &.show {
                                     margin-top: 45px;
                                     opacity: 1;
@@ -2951,7 +2951,7 @@ App Email Read CSS
                     .btn-primary {
                         color: $white-color;
                         background-color: $main-color;
-                    
+
                         &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>&.dropdown-toggle {
                             background-color: $main-color;
                             color: $white-color;
@@ -3099,7 +3099,7 @@ App Email Read CSS
             .email-read-list {
                 background-color: $white-color;
                 box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
-                
+
                 .email-read-list-header {
                     padding: 15px 20px;
                     border-bottom: 1px solid #e8ebf1;
@@ -3146,7 +3146,7 @@ App Email Read CSS
                             padding: 0;
                             font-size: 18px;
                             border-radius: 3px;
-    
+
                             i {
                                 position: absolute;
                                 left: 0;
@@ -3176,7 +3176,7 @@ App Email Read CSS
                                 transform: unset !important;
                                 left: auto !important;
                                 right: 0 !important;
-                
+
                                 &.show {
                                     margin-top: 45px;
                                     opacity: 1;
@@ -3294,7 +3294,7 @@ App Email Read CSS
                                     };
                                     &.active {
                                         color: #FDAC41;
-    
+
                                         i {
                                             &::before {
                                                 content: "\ed99";
@@ -3310,7 +3310,7 @@ App Email Read CSS
                                         color: #727E8C;
                                         font-size: 22px;
                                         line-height: 15px;
-                        
+
                                         &::after {
                                             display: none;
                                         }
@@ -3328,7 +3328,7 @@ App Email Read CSS
                                         transform: unset !important;
                                         left: auto !important;
                                         right: 0;
-                        
+
                                         &.show {
                                             margin-top: 25px;
                                             opacity: 1;
@@ -3642,7 +3642,7 @@ App Email Compose CSS
                     weight: 700;
                 };
             }
-            form {
+            div {
                 .card {
                     background-color: transparent;
                     box-shadow: unset;
@@ -3685,7 +3685,7 @@ App Email Compose CSS
                             background-color: #3578e5;
                             color: $white-color;
                             border-color: #3578e5;
-    
+
                             &:hover, &:focus {
                                 background-color: #3578e5;
                                 color: $white-color;
@@ -3697,7 +3697,7 @@ App Email Compose CSS
                             background-color: $main-color;
                             color: $white-color;
                             border-color: $main-color;
-    
+
                             &:hover, &:focus {
                                 background-color: #e33e45;
                                 color: $white-color;
@@ -3750,7 +3750,7 @@ App Todo CSS
                     .btn-primary {
                         color: $white-color;
                         background-color: $main-color;
-                    
+
                         &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>&.dropdown-toggle {
                             background-color: $main-color;
                             color: $white-color;
@@ -3898,7 +3898,7 @@ App Todo CSS
             .todo-list {
                 background-color: $white-color;
                 box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
-                
+
                 .todo-list-header {
                     padding: 15px 20px;
                     border-bottom: 1px solid #e8ebf1;
@@ -3921,7 +3921,7 @@ App Todo CSS
                             padding: 0;
                             font-size: 18px;
                             border-radius: 3px;
-    
+
                             i {
                                 position: absolute;
                                 left: 0;
@@ -3949,7 +3949,7 @@ App Todo CSS
                                 visibility: hidden;
                                 transition: .3s;
                                 transform: unset !important;
-                
+
                                 &.show {
                                     margin-top: 45px;
                                     opacity: 1;
@@ -4113,7 +4113,7 @@ App Todo CSS
                                 a {
                                     background-color: #d1def5;
                                     color: #4788ff;
-                
+
                                     &:hover {
                                         background-color: #4788ff;
                                         color: $white-color;
@@ -4126,7 +4126,7 @@ App Todo CSS
                                 a {
                                     background-color: #f5d1c4;
                                     color: #fb4a06;
-                
+
                                     &:hover {
                                         background-color: #fb4a06;
                                         color: $white-color;
@@ -4139,7 +4139,7 @@ App Todo CSS
                                 a {
                                     background-color: #d1def5;
                                     color: #4788ff;
-                
+
                                     &:hover {
                                         background-color: #4788ff;
                                         color: $white-color;
@@ -4180,7 +4180,7 @@ App Calendar CSS
         position: relative;
         padding: 25px 20px;
         border-bottom: 1px solid rgba(166, 168, 179, 0.12);
-        
+
         h3 {
             font: {
                 size: 18px;
@@ -4397,7 +4397,7 @@ App Chat CSS
             .chat-sidebar-header {
                 padding-bottom: 25px;
 
-                form {
+                div {
                     label {
                         display: block;
                         margin-bottom: 0;
@@ -4423,7 +4423,7 @@ App Chat CSS
                         &:focus {
                             box-shadow: unset;
                             background-color: #eef5f9;
-        
+
                             &::placeholder {
                                 color: transparent !important;
                             }
@@ -4518,7 +4518,7 @@ App Chat CSS
             .chat-list {
                 background-color: $white-color;
                 box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
-                
+
                 .simplebar-scrollbar {
                     &::before {
                         background: #aaaaaa;
@@ -4575,10 +4575,10 @@ App Chat CSS
                                     color: #C7CFD6;
                                     position: relative;
                                     top: -1px;
-                                    
+
                                     &.active {
                                         color: #FDAC41;
-    
+
                                         i {
                                             &::before {
                                                 content: "\ed99";
@@ -4594,7 +4594,7 @@ App Chat CSS
                                         color: #727E8C;
                                         font-size: 22px;
                                         line-height: 15px;
-                        
+
                                         &::after {
                                             display: none;
                                         }
@@ -4612,7 +4612,7 @@ App Chat CSS
                                         transform: unset !important;
                                         left: auto !important;
                                         right: 0;
-                        
+
                                         &.show {
                                             margin-top: 25px;
                                             opacity: 1;
@@ -4671,7 +4671,7 @@ App Chat CSS
                             }
                             .chat-body {
                                 overflow: hidden;
-    
+
                                 .chat-message {
                                     position: relative;
                                     float: right;
@@ -4685,7 +4685,7 @@ App Chat CSS
                                     background-color: #3578e5;
                                     border-radius: 5px;
                                     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .3);
-    
+
                                     p {
                                         color: $white-color;
                                         margin-bottom: 0;
@@ -4775,7 +4775,7 @@ App Chat CSS
                             color: $white-color;
                         }
                     }
-                    form {
+                    div {
                         position: relative;
                         padding-right: 128px;
 
@@ -4850,7 +4850,7 @@ Profile CSS
             background-color: $main-color;
         }
     }
-    form {
+    div {
         .form-group {
             margin-bottom: 20px;
             position: relative;
@@ -5008,7 +5008,7 @@ Profile CSS
             background-color: $main-color;
         }
     }
-    form {
+    div {
         .form-group {
             margin-bottom: 25px;
             position: relative;
@@ -5107,7 +5107,7 @@ Profile CSS
                         &:hover {
                             background-color: $main-color !important;
                             color: $white-color;
-    
+
                             &::before {
                                 color: $white-color;
                             }
@@ -5336,7 +5336,7 @@ Profile CSS
                         padding-left: 0;
                         cursor: pointer;
                         display: inline-block;
-    
+
                         input {
                             display: none;
                         }
@@ -5791,7 +5791,7 @@ Listing CSS
 
         .nav-item {
             margin-bottom: 0;
-            
+
             .nav-link {
                 position: relative;
                 color: #777777;
