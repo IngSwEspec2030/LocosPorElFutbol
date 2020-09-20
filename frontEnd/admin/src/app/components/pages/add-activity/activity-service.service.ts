@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivityInterface} from '../../interfaces/activity.interface';
 import {HttpClient} from '@angular/common/http';
+import {Activity} from "../../../../../../project/src/app/components/interfaces/activity.interface";
 
 @Injectable({
     providedIn: 'root'
@@ -12,6 +13,22 @@ export class ActivityService {
     constructor(
         private http: HttpClient,
     ) {
+    }
+
+    getSites(param?: string): Promise<any[]> {
+        return new Promise((resolve, reject) => {
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            this.http.get<any[]>(`${this.baseUrl}sitio/list`,
+                {headers}).subscribe(result => {
+                    resolve(result);
+                },
+                error => {
+                    console.info(error);
+                    reject(error);
+                });
+        });
     }
 
     createActivity(activity: ActivityInterface) {

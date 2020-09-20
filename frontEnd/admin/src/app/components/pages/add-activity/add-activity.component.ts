@@ -13,6 +13,8 @@ export class AddActivityComponent implements OnInit {
     public message = '';
     public errorMessage = false;
 
+    public sites = [];
+
     form = new FormGroup({
         nombreActividad: new FormControl('', Validators.minLength(2)),
         categoria: new FormControl('categoria'),
@@ -24,9 +26,20 @@ export class AddActivityComponent implements OnInit {
     });
 
     constructor(private activityService: ActivityService) {
+        this.getSites();
     }
 
     ngOnInit(): void {
+    }
+
+    async getSites() {
+        this.sites = await this.activityService.getSites();
+        this.sites = this.sites.map(site => {
+            return {
+                id: site['id_sitio'],
+                name: site['nombreSitio']
+            };
+        });
     }
 
     onSubmit(): void {

@@ -29,7 +29,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label><i class='bx bx-duplicate'></i> Categoría:</label>
-                    <select formControlName="categoria">
+                    <select formControlName="categoria" class="custom-select">
                         <option value="Trekking">Trekking</option>
                         <option value="Mountains">Mountains</option>
                         <option value="Rivers">Rivers</option>
@@ -41,11 +41,9 @@
             <div class="col-lg-6 col-md-6">
                 <div class="form-group">
                     <label><i class='bx bx-duplicate'></i> Sitio Turístico:</label>
-                    <select formControlName="idSitio">
+                    <select formControlName="idSitio" class="custom-select">
                         <option>Todos los sitios turísticos</option>
-                        <option value="1">Shops</option>
-                        <option value="2">Shops</option>
-                        <option value="3">Shops</option>
+                        <option *ngFor="let site of sites" [ngValue]="site">{{site.name}}</option>
                     </select>
                 </div>
             </div>

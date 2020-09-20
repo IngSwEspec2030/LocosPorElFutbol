@@ -7,7 +7,6 @@ import com.servicios.lxe.dto.ActividadDto;
 import com.servicios.lxe.interfaces.IActividadTuristica;
 import com.servicios.lxe.model.ActividadTuristica;
 
-
 @Service
 public class ServicioActividad {
 	

@@ -5903,3 +5903,9 @@ Footer CSS
 .hidden{
     display: none;
 }
+
+/* The container must be positioned relative: */
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
