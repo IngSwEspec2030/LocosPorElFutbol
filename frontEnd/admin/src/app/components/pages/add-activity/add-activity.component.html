@@ -9,6 +9,11 @@
         <li class="item">Agregar Actividad</li>
     </ol>
 </div>
+
+<div class="alert hidden" [ngClass]="{'hidden': !showMessage, 'alert-danger': errorMessage, 'alert-success': !errorMessage}">
+    {{ message }}
+</div>
+
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="add-listing-box mb-30">
         <h3>Información Básica</h3>

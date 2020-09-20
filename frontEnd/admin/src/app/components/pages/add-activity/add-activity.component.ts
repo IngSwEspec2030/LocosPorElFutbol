@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivityService} from './activity-service.service';
 
@@ -8,6 +8,10 @@ import {ActivityService} from './activity-service.service';
     styleUrls: ['./add-activity.component.scss']
 })
 export class AddActivityComponent implements OnInit {
+
+    public showMessage = false;
+    public message = '';
+    public errorMessage = false;
 
     form = new FormGroup({
         nombreActividad: new FormControl('', Validators.minLength(2)),
@@ -26,7 +30,19 @@ export class AddActivityComponent implements OnInit {
     }
 
     onSubmit(): void {
-        this.activityService.createActivity(this.form.value);
+        this.activityService.createActivity(this.form.value)
+            .then(result => {
+                if (result['status']) {
+                    this.showMessage = true;
+                    this.message = 'Actividad creada exitosamente';
+                }
+            })
+            .catch(error => {
+                this.showMessage = true;
+                this.errorMessage = true;
+                this.message = 'Ha ocurrido un error en la creación de la actividad';
+                window.scrollTo(0, 0);
+            });
     }
 
 }

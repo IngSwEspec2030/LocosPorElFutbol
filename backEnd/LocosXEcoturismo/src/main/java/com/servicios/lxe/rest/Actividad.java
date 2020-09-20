@@ -16,7 +16,7 @@ import com.servicios.lxe.interfaces.ISitioTuristico;
 import com.servicios.lxe.model.ActividadTuristica;
 import com.servicios.lxe.service.ServicioActividad;
 
-@CrossOrigin(origins="*")
+
 @RestController
 public class Actividad {
 	

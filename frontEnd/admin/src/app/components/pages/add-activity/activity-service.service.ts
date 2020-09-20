@@ -32,10 +32,9 @@ export class ActivityService {
                 idSitio: 2//activitySave.idSitio
             };
             return this.http.post<any>(`${this.baseUrl}activity/create`, formData, {headers}).subscribe(response => {
-                    resolve(response);
+                    resolve({status: 201});
                 },
                 error => {
-                    // this.messageService.addError(error.error.message);
                     reject(error);
                 });
         });
