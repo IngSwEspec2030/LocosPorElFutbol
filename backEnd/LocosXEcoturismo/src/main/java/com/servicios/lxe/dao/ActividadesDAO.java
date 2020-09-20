@@ -1,8 +1,11 @@
 package com.servicios.lxe.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,6 +31,27 @@ public class ActividadesDAO {
 		List<Object[]> actividades = q.getResultList();
 		return actividades;	
 	}
+	
+	
+	public List<Map<String,String>> listarTodos() {
+		Query q = entityManager.createNativeQuery("SELECT * FROM actividad_turistica");
+				
+		List<Object[]> actividades = q.getResultList();
+		List<Map<String,String>> result = actividades.stream()
+                .map(arr->{
+                    Map<String,String> map = new HashMap<>();  
+                    map.put("id", String.valueOf(arr[0]));
+                    map.put("categoria", (String) arr[1]);
+                    map.put("descripcion", (String) arr[2]);
+                    map.put("estado", String.valueOf(arr[3]));
+                    map.put("nombreActividad", (String) arr[4]);
+                    map.put("precioBase", String.valueOf(arr[5]));
+                    return map; 
+                  })
+               .collect(Collectors.toList());		
+		return result;	
+	}	
+	
 
 	public List<Object[]> buscarPorParametros(Optional<String> keyword, Optional<String> place) {
 		// TODO Auto-generated method stub

@@ -14,6 +14,9 @@ import {MyListingComponent} from './components/pages/my-listing/my-listing.compo
 import {WebAnalyticsComponent} from './components/charts/web-analytics/web-analytics.component';
 import {AddListingComponent} from './components/pages/add-listing/add-listing.component';
 import {AddActivityComponent} from './components/pages/add-activity/add-activity.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { ListActivityComponent } from './components/pages/list-activity/list-activity.component';
 
 @NgModule({
     declarations: [
@@ -28,11 +31,18 @@ import {AddActivityComponent} from './components/pages/add-activity/add-activity
         MyListingComponent,
         WebAnalyticsComponent,
         AddListingComponent,
-        AddActivityComponent
+        AddActivityComponent,
+        ListActivityComponent
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ReactiveFormsModule,
+        BrowserModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

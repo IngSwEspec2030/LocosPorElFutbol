@@ -1,4 +1,4 @@
-export interface Activity {
+export interface ActivityInterface {
     idActividad: number;
     categoria: string;
     descripcion: string;
