@@ -1,0 +1,42 @@
+<div class="breadcrumb-area">
+    <h1>Lista de Actividades</h1>
+
+    <ol class="breadcrumb">
+        <li class="item"><a routerLink="/"><i class='bx bx-home-alt'></i></a></li>
+
+        <li class="item">Dashboard</li>
+
+        <li class="item">Lista de Actividades</li>
+    </ol>
+</div>
+
+<div class="todo-content-area mt-20">
+
+
+    <div class="content-right">
+        <div class="todo-area">
+            <div class="todo-list-wrapper">
+                <div class="todo-list">
+                    <div class="todo-list-header d-flex align-items-center">
+
+                    </div>
+
+                    <ul class="list-wrapper" data-simplebar>
+                        <li class="todo-list-item" *ngFor="let activity of activities">
+                            <div class="todo-item-title">
+                                <h3>{{activity['nombreActividad']}}</h3>
+                                <p>{{activity['descripcion']}}</p>
+                            </div>
+
+                            <div class="todo-item-action">
+                                <a routerLink="/app-todo" class="edit"><i class='bx bx-edit-alt'></i></a>
+                                <a routerLink="/app-todo" class="delete"><i class='bx bx-trash'></i></a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
