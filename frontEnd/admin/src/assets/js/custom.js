@@ -1,9 +1,9 @@
 (function($){
 	"use strict";
-	
+
 	// Header Sticky
 	$(window).on('scroll',function() {
-		if ($(this).scrollTop() > 30){  
+		if ($(this).scrollTop() > 30){
 			$('.top-navbar').addClass("is-sticky");
 		}
 		else{
@@ -37,7 +37,7 @@
 	$(function () {
 		$('#sidemenu-nav').metisMenu();
 	});
-	
+
 	// Summernote JS
 	$('.summernote').summernote({
 		height: 230,                 // Set editor height
@@ -77,12 +77,9 @@
 					}
 				});
 			}
-			
+
 		},{accY: 0});
 	}
-
-	// Nice Select JS
-	$('select').niceSelect();
 
 	// initialize clipboard plugin
 	if ($('.btn-clipboard').length) {
@@ -134,5 +131,5 @@
 	$('.chat-list-header .header-right .favorite').on('click', function() {
 		$(this).toggleClass('active');
 	});
-        
+
 }(jQuery));

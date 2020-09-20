@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivityService} from './activity-service.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-add-listing',
@@ -12,6 +13,7 @@ export class AddActivityComponent implements OnInit {
     public showMessage = false;
     public message = '';
     public errorMessage = false;
+    public activityId = null;
 
     public sites = [];
 
@@ -25,11 +27,32 @@ export class AddActivityComponent implements OnInit {
         idSitio: new FormControl('idSitio'),
     });
 
-    constructor(private activityService: ActivityService) {
+    constructor(private activityService: ActivityService, private route: ActivatedRoute) {
         this.getSites();
     }
 
     ngOnInit(): void {
+        this.activityId = this.route.snapshot.params.id;
+        if (this.activityId) {
+            this.getActivity(this.activityId);
+        }
+    }
+
+    async getActivity(activityId) {
+        const activity = await this.activityService.getActivityById(activityId);
+        this.form.controls['nombreActividad'].setValue(activity['nombreActividad']);
+        this.form.controls['categoria'].setValue(activity['categoria']);
+        this.form.controls['descripcion'].setValue(activity['descripcion']);
+        this.form.controls['precioBase'].setValue(activity['precioBase']);
+        this.form.controls['estado'].setValue(activity['estado']);
+
+        const selectedSite = {
+            id: activity['sitioTuristico']['id_sitio'],
+            name: activity['sitioTuristico']['nombreSitio']
+        };
+        setTimeout(() => {
+            this.form.get('idSitio').setValue(selectedSite);
+        }, 1000);
     }
 
     async getSites() {
@@ -43,11 +66,12 @@ export class AddActivityComponent implements OnInit {
     }
 
     onSubmit(): void {
-        this.activityService.createActivity(this.form.value)
+        this.activityService.upsertActivity(this.form.value, this.activityId)
             .then(result => {
                 if (result['status']) {
                     this.showMessage = true;
                     this.message = 'Actividad creada exitosamente';
+                    window.scrollTo(0, 0);
                 }
             })
             .catch(error => {

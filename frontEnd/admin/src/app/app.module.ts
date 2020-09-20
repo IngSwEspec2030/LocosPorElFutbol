@@ -16,6 +16,7 @@ import {AddListingComponent} from './components/pages/add-listing/add-listing.co
 import {AddActivityComponent} from './components/pages/add-activity/add-activity.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { ListActivityComponent } from './components/pages/list-activity/list-activity.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import {HttpClientModule} from "@angular/common/http";
         MyListingComponent,
         WebAnalyticsComponent,
         AddListingComponent,
-        AddActivityComponent
+        AddActivityComponent,
+        ListActivityComponent
     ],
     imports: [
         BrowserModule,

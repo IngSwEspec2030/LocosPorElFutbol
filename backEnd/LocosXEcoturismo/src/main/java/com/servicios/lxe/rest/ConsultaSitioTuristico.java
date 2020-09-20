@@ -18,7 +18,7 @@ public class ConsultaSitioTuristico {
 	private ServicioSitioTuristico servicioSitioTuristico;
 	
 	@GetMapping("/sitio/list")
-	public List<SitioTuristico> getAllUsers() {
+	public List<SitioTuristico> obtenerSitios() {
 		List<SitioTuristico> sitios = servicioSitioTuristico.obtenerSitios();
 		return sitios;
 	}

@@ -52,6 +52,17 @@ public class ActividadTuristica implements Serializable{
 		this.estado = actividadDto.getEstado();
 		this.sitioTuristico = actividadDto.sitioTuristico;
 	}
+	
+	public void setAll(ActividadDto activityToUpdate) {
+		this.id_actividad = activityToUpdate.getIdActividad();
+		this.nombreActividad = activityToUpdate.getNombreActividad();
+		this.descripcion = activityToUpdate.getDescripcion();
+		this.categoria = activityToUpdate.getCategoria();
+		this.precioBase = activityToUpdate.getPrecioBase();
+		this.review = activityToUpdate.getReview();
+		this.estado = activityToUpdate.getEstado();	
+		this.sitioTuristico = activityToUpdate.sitioTuristico;
+	}	
 
 	public int getId_actividad() {
 		return id_actividad;
