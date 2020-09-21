@@ -10,9 +10,24 @@
     </ol>
 </div>
 
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Eliminar Actividad</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>¿Está seguro que desea eliminar la actividad seleccionada ?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Cross click')">Cancelar</button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Eliminar</button>
+    </div>
+</ng-template>
+
 <div class="todo-content-area mt-20">
-
-
     <div class="content-right">
         <div class="todo-area">
             <div class="todo-list-wrapper">
@@ -29,8 +44,8 @@
                             </div>
 
                             <div class="todo-item-action">
-                                <a routerLink="/app-todo" class="edit"><i class='bx bx-edit-alt'></i></a>
-                                <a routerLink="/app-todo" class="delete"><i class='bx bx-trash'></i></a>
+                                <a routerLink="/edit-activity/{{activity['id']}}" class="edit"><i class='bx bx-edit-alt'></i></a>
+                                <a routerLink="javascript:void(0)" (click)="open(content)" class="delete"><i class='bx bx-trash'></i></a>
                             </div>
                         </li>
 
