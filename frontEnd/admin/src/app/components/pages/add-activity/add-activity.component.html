@@ -115,13 +115,15 @@
                     <ul class="facilities-list">
                         <li>
                             <label class="checkbox">
-                                <input type="radio" formControlName="estado" name="estado" value="1">
+                                <input type="radio" formControlName="estado" name="estado" value=1
+                                       [checked]="form.get('estado').value == 1">
                                 <span>Activa</span>
                             </label>
                         </li>
                         <li>
                             <label class="checkbox">
-                                <input type="radio" formControlName="estado" name="estado" value="0">
+                                <input type="radio" formControlName="estado" name="estado" value=0
+                                       [checked]="form.get('estado').value == 0">
                                 <span>Inactiva</span>
                             </label>
                         </li>

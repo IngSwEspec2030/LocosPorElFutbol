@@ -46,12 +46,11 @@ export class AddActivityComponent implements OnInit {
         this.form.controls['precioBase'].setValue(activity['precioBase']);
         this.form.controls['estado'].setValue(activity['estado']);
 
-        const selectedSite = {
-            id: activity['sitioTuristico']['id_sitio'],
-            name: activity['sitioTuristico']['nombreSitio']
-        };
+        const siteId = activity['sitioTuristico']['id_sitio'];
         setTimeout(() => {
-            this.form.get('idSitio').setValue(selectedSite);
+            const filteredSites = this.sites.filter(site => site.id === siteId);
+            const index = this.sites.indexOf(filteredSites[0]);
+            this.form.controls['idSitio'].setValue(this.sites[index]);
         }, 1000);
     }
 
