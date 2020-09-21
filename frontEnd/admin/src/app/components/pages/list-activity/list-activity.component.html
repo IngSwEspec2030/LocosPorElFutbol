@@ -10,6 +10,9 @@
     </ol>
 </div>
 
+<div class="alert hidden" [ngClass]="{'hidden': !showMessage, 'alert-danger': errorMessage, 'alert-success': !errorMessage}">
+    {{ message }}
+</div>
 
 <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
@@ -23,7 +26,7 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="c('Cross click')">Cancelar</button>
-        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Eliminar</button>
+        <button type="button" class="btn btn-outline-dark" (click)="delete()">Eliminar</button>
     </div>
 </ng-template>
 
@@ -45,7 +48,7 @@
 
                             <div class="todo-item-action">
                                 <a routerLink="/edit-activity/{{activity['id']}}" class="edit"><i class='bx bx-edit-alt'></i></a>
-                                <a routerLink="javascript:void(0)" (click)="open(content)" class="delete"><i class='bx bx-trash'></i></a>
+                                <a routerLink="javascript:void(0)" (click)="open(content, activity['id'])" class="delete"><i class='bx bx-trash'></i></a>
                             </div>
                         </li>
 

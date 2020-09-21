@@ -48,5 +48,10 @@ public class ServicioActividad {
 		Optional<ActividadTuristica> activity = iActividadTuristica.findById(id);
 		return activity;
 	}
+	
+	public Void eliminarActividad(int id) {
+		iActividadTuristica.deleteById(id);
+		return null;
+	}	
 
 }
