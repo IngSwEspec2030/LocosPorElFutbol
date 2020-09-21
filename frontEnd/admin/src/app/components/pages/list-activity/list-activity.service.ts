@@ -29,4 +29,20 @@ export class ListActivityService {
         });
     }
 
+    deleteActivity(activityId: number) {
+        return new Promise((resolve, reject) => {
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            this.http.delete<any[]>(`${this.baseUrl}activity/delete/${activityId}`,
+                {headers}).subscribe(result => {
+                    resolve({status: 'ok'});
+                },
+                error => {
+                    console.info(error);
+                    reject(error);
+                });
+        });
+    }
+
 }
