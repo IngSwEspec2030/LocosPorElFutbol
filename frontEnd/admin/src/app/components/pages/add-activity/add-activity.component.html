@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <!--<div class="add-listing-box mb-30">
+    <div class="add-listing-box mb-30">
         <h3>Imágenes de Actividad</h3>
 
         <div class="row">
@@ -84,14 +84,12 @@
                                 Click para agregar imagenes
                             </span>
                         </div>
-                        <input type="file" class="upload">
+                        <input type="file" class="upload" (change)="onFileChanged($event)">
                     </div>
                 </div>
             </div>
-
-
         </div>
-    </div>-->
+    </div>
 
     <div class="add-listing-box mb-30">
         <h3>Precio Base</h3>

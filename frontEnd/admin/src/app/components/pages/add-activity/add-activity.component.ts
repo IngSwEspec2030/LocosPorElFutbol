@@ -2,6 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivityService} from './activity-service.service';
 import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
     selector: 'app-add-listing',
@@ -15,6 +16,7 @@ export class AddActivityComponent implements OnInit {
     public errorMessage = false;
     public activityId = null;
 
+    public selectedFile: File;
     public sites = [];
 
     form = new FormGroup({
@@ -27,7 +29,10 @@ export class AddActivityComponent implements OnInit {
         idSitio: new FormControl('idSitio'),
     });
 
-    constructor(private activityService: ActivityService, private route: ActivatedRoute) {
+    constructor(
+        private activityService: ActivityService,
+        private route: ActivatedRoute,
+        private httpClient: HttpClient) {
         this.getSites();
     }
 
@@ -62,6 +67,29 @@ export class AddActivityComponent implements OnInit {
                 name: site['nombreSitio']
             };
         });
+    }
+
+    public onFileChanged(event) {
+        // Select File
+        this.selectedFile = event.target.files[0];
+    }
+
+    onUpload() {
+        console.log(this.selectedFile);
+        // FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
+        const uploadImageData = new FormData();
+        uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+
+        // Make a call to the Spring Boot Application to save the image
+        this.httpClient.post('http://localhost:8080/image/upload', uploadImageData, {observe: 'response'})
+            .subscribe((response) => {
+                    if (response.status === 200) {
+                        this.message = 'Image uploaded successfully';
+                    } else {
+                        this.message = 'Image not uploaded successfully';
+                    }
+                }
+            );
     }
 
     onSubmit(): void {
