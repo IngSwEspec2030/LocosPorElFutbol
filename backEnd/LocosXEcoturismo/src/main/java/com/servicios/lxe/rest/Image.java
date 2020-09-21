@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
@@ -35,8 +36,9 @@ public class Image {
     @PostMapping("/image/upload")
     public BodyBuilder uplaodImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
         System.out.println("Original Image Byte Size - " + file.getBytes().length);
-        
-         String fileName = file.getOriginalFilename();
+                         
+         int rand = ThreadLocalRandom.current().nextInt(1,100);
+         String fileName = Math.ceil(rand) + "_" + file.getOriginalFilename();
          InputStream is = file.getInputStream();
 
         Files.copy(is, Paths.get(path + fileName),
