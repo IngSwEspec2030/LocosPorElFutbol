@@ -46,21 +46,25 @@ export class ListingDetailsComponent implements OnInit {
         });
     }
 
-    private async getDetails(id: number): Promise<ActivityDetails[]> {
-        const details = await this.listingDetailsService.getActivities(id);
+    private async getDetails(id: number) {
+        const details = await this.listingDetailsService.getActivities(id).toPromise();
         this.details = details;
         this.src='https://www.google.com/maps/embed/v1/place?q='+this.details.latitud+','+this.details.longitud+'&key=AIzaSyBCO2sM4U_hk39ps6YmJs5CTXUBPhkvkU8';
         this.url=this.dom.bypassSecurityTrustResourceUrl(this.src); 
         this.arryPrices[0]={id:this.details.idActividad,costoPersona:this.details.precioBase,nombre:this.details.nombreActividad};
-        return this.details;
-
     }
 
-    getNumberoPersonas(personas:number)
+    getNumberoPersonas(personas:string)
     {
+        let sum:number;
         let index=this.frmGroup.get("numPersonas").value;
-        let sum=index+personas;
-        this.frmGroup.get("numPersonas").setValue(sum);
+
+        if (personas=="add") {
+            index++;
+        } else {
+            index--;
+        }
+        this.frmGroup.get("numPersonas").setValue(index);
     }  
 
 

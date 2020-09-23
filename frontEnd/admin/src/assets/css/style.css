@@ -3922,7 +3922,7 @@ App Email Compose CSS
   font-weight: 700;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .card {
+.email-compose-content-area .content-right .email-compose-list-wrapper .card {
   background-color: transparent;
   -webkit-box-shadow: unset;
           box-shadow: unset;
@@ -3930,28 +3930,28 @@ App Email Compose CSS
   padding: 0;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .card .card-header {
+.email-compose-content-area .content-right .email-compose-list-wrapper .card .card-header {
   background-color: transparent;
   margin-bottom: 0;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .form-control {
+.email-compose-content-area .content-right .email-compose-list-wrapper .form-control {
   height: 42px;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .form-control:focus {
+.email-compose-content-area .content-right .email-compose-list-wrapper .form-control:focus {
   border-color: #b1bbc4;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .note-editor.note-airframe, .email-compose-content-area .content-right .email-compose-list-wrapper form .note-editor.note-frame {
+.email-compose-content-area .content-right .email-compose-list-wrapper .note-editor.note-airframe, .email-compose-content-area .content-right .email-compose-list-wrapper .note-editor.note-frame {
   border-color: #ced4da;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .note-popover .popover-content > .note-btn-group, .email-compose-content-area .content-right .email-compose-list-wrapper form .note-toolbar > .note-btn-group {
+.email-compose-content-area .content-right .email-compose-list-wrapper .note-popover .popover-content > .note-btn-group, .email-compose-content-area .content-right .email-compose-list-wrapper .note-toolbar > .note-btn-group {
   margin-top: -1px;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .form-group .btn {
+.email-compose-content-area .content-right .email-compose-list-wrapper .form-group .btn {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   border-radius: 2px;
@@ -3962,18 +3962,18 @@ App Email Compose CSS
   font-weight: 700;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .form-group .btn i {
+.email-compose-content-area .content-right .email-compose-list-wrapper .form-group .btn i {
   position: relative;
   top: 1px;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .form-group .btn.btn-success {
+.email-compose-content-area .content-right .email-compose-list-wrapper .form-group .btn.btn-success {
   background-color: #3578e5;
   color: #ffffff;
   border-color: #3578e5;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .form-group .btn.btn-success:hover, .email-compose-content-area .content-right .email-compose-list-wrapper form .form-group .btn.btn-success:focus {
+.email-compose-content-area .content-right .email-compose-list-wrapper .form-group .btn.btn-success:hover, .email-compose-content-area .content-right .email-compose-list-wrapper .form-group .btn.btn-success:focus {
   background-color: #3578e5;
   color: #ffffff;
   border-color: #3578e5;
@@ -3981,13 +3981,13 @@ App Email Compose CSS
           box-shadow: 1px 5px 24px 0 rgba(102, 88, 221, 0.25) !important;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .form-group .btn.btn-primary {
+.email-compose-content-area .content-right .email-compose-list-wrapper .form-group .btn.btn-primary {
   background-color: #088dd3;
   color: #ffffff;
   border-color: #088dd3;
 }
 
-.email-compose-content-area .content-right .email-compose-list-wrapper form .form-group .btn.btn-primary:hover, .email-compose-content-area .content-right .email-compose-list-wrapper form .form-group .btn.btn-primary:focus {
+.email-compose-content-area .content-right .email-compose-list-wrapper .form-group .btn.btn-primary:hover, .email-compose-content-area .content-right .email-compose-list-wrapper .form-group .btn.btn-primary:focus {
   background-color: #e33e45;
   color: #ffffff;
   border-color: #e33e45;
@@ -4777,7 +4777,7 @@ App Chat CSS
   padding-bottom: 25px;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form label {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header label {
   display: block;
   margin-bottom: 0;
   position: absolute;
@@ -4787,7 +4787,7 @@ App Chat CSS
   color: #a8a8a8;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form .form-control {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header .form-control {
   height: 45px;
   border-radius: 30px;
   background-color: #eef5f9;
@@ -4802,47 +4802,47 @@ App Chat CSS
   font-weight: 400;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form .form-control:focus {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header .form-control:focus {
   -webkit-box-shadow: unset;
           box-shadow: unset;
   background-color: #eef5f9;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form .form-control:focus::-webkit-input-placeholder {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header .form-control:focus::-webkit-input-placeholder {
   color: transparent !important;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form .form-control:focus:-ms-input-placeholder {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header .form-control:focus:-ms-input-placeholder {
   color: transparent !important;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form .form-control:focus::-ms-input-placeholder {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header .form-control:focus::-ms-input-placeholder {
   color: transparent !important;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form .form-control:focus::placeholder {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header .form-control:focus::placeholder {
   color: transparent !important;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form .form-control::-webkit-input-placeholder {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header .form-control::-webkit-input-placeholder {
   color: #a8a8a8;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form .form-control:-ms-input-placeholder {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header .form-control:-ms-input-placeholder {
   color: #a8a8a8;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form .form-control::-ms-input-placeholder {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header .form-control::-ms-input-placeholder {
   color: #a8a8a8;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-.chat-content-area .sidebar-left .sidebar .chat-sidebar-header form .form-control::placeholder {
+.chat-content-area .sidebar-left .sidebar .chat-sidebar-header .form-control::placeholder {
   color: #a8a8a8;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -5199,12 +5199,12 @@ App Chat CSS
   color: #ffffff;
 }
 
-.chat-content-area .content-right .chat-list-wrapper .chat-list .chat-list-footer form {
+.chat-content-area .content-right .chat-list-wrapper .chat-list .chat-list-footer {
   position: relative;
   padding-right: 128px;
 }
 
-.chat-content-area .content-right .chat-list-wrapper .chat-list .chat-list-footer form .form-control {
+.chat-content-area .content-right .chat-list-wrapper .chat-list .chat-list-footer .form-control {
   background-color: #ffffff;
   height: 45px;
   border-radius: 30px;
@@ -5216,13 +5216,13 @@ App Chat CSS
   color: #000000;
 }
 
-.chat-content-area .content-right .chat-list-wrapper .chat-list .chat-list-footer form .form-control:focus {
+.chat-content-area .content-right .chat-list-wrapper .chat-list .chat-list-footer .form-control:focus {
   border-color: #088dd3;
   -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
-.chat-content-area .content-right .chat-list-wrapper .chat-list .chat-list-footer form .send-btn {
+.chat-content-area .content-right .chat-list-wrapper .chat-list .chat-list-footer .send-btn {
   position: absolute;
   right: 0;
   top: 50%;
@@ -5242,7 +5242,7 @@ App Chat CSS
   font-weight: 700;
 }
 
-.chat-content-area .content-right .chat-list-wrapper .chat-list .chat-list-footer form .send-btn:hover {
+.chat-content-area .content-right .chat-list-wrapper .chat-list .chat-list-footer .send-btn:hover {
   -webkit-box-shadow: 0 4px 12px 0 rgba(8, 141, 211, 0.6);
           box-shadow: 0 4px 12px 0 rgba(8, 141, 211, 0.6);
 }
@@ -5277,18 +5277,18 @@ Profile CSS
   background-color: #088dd3;
 }
 
-.my-profile-box form .form-group {
+.my-profile-box .form-group {
   margin-bottom: 20px;
   position: relative;
 }
 
-.my-profile-box form .form-group label {
+.my-profile-box .form-group label {
   display: block;
   margin-bottom: 8px;
   color: #000000;
 }
 
-.my-profile-box form .form-group .form-control {
+.my-profile-box .form-group .form-control {
   height: 46px;
   background: #f9f9f9;
   -webkit-transition: 0.5s;
@@ -5304,56 +5304,56 @@ Profile CSS
   padding-left: 15px;
 }
 
-.my-profile-box form .form-group .form-control::-webkit-input-placeholder {
+.my-profile-box .form-group .form-control::-webkit-input-placeholder {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   color: #7d93b2;
 }
 
-.my-profile-box form .form-group .form-control:-ms-input-placeholder {
+.my-profile-box .form-group .form-control:-ms-input-placeholder {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   color: #7d93b2;
 }
 
-.my-profile-box form .form-group .form-control::-ms-input-placeholder {
+.my-profile-box .form-group .form-control::-ms-input-placeholder {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   color: #7d93b2;
 }
 
-.my-profile-box form .form-group .form-control::placeholder {
+.my-profile-box .form-group .form-control::placeholder {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   color: #7d93b2;
 }
 
-.my-profile-box form .form-group .form-control:focus {
+.my-profile-box .form-group .form-control:focus {
   border-color: #088dd3;
 }
 
-.my-profile-box form .form-group .form-control:focus::-webkit-input-placeholder {
+.my-profile-box .form-group .form-control:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-.my-profile-box form .form-group .form-control:focus:-ms-input-placeholder {
+.my-profile-box .form-group .form-control:focus:-ms-input-placeholder {
   color: transparent;
 }
 
-.my-profile-box form .form-group .form-control:focus::-ms-input-placeholder {
+.my-profile-box .form-group .form-control:focus::-ms-input-placeholder {
   color: transparent;
 }
 
-.my-profile-box form .form-group .form-control:focus::placeholder {
+.my-profile-box .form-group .form-control:focus::placeholder {
   color: transparent;
 }
 
-.my-profile-box form .form-group textarea.form-control {
+.my-profile-box .form-group textarea.form-control {
   padding-top: 15px;
   height: auto;
 }
 
-.my-profile-box form button {
+.my-profile-box button {
   display: block;
   width: 100%;
   background-color: #088dd3;
@@ -5369,12 +5369,12 @@ Profile CSS
   font-weight: 700;
 }
 
-.my-profile-box form button:hover {
+.my-profile-box button:hover {
   background-color: #3b99ca;
   color: #ffffff;
 }
 
-.my-profile-box form h3 {
+.my-profile-box h3 {
   margin-top: 15px;
 }
 
@@ -5472,12 +5472,12 @@ Profile CSS
   background-color: #088dd3;
 }
 
-.add-listing-box form .form-group {
+.add-listing-box .form-group {
   margin-bottom: 25px;
   position: relative;
 }
 
-.add-listing-box form .form-group label {
+.add-listing-box .form-group label {
   display: block;
   margin-bottom: 10px;
   color: #000000;
@@ -5485,7 +5485,7 @@ Profile CSS
   padding-left: 25px;
 }
 
-.add-listing-box form .form-group label i {
+.add-listing-box .form-group label i {
   color: #088dd3;
   position: absolute;
   left: 0;
@@ -5493,7 +5493,7 @@ Profile CSS
   font-size: 19px;
 }
 
-.add-listing-box form .form-group .form-control {
+.add-listing-box .form-group .form-control {
   height: 48px;
   background: #f9f9f9;
   -webkit-transition: 0.5s;
@@ -5509,56 +5509,56 @@ Profile CSS
   padding-left: 15px;
 }
 
-.add-listing-box form .form-group .form-control::-webkit-input-placeholder {
+.add-listing-box .form-group .form-control::-webkit-input-placeholder {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   color: #7d93b2;
 }
 
-.add-listing-box form .form-group .form-control:-ms-input-placeholder {
+.add-listing-box .form-group .form-control:-ms-input-placeholder {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   color: #7d93b2;
 }
 
-.add-listing-box form .form-group .form-control::-ms-input-placeholder {
+.add-listing-box .form-group .form-control::-ms-input-placeholder {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   color: #7d93b2;
 }
 
-.add-listing-box form .form-group .form-control::placeholder {
+.add-listing-box .form-group .form-control::placeholder {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   color: #7d93b2;
 }
 
-.add-listing-box form .form-group .form-control:focus {
+.add-listing-box .form-group .form-control:focus {
   border-color: #088dd3;
 }
 
-.add-listing-box form .form-group .form-control:focus::-webkit-input-placeholder {
+.add-listing-box .form-group .form-control:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-.add-listing-box form .form-group .form-control:focus:-ms-input-placeholder {
+.add-listing-box .form-group .form-control:focus:-ms-input-placeholder {
   color: transparent;
 }
 
-.add-listing-box form .form-group .form-control:focus::-ms-input-placeholder {
+.add-listing-box .form-group .form-control:focus::-ms-input-placeholder {
   color: transparent;
 }
 
-.add-listing-box form .form-group .form-control:focus::placeholder {
+.add-listing-box .form-group .form-control:focus::placeholder {
   color: transparent;
 }
 
-.add-listing-box form .form-group textarea.form-control {
+.add-listing-box .form-group textarea.form-control {
   padding-top: 15px;
   height: auto;
 }
 
-.add-listing-box form .form-group .nice-select {
+.add-listing-box .form-group .nice-select {
   display: block;
   height: 48px;
   line-height: 48px;
@@ -5572,7 +5572,7 @@ Profile CSS
   font-size: 15px;
 }
 
-.add-listing-box form .form-group .nice-select .list {
+.add-listing-box .form-group .nice-select .list {
   background-color: #ffffff;
   border-radius: 5px;
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -5587,7 +5587,7 @@ Profile CSS
   padding-bottom: 10px;
 }
 
-.add-listing-box form .form-group .nice-select .list .option {
+.add-listing-box .form-group .nice-select .list .option {
   line-height: 38px;
   min-height: 38px;
   color: #000000;
@@ -5600,31 +5600,31 @@ Profile CSS
   font-weight: 600;
 }
 
-.add-listing-box form .form-group .nice-select .list .option:hover {
+.add-listing-box .form-group .nice-select .list .option:hover {
   background-color: #088dd3 !important;
   color: #ffffff;
 }
 
-.add-listing-box form .form-group .nice-select .list .option:hover::before {
+.add-listing-box .form-group .nice-select .list .option:hover::before {
   color: #ffffff;
 }
 
-.add-listing-box form .form-group .nice-select .list .option.focus, .add-listing-box form .form-group .nice-select .list .option.selected.focus {
+.add-listing-box .form-group .nice-select .list .option.focus, .add-listing-box .form-group .nice-select .list .option.selected.focus {
   background-color: transparent !important;
   color: #000000;
 }
 
-.add-listing-box form .form-group .nice-select .list .option.selected::before {
+.add-listing-box .form-group .nice-select .list .option.selected::before {
   opacity: 1;
   visibility: visible;
 }
 
-.add-listing-box form .form-group .nice-select .list .option.selected:hover {
+.add-listing-box .form-group .nice-select .list .option.selected:hover {
   background-color: #088dd3 !important;
   color: #ffffff;
 }
 
-.add-listing-box form .form-group .nice-select:after {
+.add-listing-box .form-group .nice-select:after {
   border-color: #000000;
   height: 8px;
   width: 8px;
@@ -5632,12 +5632,12 @@ Profile CSS
   right: 15px;
 }
 
-.add-listing-box form .form-group .nice-select:focus {
+.add-listing-box .form-group .nice-select:focus {
   border-color: #088dd3;
   background-color: transparent;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box {
+.add-listing-box .form-group .sidebar-widgets .box {
   background: #f6f6f6;
   border: 1px solid #eeeeee;
   border-radius: 5px;
@@ -5646,18 +5646,18 @@ Profile CSS
   margin-bottom: 15px;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box:last-child {
+.add-listing-box .form-group .sidebar-widgets .box:last-child {
   margin-bottom: 0;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .title {
+.add-listing-box .form-group .sidebar-widgets .box .title {
   display: block;
   color: #000000;
   position: relative;
   font-weight: 600;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch {
+.add-listing-box .form-group .sidebar-widgets .box .switch {
   padding-left: 0;
   margin-bottom: 0;
   display: inline-block;
@@ -5669,11 +5669,11 @@ Profile CSS
   cursor: pointer;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch input {
+.add-listing-box .form-group .sidebar-widgets .box .switch input {
   display: none;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch input + span {
+.add-listing-box .form-group .sidebar-widgets .box .switch input + span {
   width: 48px;
   height: 28px;
   border-radius: 14px;
@@ -5686,7 +5686,7 @@ Profile CSS
           box-shadow: 0 8px 16px -1px rgba(8, 141, 211, 0.2);
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch input + span:before, .add-listing-box form .form-group .sidebar-widgets .box .switch input + span:after {
+.add-listing-box .form-group .sidebar-widgets .box .switch input + span:before, .add-listing-box .form-group .sidebar-widgets .box .switch input + span:after {
   content: '';
   display: block;
   position: absolute;
@@ -5694,7 +5694,7 @@ Profile CSS
   transition: all .3s ease;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch input + span:before {
+.add-listing-box .form-group .sidebar-widgets .box .switch input + span:before {
   top: 5px;
   left: 5px;
   width: 18px;
@@ -5703,7 +5703,7 @@ Profile CSS
   border: 5px solid #ffffff;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch input + span:after {
+.add-listing-box .form-group .sidebar-widgets .box .switch input + span:after {
   top: 5px;
   left: 32px;
   width: 6px;
@@ -5715,18 +5715,18 @@ Profile CSS
   opacity: 0;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch input + span:active {
+.add-listing-box .form-group .sidebar-widgets .box .switch input + span:active {
   -webkit-transform: scale(0.92);
           transform: scale(0.92);
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch input:checked + span {
+.add-listing-box .form-group .sidebar-widgets .box .switch input:checked + span {
   background: #48EA8B;
   -webkit-box-shadow: 0 8px 16px -1px rgba(72, 234, 139, 0.2);
           box-shadow: 0 8px 16px -1px rgba(72, 234, 139, 0.2);
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch input:checked + span:before {
+.add-listing-box .form-group .sidebar-widgets .box .switch input:checked + span:before {
   width: 0px;
   border-radius: 3px;
   margin-left: 27px;
@@ -5734,32 +5734,32 @@ Profile CSS
   background: #ffffff;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch input:checked + span:after {
+.add-listing-box .form-group .sidebar-widgets .box .switch input:checked + span:after {
   -webkit-animation: blobChecked .35s linear forwards .2s;
           animation: blobChecked .35s linear forwards .2s;
 }
 
-.add-listing-box form .form-group .sidebar-widgets .box .switch input:not(:checked) + span:before {
+.add-listing-box .form-group .sidebar-widgets .box .switch input:not(:checked) + span:before {
   -webkit-animation: blob .85s linear forwards .2s;
           animation: blob .85s linear forwards .2s;
 }
 
-.add-listing-box form .form-group .add-list-media-header {
+.add-listing-box .form-group .add-list-media-header {
   margin-bottom: 20px;
 }
 
-.add-listing-box form .form-group .add-list-media-header .radio {
+.add-listing-box .form-group .add-list-media-header .radio {
   margin-bottom: 0;
   padding-left: 0;
   cursor: pointer;
   display: inline-block;
 }
 
-.add-listing-box form .form-group .add-list-media-header .radio input {
+.add-listing-box .form-group .add-list-media-header .radio input {
   display: none;
 }
 
-.add-listing-box form .form-group .add-list-media-header .radio input + span {
+.add-listing-box .form-group .add-list-media-header .radio input + span {
   line-height: 20px;
   height: 20px;
   padding-left: 20px;
@@ -5767,11 +5767,11 @@ Profile CSS
   position: relative;
 }
 
-.add-listing-box form .form-group .add-list-media-header .radio input + span:not(:empty) {
+.add-listing-box .form-group .add-list-media-header .radio input + span:not(:empty) {
   padding-left: 28px;
 }
 
-.add-listing-box form .form-group .add-list-media-header .radio input + span:before, .add-listing-box form .form-group .add-list-media-header .radio input + span:after {
+.add-listing-box .form-group .add-list-media-header .radio input + span:before, .add-listing-box .form-group .add-list-media-header .radio input + span:after {
   content: '';
   width: 20px;
   height: 20px;
@@ -5782,27 +5782,27 @@ Profile CSS
   position: absolute;
 }
 
-.add-listing-box form .form-group .add-list-media-header .radio input + span:before {
+.add-listing-box .form-group .add-list-media-header .radio input + span:before {
   background: #eeeeee;
   transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2), -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
 }
 
-.add-listing-box form .form-group .add-list-media-header .radio input + span:after {
+.add-listing-box .form-group .add-list-media-header .radio input + span:after {
   background: #eeeeee;
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4), -webkit-transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
 }
 
-.add-listing-box form .form-group .add-list-media-header .radio input:checked + span:before {
+.add-listing-box .form-group .add-list-media-header .radio input:checked + span:before {
   background: #088dd3;
 }
 
-.add-listing-box form .form-group .add-list-media-header .radio input:checked + span:after {
+.add-listing-box .form-group .add-list-media-header .radio input:checked + span:after {
   -webkit-transform: scale(0.4);
           transform: scale(0.4);
   transition: transform .3s ease, -webkit-transform .3s ease;
 }
 
-.add-listing-box form .form-group .add-list-media-wrap {
+.add-listing-box .form-group .add-list-media-wrap {
   position: relative;
   border: 1px solid #eeeeee;
   border-radius: 5px;
@@ -5813,14 +5813,14 @@ Profile CSS
   cursor: pointer;
 }
 
-.add-listing-box form .form-group .add-list-media-wrap .text span {
+.add-listing-box .form-group .add-list-media-wrap .text span {
   display: block;
   font-weight: 600;
   padding-top: 58px;
   padding-bottom: 58px;
 }
 
-.add-listing-box form .form-group .add-list-media-wrap .text span i {
+.add-listing-box .form-group .add-list-media-wrap .text span i {
   line-height: 1;
   font-size: 35px;
   color: #088dd3;
@@ -5828,7 +5828,7 @@ Profile CSS
   display: block;
 }
 
-.add-listing-box form .form-group .add-list-media-wrap input {
+.add-listing-box .form-group .add-list-media-wrap input {
   display: block;
   position: absolute;
   left: 0;
@@ -5840,32 +5840,32 @@ Profile CSS
   opacity: 0;
 }
 
-.add-listing-box form .form-group .facilities-list {
+.add-listing-box .form-group .facilities-list {
   padding-left: 0;
   margin-bottom: -15px;
   list-style-type: none;
   overflow: hidden;
 }
 
-.add-listing-box form .form-group .facilities-list li {
+.add-listing-box .form-group .facilities-list li {
   float: left;
   margin-right: 20px;
   position: relative;
   margin-bottom: 10px;
 }
 
-.add-listing-box form .form-group .facilities-list li .checkbox {
+.add-listing-box .form-group .facilities-list li .checkbox {
   margin-bottom: 0;
   padding-left: 0;
   cursor: pointer;
   display: inline-block;
 }
 
-.add-listing-box form .form-group .facilities-list li .checkbox input {
+.add-listing-box .form-group .facilities-list li .checkbox input {
   display: none;
 }
 
-.add-listing-box form .form-group .facilities-list li .checkbox input + span {
+.add-listing-box .form-group .facilities-list li .checkbox input + span {
   line-height: 20px;
   height: 20px;
   padding-left: 20px;
@@ -5874,11 +5874,11 @@ Profile CSS
   font-weight: 600;
 }
 
-.add-listing-box form .form-group .facilities-list li .checkbox input + span:not(:empty) {
+.add-listing-box .form-group .facilities-list li .checkbox input + span:not(:empty) {
   padding-left: 28px;
 }
 
-.add-listing-box form .form-group .facilities-list li .checkbox input + span:before, .add-listing-box form .form-group .facilities-list li .checkbox input + span:after {
+.add-listing-box .form-group .facilities-list li .checkbox input + span:before, .add-listing-box .form-group .facilities-list li .checkbox input + span:after {
   content: '';
   width: 20px;
   height: 20px;
@@ -5889,42 +5889,42 @@ Profile CSS
   position: absolute;
 }
 
-.add-listing-box form .form-group .facilities-list li .checkbox input + span:before {
+.add-listing-box .form-group .facilities-list li .checkbox input + span:before {
   background: #eeeeee;
   transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2), -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
 }
 
-.add-listing-box form .form-group .facilities-list li .checkbox input + span:after {
+.add-listing-box .form-group .facilities-list li .checkbox input + span:after {
   background: #eeeeee;
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4), -webkit-transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
 }
 
-.add-listing-box form .form-group .facilities-list li .checkbox input:checked + span:before {
+.add-listing-box .form-group .facilities-list li .checkbox input:checked + span:before {
   background: #088dd3;
 }
 
-.add-listing-box form .form-group .facilities-list li .checkbox input:checked + span:after {
+.add-listing-box .form-group .facilities-list li .checkbox input:checked + span:after {
   -webkit-transform: scale(0.4);
           transform: scale(0.4);
   transition: transform .3s ease, -webkit-transform .3s ease;
 }
 
-.add-listing-box form .form-group .add-list-content-widgets {
+.add-listing-box .form-group .add-list-content-widgets {
   margin-bottom: 20px;
 }
 
-.add-listing-box form .form-group .add-list-content-widgets .checkbox {
+.add-listing-box .form-group .add-list-content-widgets .checkbox {
   margin-bottom: 0;
   padding-left: 0;
   cursor: pointer;
   display: inline-block;
 }
 
-.add-listing-box form .form-group .add-list-content-widgets .checkbox input {
+.add-listing-box .form-group .add-list-content-widgets .checkbox input {
   display: none;
 }
 
-.add-listing-box form .form-group .add-list-content-widgets .checkbox input + span {
+.add-listing-box .form-group .add-list-content-widgets .checkbox input + span {
   line-height: 20px;
   height: 20px;
   padding-left: 20px;
@@ -5932,11 +5932,11 @@ Profile CSS
   position: relative;
 }
 
-.add-listing-box form .form-group .add-list-content-widgets .checkbox input + span:not(:empty) {
+.add-listing-box .form-group .add-list-content-widgets .checkbox input + span:not(:empty) {
   padding-left: 28px;
 }
 
-.add-listing-box form .form-group .add-list-content-widgets .checkbox input + span:before, .add-listing-box form .form-group .add-list-content-widgets .checkbox input + span:after {
+.add-listing-box .form-group .add-list-content-widgets .checkbox input + span:before, .add-listing-box .form-group .add-list-content-widgets .checkbox input + span:after {
   content: '';
   width: 20px;
   height: 20px;
@@ -5947,27 +5947,27 @@ Profile CSS
   position: absolute;
 }
 
-.add-listing-box form .form-group .add-list-content-widgets .checkbox input + span:before {
+.add-listing-box .form-group .add-list-content-widgets .checkbox input + span:before {
   background: #eeeeee;
   transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2), -webkit-transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
 }
 
-.add-listing-box form .form-group .add-list-content-widgets .checkbox input + span:after {
+.add-listing-box .form-group .add-list-content-widgets .checkbox input + span:after {
   background: #eeeeee;
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4), -webkit-transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
 }
 
-.add-listing-box form .form-group .add-list-content-widgets .checkbox input:checked + span:before {
+.add-listing-box .form-group .add-list-content-widgets .checkbox input:checked + span:before {
   background: #088dd3;
 }
 
-.add-listing-box form .form-group .add-list-content-widgets .checkbox input:checked + span:after {
+.add-listing-box .form-group .add-list-content-widgets .checkbox input:checked + span:after {
   -webkit-transform: scale(0.4);
           transform: scale(0.4);
   transition: transform .3s ease, -webkit-transform .3s ease;
 }
 
-.add-listing-box form button {
+.add-listing-box button {
   display: inline-block;
   background-color: #088dd3;
   color: #ffffff;
@@ -5983,12 +5983,12 @@ Profile CSS
   font-weight: 700;
 }
 
-.add-listing-box form button:hover {
+.add-listing-box button:hover {
   background-color: #3b99ca;
   color: #ffffff;
 }
 
-.add-listing-box form .map iframe {
+.add-listing-box .map iframe {
   width: 100%;
   border: none;
   height: 400px;

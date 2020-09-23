@@ -45,28 +45,15 @@ export class ListingDetailsService {
         }
     ]
   }
-
-  getActivities(id:number): Promise<ActivityDetails[]> {
+  getActivities(id:number) {
     let params = new HttpParams().set('idActividad',id.toString())
+    const headers = {
+                'Content-Type': 'application/json'
+            };
 
-    return new Promise((resolve, reject) => {
-        const url = `${this.url}` ;
-        const headers = {
-            'Content-Type': 'application/json'
-        };
-        this.http.get<any[]>(url,
-            {params,headers}).subscribe(result => {
-                resolve(result);
-            },
-            error => {
-                console.info(error);
-                reject(error);
-            });
-    });
-}
-
-
-
+  return this.http
+    .get(this.url, {params,headers});
+  }
 
 
 }
