@@ -21,7 +21,7 @@ public class ConsultaUsuariosRoles {
 	@Autowired
 	private UsuarioDao usuario;
 	
-	@GetMapping("/getAutenticaion")
+	@GetMapping("/getAutenticacion")
 	public ResponseEntity<Usuario> consultarUsuario(@RequestParam String email, @RequestParam String passWord ){
 		Usuario user = null;
 		try{
