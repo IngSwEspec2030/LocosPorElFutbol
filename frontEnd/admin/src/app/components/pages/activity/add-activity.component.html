@@ -23,6 +23,10 @@
                     <label><i class='bx bx-briefcase-alt'></i> Nombre de Actividad:</label>
                     <input formControlName="nombreActividad" type="text" class="form-control"
                            placeholder="Nombre de actividad">
+                    <div *ngIf="submitted && form.controls.nombreActividad.errors" class="error-form">
+                        <div class="error-message" *ngIf="form.controls.nombreActividad.errors.required">Campo requerido</div>
+                        <div class="error-message" *ngIf="form.controls.nombreActividad.errors.minlength">Campo debe tener mínimo 3 caracteres</div>
+                    </div>
                 </div>
             </div>
 
@@ -35,6 +39,9 @@
                         <option value="Rivers">Rivers</option>
                         <option value="HighLevel">HighLevel</option>
                     </select>
+                    <div *ngIf="submitted && form.controls.categoria.errors" class="error-form">
+                        <div class="error-message" *ngIf="form.controls.categoria.errors.required">Campo requerido</div>
+                    </div>
                 </div>
             </div>
 
@@ -45,6 +52,9 @@
                         <option>Todos los sitios turísticos</option>
                         <option *ngFor="let site of sites" [ngValue]="site">{{site.name}}</option>
                     </select>
+                    <div *ngIf="submitted && form.controls.idSitio.errors" class="error-form">
+                        <div class="error-message" *ngIf="form.controls.idSitio.errors.required">Campo requerido</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,6 +69,10 @@
                     <label><i class='bx bx-text'></i> </label>
                     <textarea formControlName="descripcion" cols="30" rows="7" class="form-control"
                               placeholder="Descripción de actividad"></textarea>
+                    <div *ngIf="submitted && form.controls.descripcion.errors" class="error-form">
+                        <div class="error-message" *ngIf="form.controls.descripcion.errors.required">Campo requerido</div>
+                        <div class="error-message" *ngIf="form.controls.descripcion.errors.minlength">Campo debe tener mínimo 10 caracteres</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,6 +113,10 @@
                 <div class="form-group">
                     <label><i class='bx bx-purchase-tag'></i> Precio:</label>
                     <input formControlName="precioBase" type="text" class="form-control" placeholder="$542">
+                    <div *ngIf="submitted && form.controls.precioBase.errors" class="error-form">
+                        <div class="error-message" *ngIf="form.controls.precioBase.errors.required">Campo requerido</div>
+                        <div class="error-message" *ngIf="form.controls.precioBase.errors.minlength">Campo debe tener mínimo 3 caracteres</div>
+                    </div>
                 </div>
             </div>
         </div>
