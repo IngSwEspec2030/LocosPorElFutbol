@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivityService} from './activity-service.service';
 import {ActivatedRoute} from '@angular/router';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 
 @Component({
     selector: 'app-add-listing',
@@ -10,24 +10,15 @@ import {HttpClient} from "@angular/common/http";
     styleUrls: ['./add-activity.component.scss']
 })
 export class AddActivityComponent implements OnInit {
-
+    public form: FormGroup;
     public showMessage = false;
     public message = '';
     public errorMessage = false;
     public activityId = null;
+    public submitted = false;
 
     public selectedFile: File;
     public sites = [];
-
-    form = new FormGroup({
-        nombreActividad: new FormControl('', Validators.minLength(2)),
-        categoria: new FormControl('categoria'),
-        descripcion: new FormControl('', Validators.minLength(2)),
-        estado: new FormControl('1'),
-        precioBase: new FormControl('', Validators.minLength(2)),
-        review: new FormControl('', Validators.minLength(2)),
-        idSitio: new FormControl('idSitio'),
-    });
 
     constructor(
         private activityService: ActivityService,
@@ -41,6 +32,24 @@ export class AddActivityComponent implements OnInit {
         if (this.activityId) {
             this.getActivity(this.activityId);
         }
+
+        this.form = new FormGroup({
+            nombreActividad: new FormControl('', [
+                Validators.required,
+                Validators.minLength(3)
+            ]),
+            categoria: new FormControl('', Validators.required),
+            descripcion: new FormControl('', [
+                Validators.required,
+                Validators.minLength(10)
+            ]),
+            estado: new FormControl('1', Validators.required),
+            precioBase: new FormControl('', [
+                Validators.required,
+                Validators.minLength(3)
+            ]),
+            idSitio: new FormControl('', Validators.required)
+        });
     }
 
     async getActivity(activityId) {
@@ -93,6 +102,11 @@ export class AddActivityComponent implements OnInit {
     }
 
     onSubmit(): void {
+        this.submitted = true;
+        if (this.form.invalid) {
+            window.scrollTo(0, 0);
+            return;
+        }
         this.activityService.upsertActivity(this.form.value, this.activityId)
             .then(result => {
                 if (result['status']) {
