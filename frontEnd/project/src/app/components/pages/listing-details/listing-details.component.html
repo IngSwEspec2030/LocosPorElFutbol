@@ -2,8 +2,7 @@
 
 <div class="page-title-area page-title-bg2">
     <div class="container">
-        <div class="page-title-content">
-        </div>
+        <div class="page-title-content"></div>
     </div>
 </div>
 
@@ -40,7 +39,8 @@
                             <div class="price">
                                 Base
                                 {{
-                                    arryPrices[0]?.costoPersona | currency: "COP ":false:"2.0"
+                                    arryPrices[0]?.costoPersona
+                                        | currency: "COP ":false:"2.0"
                                 }}
                             </div>
                         </ng-template>
@@ -54,17 +54,17 @@
                 <div
                     class="listing-details-image-slides owl-carousel owl-theme"
                 >
-                <ngb-carousel>
-                    <ng-template ngbSlide *ngFor="let img of details?.imagenesActividad">
-                      <div class="picsum-img-wrapper">
-                        <img src="{{ img }}" alt="Random first slide">
-                      </div>
-                    </ng-template>
-                  </ngb-carousel>
-
+                    <ngb-carousel>
+                        <ng-template
+                            ngbSlide
+                            *ngFor="let img of details?.imagenesActividad"
+                        >
+                            <div class="picsum-img-wrapper">
+                                <img src="{{ img }}" alt="Random first slide" />
+                            </div>
+                        </ng-template>
+                    </ngb-carousel>
                 </div>
-
-              
 
                 <div class="listing-details-desc">
                     <h3>
@@ -72,7 +72,6 @@
                         {{ details?.nombreDepartamento }}
                     </h3>
                     <p>{{ details?.descripcion }}</p>
-
 
                     <h3>Ubicacion</h3>
 
@@ -96,12 +95,7 @@
                                     class="custom-radio"
                                     value="item?.costoPersona"
                                     name="hotelSelection"
-                                    (change)="
-                                        calculateTotalPrice(
-                                            item,
-                                            'h'
-                                        )
-                                    "
+                                    (change)="calculateTotalPrice(item, 'h')"
                                 />
                                 <span
                                     >{{ item?.nombre }}:
@@ -133,12 +127,7 @@
                                     class="custom-radio"
                                     value="item?.costoPersona"
                                     name="transportSelection"
-                                    (change)="
-                                        calculateTotalPrice(
-                                            item,
-                                            't'
-                                        )
-                                    "
+                                    (change)="calculateTotalPrice(item, 't')"
                                 />
                                 <span
                                     >{{ item.transportadora }}:
@@ -170,51 +159,60 @@
                                 />
                             </div>
                             <div
-                            class="validate-control"
-                            *ngIf="
-                            frmGroup.controls['txtName'].invalid &&
-                              (submitted || frmGroup.controls['txtName'].touched)
-                            "
-                          >
-                            <span *ngIf="frmGroup.controls['txtName'].errors.required"
-                              >Se requiere el nombre completo
-                            </span>
-                        </div>
+                                class="validate-control"
+                                *ngIf="
+                                    frmGroup.controls['txtName'].invalid &&
+                                    (submitted ||
+                                        frmGroup.controls['txtName'].touched)
+                                "
+                            >
+                                <span
+                                    *ngIf="
+                                        frmGroup.controls['txtName'].errors
+                                            .required
+                                    "
+                                    >Se requiere el nombre completo
+                                </span>
+                            </div>
                             <div class="form-group">
                                 <label>* Email:</label>
-                                <input type="email" 
-                                formControlName="txtEmail"
-                                class="form-control" />
+                                <input
+                                    type="email"
+                                    formControlName="txtEmail"
+                                    class="form-control"
+                                />
                             </div>
                             <div
-                            class="validate-control"
-                            *ngIf="
-                            frmGroup.controls['txtEmail'].invalid &&
-                              (submitted || frmGroup.controls['txtEmail'].touched)
-                            "
-                          >
-                            <span *ngIf="frmGroup.controls['txtEmail'].errors.required"
-                              >Se requiere un correo electrónico
-                            </span>
-                        </div>
+                                class="validate-control"
+                                *ngIf="
+                                    frmGroup.controls['txtEmail'].invalid &&
+                                    (submitted ||
+                                        frmGroup.controls['txtEmail'].touched)
+                                "
+                            >
+                                <span
+                                    *ngIf="
+                                        frmGroup.controls['txtEmail'].errors
+                                            .required
+                                    "
+                                    >Se requiere un correo electrónico
+                                </span>
+                            </div>
                             <div class="form-group">
-                                <label>* Personas:</label>
+                                <label>Personas:</label>
                                 <div class="input-counter">
-                                    <span class="minus-btn" 
-                                    (click)="getNumberoPersonas('subtract')"
-                                        >
-                                        <i class="bx bx-minus" ></i
+                                    <span class="minus-btn"
+                                        ><i class="bx bx-minus"></i
                                     ></span>
-                                    <input type="text" 
-                                    min="1"
-                                    formControlName="numPersonas"
-                                    name="numPersonas"/>
-                                   
-                                    <span class="plus-btn" 
-                                    (click)="getNumberoPersonas('add')"
-                                        >
-                                    
-                                        <i class="bx bx-plus"></i
+                                    <input #box
+                                        type="text"
+                                        value="1"
+                                        min="1"
+                                        name="numPersonas"
+                                        readonly="readonly"
+                                    />
+                                    <span class="plus-btn"
+                                        ><i class="bx bx-plus"></i
                                     ></span>
                                 </div>
                             </div>
@@ -239,11 +237,18 @@
                                 ></textarea>
                             </div>
 
-                            <button type="button"  (click)="submit()" class="default-btn">
+                            <button
+                                type="button"
+                                (click)="submit()"
+                                class="default-btn"
+                            >
                                 Cotizar ahora!
                             </button>
-                            <ngb-toast header="Faltan datos por completar" *ngIf="showToast" (hide)="showToast = false">
-                                
+                            <ngb-toast
+                                header="Faltan datos por completar"
+                                *ngIf="showToast"
+                                (hide)="showToast = false"
+                            >
                             </ngb-toast>
                         </form>
                     </div>

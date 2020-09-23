@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { ListingDetailsService } from "./listing-details.service";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ProviderModalComponent } from "./provider-modal/provider-modal.component";
@@ -15,6 +15,7 @@ import { ProviderSelection } from '../../interfaces/providerSelection..interface
     styleUrls: ["./listing-details.component.scss"],
 })
 export class ListingDetailsComponent implements OnInit {
+    @ViewChild("box") numPersons: ElementRef;
     details:any;
     hotelSelection: any;
     arryPrices: Array<ProviderSelection>= new Array<ProviderSelection>(3);
@@ -54,28 +55,13 @@ export class ListingDetailsComponent implements OnInit {
         this.arryPrices[0]={id:this.details.idActividad,costoPersona:this.details.precioBase,nombre:this.details.nombreActividad};
     }
 
-    getNumberoPersonas(personas:string)
-    {
-        let sum:number;
-        let index=this.frmGroup.get("numPersonas").value;
-
-        if (personas=="add") {
-            index++;
-        } else {
-            index--;
-        }
-        this.frmGroup.get("numPersonas").setValue(index);
-    }  
-
 
     loadContent(): void {
         this.frmGroup = this.formBuilder.group({
             txtName: [null, [Validators.required]],
             txtEmail: [null, [Validators.required], Validators.email],
             txtDate: ['05/12/2020', [Validators.required]],
-            numPersonas: [1, [Validators.required]],
             txtMessage: [null],
-        
         });
     }
 
@@ -106,10 +92,9 @@ export class ListingDetailsComponent implements OnInit {
     }
  
     getQuotation() {
-
+        this.quotation.numPersonas=this.numPersons.nativeElement.value;
         this.quotation.nombre=this.frmGroup.get("txtName").value;
         this.quotation.email= this.frmGroup.get("txtEmail").value;
-        this.quotation.numPersonas=this.frmGroup.get("numPersonas").value;
         this.quotation.fechaInicio=this.frmGroup.get("txtDate").value;
         this.quotation.fechaFin=this.frmGroup.get("txtDate").value;
         this.quotation.seleccionProvedores = this.arryPrices
