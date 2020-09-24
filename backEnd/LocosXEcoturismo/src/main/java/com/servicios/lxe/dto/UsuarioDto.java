@@ -10,9 +10,6 @@ public class UsuarioDto {
 	private int idUsuario;
 	
 	@NotNull()
-	private int tipoUsuario;
-	
-	@NotNull()
 	private String nombres;
 	
 	@NotNull()
@@ -32,18 +29,19 @@ public class UsuarioDto {
 	
 	public int idRole;
 	
+	public int idProveedor;
+	
 	// Datos proveedores	
 	public String nombreProveedor;
 	
 	public String nombreRepresentante;
 			
 
-	public UsuarioDto(@NotNull int idUsuario, @NotNull int tipoUsuario, @NotNull String nombres,
+	public UsuarioDto(@NotNull int idUsuario, @NotNull String nombres,
 			@NotNull String apellidos, @NotNull String identificacion, @NotNull String email, String password, 
 			String telefono, int idRole, String nombreProveedor, String nombreRepresentante) {
 		super();
-		this.idUsuario = idUsuario;
-		this.tipoUsuario = tipoUsuario;
+		this.idUsuario = idUsuario;		
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.identificacion = identificacion;
@@ -55,20 +53,15 @@ public class UsuarioDto {
 		this.nombreRepresentante = nombreRepresentante;
 	}
 
+	public UsuarioDto() {
+	}
+
 	public int getIdUsuario() {
 		return idUsuario;
 	}
 
 	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
-	}
-
-	public int getTipoUsuario() {
-		return tipoUsuario;
-	}
-
-	public void setTipoUsuario(int tipoUsuario) {
-		this.tipoUsuario = tipoUsuario;
 	}
 
 	public String getNombres() {
@@ -149,6 +142,14 @@ public class UsuarioDto {
 	
 	public void setNombreRepresentante(String nombreRepresentante) {
 		this.nombreRepresentante = nombreRepresentante;
-	}	
+	}
+	
+	public int getIdProveedor(){
+		return this.idProveedor;
+	}
+	
+	public void setIdProveedor(int idProveedor) {
+		this.idProveedor = idProveedor;
+	}		
 	
 }
