@@ -48,6 +48,15 @@ public class Usuario {
 		this.password = newUser.getPassword();
 		this.roles = newUser.getRole();
 	}
+	
+	public void setAll(UsuarioDto newUser) {		
+		this.identificacionUsuario = newUser.getIdentificacion();
+		this.nombreUsuario = newUser.getNombres();
+		this.apellidosUsuario = newUser.getApellidos();
+		this.telefonoUsuario = newUser.getTelefono();
+		this.emailUsuario = newUser.getEmail();
+		this.password = newUser.getPassword();		
+	}	
 
 	public int getId_usuario() {
 		return id_usuario;

@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.servicios.lxe.dao.ProveedoresDao;
+import com.servicios.lxe.dto.ActividadDto;
 import com.servicios.lxe.dto.UsuarioDto;
 import com.servicios.lxe.interfaces.IProveedor;
 import com.servicios.lxe.interfaces.IUsuario;
 import com.servicios.lxe.model.Usuario;
+import com.servicios.lxe.model.ActividadTuristica;
 import com.servicios.lxe.model.Proveedor;
 
 
@@ -77,6 +79,26 @@ public class ServicioUsuario {
 		}
 		
 		return usuariosDto;
-	}	
+	}
+	
+	public Usuario updateUser(UsuarioDto userToUpdate) {
+		int userId = userToUpdate.getIdUsuario();
+		Usuario user = iUsuario.getOne(userId);
+		user.setAll(userToUpdate);
+		iUsuario.save(user);
+		
+		if(userToUpdate.idRole == 2) {
+			updateProvider(userToUpdate);
+		}
+		
+		return user;		
+	}
+	
+	public void updateProvider(UsuarioDto userToUpdate) {
+		int providerId = userToUpdate.getIdProveedor();
+		Proveedor proveedor = iproveedor.getOne(providerId);
+		proveedor.setAll(userToUpdate);
+		iproveedor.save(proveedor);
+	} 
 
 }

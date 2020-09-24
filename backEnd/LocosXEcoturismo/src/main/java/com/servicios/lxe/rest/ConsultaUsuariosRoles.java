@@ -6,6 +6,7 @@ import java.net.URI;
 import java.util.List;
 
 import javax.persistence.NoResultException;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -72,8 +73,14 @@ public class ConsultaUsuariosRoles {
 		return ResponseEntity.created(location).build();
 	}
 	
+	@PostMapping("/user/update")
+	public Usuario updateUser(@Valid @RequestBody UsuarioDto userToUpdate) throws Exception {
+		Usuario usuario = servicioUsuario.updateUser(userToUpdate);
+		return usuario;
+	}		
+	
 	@GetMapping("/user/list")
-	public List<UsuarioDto> obtenerUsuarios() {
+	public List<UsuarioDto> getUsers() {
 		List<UsuarioDto> usuarios = servicioUsuario.obtenerUsuarios();
 		return usuarios;
 	}	
