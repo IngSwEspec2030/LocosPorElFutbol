@@ -39,7 +39,7 @@ public class Actividad {
 	public ISitioTuristico iSitioTuristico;	
 	
 	@PostMapping("/activity/create")
-	public ResponseEntity<ActividadTuristica> createUser(@RequestBody ActividadDto newActivity) throws IOException {
+	public ResponseEntity<ActividadTuristica> createActivity(@RequestBody ActividadDto newActivity) throws IOException {
 		newActivity.setSitioTuristico(iSitioTuristico.getOne(newActivity.idSitio));
 		ActividadTuristica activity = servicioActividad.createActivity(newActivity);
 		
