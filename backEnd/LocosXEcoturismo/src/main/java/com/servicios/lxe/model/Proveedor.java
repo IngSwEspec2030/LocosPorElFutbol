@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+
+import com.servicios.lxe.dto.UsuarioDto;
 
 @Entity
 public class Proveedor implements Serializable{
@@ -14,13 +18,26 @@ public class Proveedor implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id_proveedor;
+	
 	@Column(name = "nombreProveedor")
 	private String nombreProveedor;
+	
 	@Column(name = "nombreRepresentante")
 	private String nombreRepresentante;
+	
 	@Column(name = "telefono")
 	private String telefono;
 		
+	@OneToOne(targetEntity=Usuario.class)	
+	private Usuario id_usuario;
+	
+	public Proveedor(UsuarioDto newUser, Usuario id_usuario) {
+		this.nombreProveedor = newUser.getNombreProveedor();
+		this.nombreRepresentante = newUser.getNombreRepresentante();
+		this.telefono = newUser.getTelefono();
+		this.id_usuario = id_usuario;
+	}
+
 	public int getId_proveedor() {
 		return id_proveedor;
 	}

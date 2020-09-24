@@ -31,11 +31,16 @@ public class UsuarioDto {
 	public Roles roles;
 	
 	public int idRole;
+	
+	// Datos proveedores	
+	public String nombreProveedor;
+	
+	public String nombreRepresentante;
 			
 
 	public UsuarioDto(@NotNull int idUsuario, @NotNull int tipoUsuario, @NotNull String nombres,
 			@NotNull String apellidos, @NotNull String identificacion, @NotNull String email, String password, 
-			String telefono, int idRole) {
+			String telefono, int idRole, String nombreProveedor, String nombreRepresentante) {
 		super();
 		this.idUsuario = idUsuario;
 		this.tipoUsuario = tipoUsuario;
@@ -46,6 +51,8 @@ public class UsuarioDto {
 		this.password = password;
 		this.telefono = telefono;
 		this.idRole = idRole;
+		this.nombreProveedor = nombreProveedor;
+		this.nombreRepresentante = nombreRepresentante;
 	}
 
 	public int getIdUsuario() {
@@ -127,5 +134,21 @@ public class UsuarioDto {
 	public void setRole(Roles roles) {
 		this.roles = roles;
 	}
+	
+	public String getNombreProveedor(){
+		return this.nombreProveedor;
+	}
+	
+	public void setNombreProveedor(String nombreProveedor) {
+		this.nombreProveedor = nombreProveedor;
+	}
+	
+	public String getNombreRepresentante(){
+		return this.nombreRepresentante;
+	}
+	
+	public void setNombreRepresentante(String nombreRepresentante) {
+		this.nombreRepresentante = nombreRepresentante;
+	}	
 	
 }
