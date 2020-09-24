@@ -24,6 +24,7 @@ import com.servicios.lxe.dto.UsuarioDto;
 import com.servicios.lxe.interfaces.IRoles;
 import com.servicios.lxe.model.ActividadTuristica;
 import com.servicios.lxe.model.Roles;
+import com.servicios.lxe.model.SitioTuristico;
 import com.servicios.lxe.model.Usuario;
 import com.servicios.lxe.service.ServicioUsuario;
 
@@ -69,5 +70,11 @@ public class ConsultaUsuariosRoles {
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId_usuario())
 				.toUri();
 		return ResponseEntity.created(location).build();
+	}
+	
+	@GetMapping("/user/list")
+	public List<UsuarioDto> obtenerUsuarios() {
+		List<UsuarioDto> usuarios = servicioUsuario.obtenerUsuarios();
+		return usuarios;
 	}	
 }
