@@ -2,6 +2,7 @@ package com.servicios.lxe.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -99,6 +100,32 @@ public class ServicioUsuario {
 		Proveedor proveedor = iproveedor.getOne(providerId);
 		proveedor.setAll(userToUpdate);
 		iproveedor.save(proveedor);
-	} 
+	}
+	
+	public UsuarioDto getUserById(int id) {
+		Usuario usuario = iUsuario.getOne(id);
+		
+		UsuarioDto usuarioDto = null;
+		List<Object[]> proveedor = proveedoresDao.buscarPorUserId(usuario.getId_usuario());
+		
+		usuarioDto = new UsuarioDto();
+		usuarioDto.setIdUsuario(usuario.getId_usuario());
+		usuarioDto.setApellidos(usuario.getApellidosUsuario());
+		usuarioDto.setNombres(usuario.getNombreUsuario());
+		usuarioDto.setIdentificacion(usuario.getIdentificacionUsuario());
+		usuarioDto.setEmail(usuario.getEmailUsuario());
+		usuarioDto.setTelefono(usuario.getTelefonoUsuario());
+		usuarioDto.setRole(usuario.getRoles());
+		usuarioDto.setIdRole(usuario.getRoles().getId_rol());
+		
+		//Proveedor
+		if(proveedor.isEmpty() == false) {
+			usuarioDto.setIdProveedor((int) proveedor.get(0)[0]);
+			usuarioDto.setNombreProveedor((String) proveedor.get(0)[1]);
+			usuarioDto.setNombreRepresentante((String) proveedor.get(0)[2]);
+		}		
+		
+		return usuarioDto;
+	}	
 
 }
