@@ -47,6 +47,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProviderModalComponent } from './components/pages/listing-details/provider-modal/provider-modal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastContainerComponent } from './components/pages/Toast/toast-container/toast-container.component';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { HttpClientModule } from '@angular/common/http';
     ComingSoonComponent,
     LoginComponent,
     RegisterComponent,
-    ProviderModalComponent
+    ProviderModalComponent,
+    ToastContainerComponent
   ],
     imports: [
         BrowserModule,

@@ -6,7 +6,6 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { QuotationDetails } from "../../interfaces/ctemporal.interface";
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivityDetails } from '../../interfaces/activityDetails.interface';
 import { ProviderSelection } from '../../interfaces/providerSelection..interface'
 
 @Component({
@@ -59,7 +58,7 @@ export class ListingDetailsComponent implements OnInit {
     loadContent(): void {
         this.frmGroup = this.formBuilder.group({
             txtName: [null, [Validators.required]],
-            txtEmail: [null, [Validators.required], Validators.email],
+            txtEmail: [null, [Validators.required]],
             txtDate: ['05/12/2020', [Validators.required]],
             txtMessage: [null],
         });
