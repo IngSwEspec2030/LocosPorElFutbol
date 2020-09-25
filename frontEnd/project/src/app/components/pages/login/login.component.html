@@ -11,32 +11,39 @@
                 <div class="d-table">
                     <div class="d-table-cell">
                         <div class="login-form">
-                            <div class="logo">
-                                <a routerLink="/"><img src="assets/img/black-logo.png" alt="image"></a>
-                            </div>
+                            <!--div class="logo">
+                                <a routerLink="/"><img src="assets/img/logo.png" alt="image"></a>
+                            </div-->
 
-                            <h3>Welcome Back</h3>
-                            <p>New to Louise? <a routerLink="/register">Sign up</a></p>
+                            <h3>Autenticación</h3>
+                            <!--p>No estas registrado?<a routerLink="/register">Nuevo Usuario</a></p-->
 
-                            <form>
+                            <form [formGroup]="form" (ngSubmit)="onSubmit()">
                                 <div class="form-group">
-                                    <input type="email" placeholder="Your Email Address" class="form-control">
+                                    <input type="email" formControlName="email" placeholder="Correo Electrónico"
+                                        class="form-control">
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="password" placeholder="Your Password" class="form-control">
+                                    <input type="password" formControlName="password" placeholder="Contraseña"
+                                        class="form-control">
                                 </div>
 
-                                <button type="submit">Login</button>
-                                
-                                <div class="forgot-password">
+                                <div class="main-search-btn">
+                                    <button type="submit">
+                                        Iniciar Sesión
+                                    </button>
+                                </div>
+
+
+                                <!--div class="forgot-password">
                                     <a routerLink="/">Forgot Password?</a>
                                 </div>
 
                                 <div class="connect-with-social">
                                     <button type="submit" class="facebook"><i class='bx bxl-facebook'></i> Connect with Facebook</button>
                                     <button type="submit" class="twitter"><i class='bx bxl-twitter'></i> Connect with Twitter</button>
-                                </div>
+                                </div-->
                             </form>
                         </div>
                     </div>
