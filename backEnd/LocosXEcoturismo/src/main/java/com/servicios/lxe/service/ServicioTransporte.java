@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.servicios.lxe.dao.TransportDao;
 import com.servicios.lxe.dto.TransporteDto;
 import com.servicios.lxe.interfaces.IActividadTuristica;
 import com.servicios.lxe.interfaces.IProveedorActividad;
@@ -26,12 +27,34 @@ public class ServicioTransporte {
 	@Autowired
 	private IProveedorActividad iProveedorActividad;
 	
+	@Autowired
+	private TransportDao iTransportDao;
+	
 	public Transporte createTransport(TransporteDto newTransport) {
 		Transporte transporte = new Transporte(newTransport);
 		System.out.println(transporte);
 		iTransporte.save(transporte);
 		
-		List<Integer> actividades = newTransport.getIdActividades();
+		updateProvidersActivities(newTransport, transporte);			
+
+		return transporte;
+	}
+		
+	public Transporte updateTransport(TransporteDto transportToUpdate) {
+		int transportId = transportToUpdate.getIdTransporte();
+		Transporte transporte = iTransporte.getOne(transportId);
+		transporte.setAll(transportToUpdate);
+		iTransporte.save(transporte);
+		
+		iTransportDao.deleteByTypeAndProvider(transportToUpdate.getTipo(), transportId);
+		
+		updateProvidersActivities(transportToUpdate, transporte);
+							
+		return transporte;		
+	}
+	
+	private void updateProvidersActivities(TransporteDto transportToUpdate, Transporte transporte) {
+		List<Integer> actividades = transportToUpdate.getIdActividades();
 		for (Integer idActividad : actividades) {
 			
 			ActividadTuristica actividadTuristica = iActividadTuristica.getOne(idActividad);
@@ -44,8 +67,6 @@ public class ServicioTransporte {
 			
 			iProveedorActividad.save(proveedoresActividad);
 		}			
-
-		return transporte;
-	}	
+	}
 	
 }

@@ -51,6 +51,16 @@ public class Transporte implements Serializable{
 		this.idUsuario = newTransport.getUserId();
 	}
 	
+	public void setAll(TransporteDto transportToUpdate) {
+		this.id_transporte = transportToUpdate.getIdTransporte();
+		this.tipo = transportToUpdate.getTipo();
+		this.transportadora = transportToUpdate.getTransportadora();
+		this.nombreRepresentante = transportToUpdate.getNombreRepresentante();
+		this.costoPersona = transportToUpdate.getCostoPersona();
+		this.telefono = transportToUpdate.getTelefono();
+		this.idUsuario = transportToUpdate.getUserId();		
+	}
+	
 	
 	public int getId_transporte() {
 		return id_transporte;
