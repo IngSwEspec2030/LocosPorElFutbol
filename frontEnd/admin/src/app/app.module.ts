@@ -13,10 +13,11 @@ import {InvoiceComponent} from './components/pages/invoice/invoice.component';
 import {MyListingComponent} from './components/pages/my-listing/my-listing.component';
 import {WebAnalyticsComponent} from './components/charts/web-analytics/web-analytics.component';
 import {AddActivityComponent} from './components/pages/activity/add-activity.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { ListActivityComponent } from './components/pages/activity-list/list-activity.component';
 import { UserComponent } from './components/pages/user/user.component';
+import { UserListComponent } from './components/pages/user-list/user-list.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +33,8 @@ import { UserComponent } from './components/pages/user/user.component';
         WebAnalyticsComponent,
         AddActivityComponent,
         ListActivityComponent,
-        UserComponent
+        UserComponent,
+        UserListComponent
     ],
     imports: [
         BrowserModule,

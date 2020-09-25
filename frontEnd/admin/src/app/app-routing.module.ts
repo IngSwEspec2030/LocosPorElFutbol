@@ -8,6 +8,7 @@ import { MyListingComponent } from './components/pages/my-listing/my-listing.com
 import {AddActivityComponent} from './components/pages/activity/add-activity.component';
 import {ListActivityComponent} from './components/pages/activity-list/list-activity.component';
 import {UserComponent} from './components/pages/user/user.component';
+import {UserListComponent} from './components/pages/user-list/user-list.component';
 
 const routes: Routes = [
     {path: '', component: DashboardComponent},
@@ -17,6 +18,8 @@ const routes: Routes = [
     {path: 'activity-edit/:id', component: AddActivityComponent},
     {path: 'activity-list', component: ListActivityComponent},
     {path: 'user', component: UserComponent},
+    {path: 'user-edit/:id', component: UserComponent},
+    {path: 'user-list', component: UserListComponent},
     {path: 'app-todo', component: AppTodoComponent},
     {path: 'my-profile', component: MyProfileComponent},
     {path: 'invoice', component: InvoiceComponent},
