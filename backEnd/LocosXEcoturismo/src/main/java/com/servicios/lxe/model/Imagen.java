@@ -16,8 +16,10 @@ public class Imagen implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id_imagen;
+	
 	@Column(name = "rutaImagen")
 	private String rutaImagen;
+	
 	@ManyToOne()
     @JoinColumn(name="entidad_id")
 	private SitioTuristico sitioTuristico;	
@@ -29,12 +31,15 @@ public class Imagen implements Serializable{
 	public int getId_imagen() {
 		return id_imagen;
 	}
+	
 	public void setId_imagen(int id_imagen) {
 		this.id_imagen = id_imagen;
 	}
+	
 	public String getRutaImagen() {
 		return rutaImagen;
 	}
+	
 	public void setRutaImagen(String rutaImagen) {
 		this.rutaImagen = rutaImagen;
 	}
@@ -42,6 +47,7 @@ public class Imagen implements Serializable{
 	public String getTipoImagen() {
 		return tipoImagen;
 	}
+	
 	public void setTipoImagen(String tipoImagen) {
 		this.tipoImagen = tipoImagen;
 	}

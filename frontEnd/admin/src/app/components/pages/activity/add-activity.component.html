@@ -101,6 +101,9 @@
                         <input type="file" class="upload" (change)="onFileChanged($event)">
                     </div>
                 </div>
+                <div class="images-load" *ngFor="let image of images">
+                    <img src="{{urlPath}}{{image}}" width="200">
+                </div>
             </div>
         </div>
     </div>
