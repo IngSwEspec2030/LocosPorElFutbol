@@ -15,6 +15,22 @@ export class UserService {
     ) {
     }
 
+    getUserById(userId?: number): Promise<any[]> {
+        return new Promise((resolve, reject) => {
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            this.http.get<any[]>(`${this.baseUrl}user/get/${userId}`,
+                {headers}).subscribe(result => {
+                    resolve(result);
+                },
+                error => {
+                    console.info(error);
+                    reject(error);
+                });
+        });
+    }
+
     upsertActivity(user: UserInterface, userId?: number) {
         return new Promise((resolve, reject) => {
             const userSave = user;

@@ -27,8 +27,12 @@ export class UserComponent implements OnInit {
     ngOnInit(): void {
         this.userId = this.route.snapshot.params.id;
 
+        if (this.userId) {
+            this.getUserById(this.userId);
+        }
+
         this.form = new FormGroup({
-            tipoUsuario: new FormControl('1', Validators.required),
+            tipoUsuario: new FormControl('', Validators.required),
             apellidos: new FormControl('', [
                 Validators.required,
                 Validators.minLength(3)
@@ -67,6 +71,21 @@ export class UserComponent implements OnInit {
 
         this.form.get('nombreRepresentante').clearValidators();
         this.form.get('nombreRepresentante').updateValueAndValidity();
+    }
+
+    async getUserById(userId) {
+        const user = await this.userService.getUserById(userId);
+        this.form.controls['nombres'].setValue(user['nombres']);
+        this.form.controls['apellidos'].setValue(user['apellidos']);
+        this.form.controls['identificacion'].setValue(user['identificacion']);
+        this.form.controls['email'].setValue(user['email']);
+        this.form.controls['telefono'].setValue(user['telefono']);
+        this.form.controls['nombreProveedor'].setValue(user['nombreProveedor']);
+        this.form.controls['nombreRepresentante'].setValue(user['nombreRepresentante']);
+        this.form.controls['tipoUsuario'].setValue(user['idRole']);
+        setTimeout( () => {
+            this.changeUserType(2);
+        }, 500);
     }
 
     changeUserType(userType): void {
@@ -113,7 +132,7 @@ export class UserComponent implements OnInit {
             .then(result => {
                 if (result['status']) {
                     this.showMessage = true;
-                    this.message = 'Usuario creado exitosamente';
+                    this.message = 'Usuario guardado exitosamente';
                     window.scrollTo(0, 0);
                 }
             })

@@ -111,7 +111,7 @@ export class AddActivityComponent implements OnInit {
             .then(result => {
                 if (result['status']) {
                     this.showMessage = true;
-                    this.message = 'Actividad creada exitosamente';
+                    this.message = 'Actividad guardada exitosamente';
                     window.scrollTo(0, 0);
                 }
             })

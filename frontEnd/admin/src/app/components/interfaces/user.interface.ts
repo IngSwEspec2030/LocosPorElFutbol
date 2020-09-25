@@ -11,5 +11,4 @@ export interface UserInterface {
     nombreRepresentante: string;
     idUsuario?: number;
     idProveedor?: number;
-    idRole: number;
 }
