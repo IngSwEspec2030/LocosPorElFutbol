@@ -63,6 +63,8 @@ export class AddActivityComponent implements OnInit {
         this.form.controls['precioBase'].setValue(activity['precioBase']);
         this.form.controls['estado'].setValue(activity['estado']);
 
+        this.images = activity['images'];
+
         const siteId = activity['sitioTuristico']['id_sitio'];
         setTimeout(() => {
             const filteredSites = this.sites.filter(site => site.id === siteId);
@@ -103,6 +105,13 @@ export class AddActivityComponent implements OnInit {
             );
     }
 
+    removeImage(image) {
+        const index = this.images.indexOf(image);
+        if (index > -1) {
+            this.images.splice(index, 1);
+        }
+    }
+
     onSubmit(): void {
         this.submitted = true;
         if (this.form.invalid) {
@@ -113,6 +122,7 @@ export class AddActivityComponent implements OnInit {
             .then(result => {
                 if (result['status']) {
                     this.showMessage = true;
+                    this.errorMessage = false;
                     this.message = 'Actividad guardada exitosamente';
                     window.scrollTo(0, 0);
                 }

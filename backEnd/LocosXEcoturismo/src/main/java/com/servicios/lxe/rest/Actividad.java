@@ -67,8 +67,8 @@ public class Actividad {
 	}	
 	
 	@GetMapping("/activity/get/{id}")
-	public Optional<ActividadTuristica> obtenerActividadPorId(@PathVariable int id) {
-		Optional<ActividadTuristica> activity = servicioActividad.obtenerActividadPorId(id);
+	public ActividadDto obtenerActividadPorId(@PathVariable int id) {
+		ActividadDto activity = servicioActividad.obtenerActividadPorId(id);
 		return activity;
 	}
 	

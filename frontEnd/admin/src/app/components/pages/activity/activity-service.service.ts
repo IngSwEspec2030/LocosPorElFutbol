@@ -70,7 +70,7 @@ export class ActivityService {
             if (activityId) {
                 formData['idActividad'] = activityId;
             }
-debugger;
+
             return this.http.post<any>(`${this.baseUrl}${path}`, formData, {headers}).subscribe(response => {
                     resolve({status: 201});
                 },

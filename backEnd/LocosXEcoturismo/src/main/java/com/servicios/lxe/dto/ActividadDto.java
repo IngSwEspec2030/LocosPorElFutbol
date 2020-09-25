@@ -1,6 +1,7 @@
 package com.servicios.lxe.dto;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.servicios.lxe.interfaces.ISitioTuristico;
+import com.servicios.lxe.model.ActividadTuristica;
 import com.servicios.lxe.model.SitioTuristico;
 
 public class ActividadDto {
@@ -35,6 +37,7 @@ public class ActividadDto {
 	
 	public List<String> images;
 
+	public ActividadDto() {}
 
 	public ActividadDto(@NotNull int idActividad, @NotNull String nombreActividad, String categoria, String descripcion,
 			int estado, BigDecimal precioBase, int review, int idSitio, List<String> images) {
@@ -120,8 +123,17 @@ public class ActividadDto {
 		return images;
 	}
 
-	public void setSImages(List<String> images) {
-		this.images = images;
+	public void setImages(List<String> images) {
+		this.images= images;
+	}
+
+	public void setImagesObj(List<Object[]> imagesObj) {
+		List<String> images = new ArrayList<>();
+		for(Object[] imageObj: imagesObj) {
+			images.add((String) imageObj[1]);
+		}
+		
+		this.setImages(images);
 	}	
 	
 }
