@@ -51,7 +51,7 @@ public class ServicioUsuario {
 		iproveedor.save(proveedor);
 	}
 	
-	public List<UsuarioDto> obtenerUsuarios() {
+	public List<UsuarioDto> getUsers() {
 		List<Usuario> usuarios = iUsuario.findAll();
 		List<UsuarioDto> usuariosDto = new ArrayList<>();
 		UsuarioDto usuarioDto = null;
@@ -126,6 +126,17 @@ public class ServicioUsuario {
 		}		
 		
 		return usuarioDto;
+	}
+	
+	public Void deleteUser(int id) {
+		UsuarioDto user = getUserById(id);
+		
+		if(user.idProveedor != 0) {
+			iproveedor.deleteById(user.idProveedor);
+		}
+		
+		iUsuario.deleteById(id);
+		return null;
 	}	
 
 }
