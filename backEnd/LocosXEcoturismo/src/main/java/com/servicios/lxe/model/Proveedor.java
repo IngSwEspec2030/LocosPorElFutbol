@@ -31,12 +31,20 @@ public class Proveedor implements Serializable{
 	@OneToOne(targetEntity=Usuario.class)	
 	private Usuario id_usuario;
 	
+	public Proveedor() {}
+	
 	public Proveedor(UsuarioDto newUser, Usuario id_usuario) {
 		this.nombreProveedor = newUser.getNombreProveedor();
 		this.nombreRepresentante = newUser.getNombreRepresentante();
 		this.telefono = newUser.getTelefono();
 		this.id_usuario = id_usuario;
 	}
+	
+	public void setAll(UsuarioDto providerToUpdate) {
+		this.nombreProveedor = providerToUpdate.getNombreProveedor();
+		this.nombreRepresentante = providerToUpdate.getNombreRepresentante();
+		this.telefono = providerToUpdate.getTelefono();		
+	}	
 
 	public int getId_proveedor() {
 		return id_proveedor;
