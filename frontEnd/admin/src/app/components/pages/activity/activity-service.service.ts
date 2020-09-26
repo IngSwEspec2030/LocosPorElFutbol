@@ -47,7 +47,7 @@ export class ActivityService {
         });
     }
 
-    upsertActivity(activity: ActivityInterface, activityId?: number) {
+    upsertActivity(activity: ActivityInterface, activityId?: number, images?: Array<string>) {
         return new Promise((resolve, reject) => {
             const activitySave = activity;
             const path = (activityId) ? 'activity/update' : 'activity/create';
@@ -63,7 +63,8 @@ export class ActivityService {
                 nombreActividad: activitySave.nombreActividad,
                 precioBase: parseInt(activitySave.precioBase, 10),
                 review: activitySave.review || 5,
-                idSitio: activitySave.idSitio['id']
+                idSitio: activitySave.idSitio['id'],
+                images
             };
 
             if (activityId) {

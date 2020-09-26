@@ -19,6 +19,9 @@ export class AddActivityComponent implements OnInit {
 
     public selectedFile: File;
     public sites = [];
+    public images = [];
+
+    public urlPath = 'http://localhost:8080/public/images/';
 
     constructor(
         private activityService: ActivityService,
@@ -60,6 +63,8 @@ export class AddActivityComponent implements OnInit {
         this.form.controls['precioBase'].setValue(activity['precioBase']);
         this.form.controls['estado'].setValue(activity['estado']);
 
+        this.images = activity['images'];
+
         const siteId = activity['sitioTuristico']['id_sitio'];
         setTimeout(() => {
             const filteredSites = this.sites.filter(site => site.id === siteId);
@@ -81,24 +86,30 @@ export class AddActivityComponent implements OnInit {
     public onFileChanged(event) {
         // Select File
         this.selectedFile = event.target.files[0];
+        this.onUpload();
     }
 
     onUpload() {
-        console.log(this.selectedFile);
         // FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
         const uploadImageData = new FormData();
         uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
 
-        // Make a call to the Spring Boot Application to save the image
         this.httpClient.post('http://localhost:8080/image/upload', uploadImageData, {observe: 'response'})
             .subscribe((response) => {
-                    if (response.status === 200) {
-                        this.message = 'Image uploaded successfully';
+                    if (response.status === 201) {
+                        this.images.push(response.body['file']);
                     } else {
-                        this.message = 'Image not uploaded successfully';
+                        console.info(response);
                     }
                 }
             );
+    }
+
+    removeImage(image) {
+        const index = this.images.indexOf(image);
+        if (index > -1) {
+            this.images.splice(index, 1);
+        }
     }
 
     onSubmit(): void {
@@ -107,10 +118,11 @@ export class AddActivityComponent implements OnInit {
             window.scrollTo(0, 0);
             return;
         }
-        this.activityService.upsertActivity(this.form.value, this.activityId)
+        this.activityService.upsertActivity(this.form.value, this.activityId, this.images)
             .then(result => {
                 if (result['status']) {
                     this.showMessage = true;
+                    this.errorMessage = false;
                     this.message = 'Actividad guardada exitosamente';
                     window.scrollTo(0, 0);
                 }

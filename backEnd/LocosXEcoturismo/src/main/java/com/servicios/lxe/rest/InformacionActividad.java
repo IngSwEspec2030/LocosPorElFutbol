@@ -49,7 +49,7 @@ public class InformacionActividad {
 		result.setDescripcionActividad(actividad.getDescripcion());		
 		result.setPrecioBase(actividad.getPrecioBase());
 		result.setReview(actividad.getReview());
-		result.setImagenesActividad(obtenerImagenes(actividad.getSitioTuristico().getImagen()));
+		//result.setImagenesActividad(obtenerImagenes(actividad.getSitioTuristico().getImagen()));
 		result.setEstado(actividad.getEstado());
 		result.setProvedoresHospedaje(obtenerProveedoresHospedaje(actividad));
 		result.setProvedoresTransporte(obtenerProveedoresTransporte(actividad));
