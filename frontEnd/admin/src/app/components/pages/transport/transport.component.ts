@@ -34,7 +34,7 @@ export class TransportComponent implements OnInit {
     ngOnInit(): void {
         this.transportId = this.route.snapshot.params.id;
         if (this.transportId) {
-            //this.getTransport(this.transportId);
+            this.getTransport(this.transportId);
         }
 
         this.form = new FormGroup({
@@ -61,24 +61,22 @@ export class TransportComponent implements OnInit {
             ])
         });
     }
-/*
+
     async getTransport(transportId) {
-        const Transport = await this.transportService.getTransportById(transportId);
-        this.form.controls['nombreActividad'].setValue(Transport['nombreActividad']);
-        this.form.controls['categoria'].setValue(Transport['categoria']);
-        this.form.controls['descripcion'].setValue(Transport['descripcion']);
-        this.form.controls['precioBase'].setValue(Transport['precioBase']);
-        this.form.controls['estado'].setValue(Transport['estado']);
+        const transport = await this.transportService.getTransportById(transportId);
+        this.form.controls['transportadora'].setValue(transport['transportadora']);
+        this.form.controls['nombreRepresentante'].setValue(transport['nombreRepresentante']);
+        this.form.controls['telefono'].setValue(transport['telefono']);
+        this.form.controls['actividades'].setValue(transport['idActividades']);
+        this.form.controls['descripcion'].setValue(transport['descripcion']);
+        this.form.controls['costoPersona'].setValue(transport['costoPersona']);
 
-        this.images = Transport['images'];
-
-        const siteId = Transport['sitioTuristico']['id_sitio'];
+        this.images = transport['images'];
         setTimeout(() => {
-            const filteredSites = this.activities.filter(site => site.id === siteId);
-            const index = this.activities.indexOf(filteredSites[0]);
-            this.form.controls['idSitio'].setValue(this.activities[index]);
+            const filteredSites = this.activities.filter(activity => transport['idActividades'].includes(parseInt(activity.id, 10)));
+            this.form.controls['actividades'].setValue(filteredSites);
         }, 1000);
-    }*/
+    }
 
     async getActivities() {
         this.activities = await this.transportService.getActivities();

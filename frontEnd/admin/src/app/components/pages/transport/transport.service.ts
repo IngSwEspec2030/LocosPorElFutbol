@@ -28,6 +28,22 @@ export class TransportService {
         });
     }
 
+    getTransportById(transportId?: number): Promise<any[]> {
+        return new Promise((resolve, reject) => {
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            this.http.get<any[]>(`${this.baseUrl}transport/get/${transportId}`,
+                {headers}).subscribe(result => {
+                    resolve(result);
+                },
+                error => {
+                    console.info(error);
+                    reject(error);
+                });
+        });
+    }
+
     upsertTransport(transport: TransportInterface, transportId?: number, images?: Array<string>) {
         return new Promise((resolve, reject) => {
             const transportSave = transport;
