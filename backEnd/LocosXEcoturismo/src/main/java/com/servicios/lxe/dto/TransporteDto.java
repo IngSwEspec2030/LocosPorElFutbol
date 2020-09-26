@@ -1,6 +1,7 @@
 package com.servicios.lxe.dto;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -24,22 +25,29 @@ public class TransporteDto {
 	
 	private List<Integer> idActividades;	
 	
+	public List<String> images;
+	
+	public String descripcion;
+	
 	@NotNull()
 	private int userId;
 	
 	public TransporteDto() {}
 
 	public TransporteDto(@NotNull int idTransporte, @NotNull String nombreRepresentante, @NotNull BigDecimal costoPersona,
-			String telefono, String tipo, String transportadora, @NotNull int userId, List<Integer> idActividades) {
+			String telefono, String tipo, String transportadora, String descripcion,
+			@NotNull int userId, List<Integer> idActividades, List<String> images) {
 		super();
 		this.idTransporte = idTransporte;
 		this.nombreRepresentante = nombreRepresentante;
 		this.costoPersona = costoPersona;
 		this.telefono = telefono;
 		this.tipo = tipo;
+		this.descripcion = descripcion;
 		this.transportadora = transportadora;
 		this.userId = userId;
 		this.idActividades = idActividades;
+		this.images = images;
 	}
 
 	public int getIdTransporte() {
@@ -104,6 +112,31 @@ public class TransporteDto {
 
 	public void setIdActividades(List<Integer> idActividades) {
 		this.idActividades = idActividades;
+	}	
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}	
+	
+	public List<String> getImages() {
+		return images;
+	}
+
+	public void setImages(List<String> images) {
+		this.images= images;
+	}
+
+	public void setImagesObj(List<Object[]> imagesObj) {
+		List<String> images = new ArrayList<>();
+		for(Object[] imageObj: imagesObj) {
+			images.add((String) imageObj[1]);
+		}
+		
+		this.setImages(images);
 	}	
 	
 }

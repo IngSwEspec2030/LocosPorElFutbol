@@ -6,10 +6,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.servicios.lxe.dao.ImageDao;
 import com.servicios.lxe.dao.TransportDao;
 import com.servicios.lxe.dto.ActividadDto;
 import com.servicios.lxe.dto.TransporteDto;
 import com.servicios.lxe.interfaces.IActividadTuristica;
+import com.servicios.lxe.interfaces.IImage;
 import com.servicios.lxe.interfaces.IProveedorActividad;
 import com.servicios.lxe.interfaces.ITransporte;
 import com.servicios.lxe.model.ActividadTuristica;
@@ -32,10 +34,25 @@ public class ServicioTransporte {
 	@Autowired
 	private TransportDao iTransportDao;
 	
+	@Autowired
+	private IImage iImage;	
+	
+	@Autowired
+	private ImageDao imageDao;	
+	
 	public Transporte createTransport(TransporteDto newTransport) {
 		Transporte transporte = new Transporte(newTransport);
 		System.out.println(transporte);
 		iTransporte.save(transporte);
+		
+		List<String> images = newTransport.getImages();
+		for (String imagePath : images) {
+			Imagen imagen = new Imagen();
+			imagen.setRutaImagen(imagePath);
+			imagen.setTipoImagen("transporte");
+			imagen.setIdEntidad(transporte.getId_transporte());
+			iImage.save(imagen);
+		}		
 		
 		updateProvidersActivities(newTransport, transporte);			
 
@@ -49,6 +66,17 @@ public class ServicioTransporte {
 		iTransporte.save(transporte);
 		
 		iTransportDao.deleteActivitiesProvider(transportToUpdate.getTipo(), transportId);
+		
+		imageDao.deleteByEntityId(transportId);
+		
+		List<String> images = transportToUpdate.getImages();
+		for (String imagePath : images) {
+			Imagen imagen = new Imagen();
+			imagen.setRutaImagen(imagePath);
+			imagen.setTipoImagen("transporte");
+			imagen.setIdEntidad(transporte.getId_transporte());
+			iImage.save(imagen);
+		}		
 		
 		updateProvidersActivities(transportToUpdate, transporte);
 							
@@ -88,29 +116,22 @@ public class ServicioTransporte {
 		transporteDto.setTipo(transporte.getTipo());
 		transporteDto.setTransportadora(transporte.getTransportadora());
 		transporteDto.setUserId(transporte.getIdUsuario());
+		transporteDto.setDescripcion(transporte.getDescripcion());
 		
 		List<Integer> activityIds = iTransportDao.getActivitiesProvider(transporte.getTipo(), id);
 		transporteDto.setIdActividades(activityIds);
 		
-		/*
-		List<Object[]> images = imageDao.searchByActivityId(id);
+		List<Object[]> images = imageDao.searchByEntityId(id);
+		transporteDto.setImagesObj(images);
+
 		
-		
-		actividad.setCategoria(activity.getCategoria());
-		actividad.setDescripcion(activity.getDescripcion());
-		actividad.setEstado(activity.getEstado());
-		actividad.setIdActividad(activity.getId_actividad());
-		actividad.setNombreActividad(activity.getNombreActividad());
-		actividad.setPrecioBase(activity.getPrecioBase());
-		actividad.setImagesObj(images);
-		actividad.setSitioTuristico(activity.getSitioTuristico());
-		*/
 		return transporteDto;
 	}	
 	
 	public Void deleteTransport(int id, String type) {		
 		iTransportDao.deleteActivitiesProvider(type, id);
 		iTransporte.deleteById(id);
+		imageDao.deleteByEntityId(id);
 		return null;
 	}
 	

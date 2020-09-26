@@ -37,6 +37,9 @@ public class Transporte implements Serializable{
 	@Column(name = "idUsuario")
 	private int idUsuario;
 	
+	@Column(name = "descripcion")
+	private String descripcion;	
+	
 
 	public Transporte() {}
 	
@@ -49,6 +52,7 @@ public class Transporte implements Serializable{
 		this.costoPersona = newTransport.getCostoPersona();
 		this.telefono = newTransport.getTelefono();
 		this.idUsuario = newTransport.getUserId();
+		this.descripcion = newTransport.getDescripcion();
 	}
 	
 	public void setAll(TransporteDto transportToUpdate) {
@@ -58,7 +62,8 @@ public class Transporte implements Serializable{
 		this.nombreRepresentante = transportToUpdate.getNombreRepresentante();
 		this.costoPersona = transportToUpdate.getCostoPersona();
 		this.telefono = transportToUpdate.getTelefono();
-		this.idUsuario = transportToUpdate.getUserId();		
+		this.idUsuario = transportToUpdate.getUserId();
+		this.descripcion = transportToUpdate.getDescripcion();
 	}
 	
 	
@@ -117,5 +122,13 @@ public class Transporte implements Serializable{
 	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
 	}
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+	
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}	
 	
 }

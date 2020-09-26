@@ -57,7 +57,7 @@ public class ServicioActividad {
 		activity.setAll(activityToUpdate);
 		iActividadTuristica.save(activity);
 		
-		imageDao.deleteByActivityId(activityId);
+		imageDao.deleteByEntityId(activityId);
 		
 		List<String> images = activityToUpdate.getImages();
 		for (String imagePath : images) {
@@ -77,7 +77,7 @@ public class ServicioActividad {
 	
 	public ActividadDto obtenerActividadPorId(int id) {
 		ActividadTuristica activity = iActividadTuristica.getOne(id);
-		List<Object[]> images = imageDao.searchByActivityId(id);
+		List<Object[]> images = imageDao.searchByEntityId(id);
 		
 		ActividadDto actividad = new ActividadDto();
 		actividad.setCategoria(activity.getCategoria());
@@ -92,7 +92,7 @@ public class ServicioActividad {
 	}
 	
 	public Void eliminarActividad(int id) {
-		imageDao.deleteByActivityId(id);
+		imageDao.deleteByEntityId(id);
 		iActividadTuristica.deleteById(id);
 		return null;
 	}	
