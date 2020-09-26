@@ -56,89 +56,6 @@
     </div>
 </div>
 
-<!-- Poner en version final -->
-<!--<section class="listing-categories-area bg-F7F9FB pt-100 pb-70">
-    <div class="container">
-        <div class="section-title">
-            <span class="sub-title">Lista de Categorías</span>
-            <h2>Categorías Ecoturísticas</h2>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-3 col-sm-6 col-md-4">
-                <div class="single-listing-category">
-                    <a routerLink="/listing-four">
-                        <i class='bx bx-world'></i>
-                        Aventura
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-md-4">
-                <div class="single-listing-category">
-                    <a routerLink="/listing-four">
-                        <i class='bx bxs-briefcase-alt-2'></i>
-                        Multi Actividades
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-md-4">
-                <div class="single-listing-category">
-                    <a routerLink="/listing-four">
-                        <i class='bx bxs-binoculars'></i>
-                        Exploración
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-md-4">
-                <div class="single-listing-category">
-                    <a routerLink="/listing-four">
-                        <i class='bx bx-walk'></i>
-                        Caminatas
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-md-4">
-                <div class="single-listing-category">
-                    <a routerLink="/listing-four">
-                        <i class='bx bx-home-heart'></i>
-                        Familiar
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-md-4">
-                <div class="single-listing-category">
-                    <a routerLink="/listing-four">
-                        <i class='bx bx-aperture'></i>
-                        Grupos
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-md-4">
-                <div class="single-listing-category">
-                    <a routerLink="/listing-four">
-                        <i class='bx bx-arrow-to-top'></i>
-                        Alto Nivel
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-sm-6 col-md-4">
-                <div class="single-listing-category">
-                    <a routerLink="/listing-four">
-                        <i class='bx bxs-wink-smile'></i>
-                        Individual
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>-->
 
 <section #actividades class="listing-area pt-100 pb-70">
     <div class="container">
@@ -152,7 +69,7 @@
         <div class="row">
             <div class="col-lg-4" *ngFor="let activity of activities">
                 <div class="single-listing-box">
-                    <a routerLink="/listing-details" class="listing-image">
+                    <a  class="listing-image">
                         <img src="{{activity.imagenesActividad[0]}}" alt="image" style="height: 280px">
                     </a>
 
@@ -162,7 +79,7 @@
 
                     <div class="listing-content">
                         <div class="content">
-                            <h3><a routerLink="/listing-details" [queryParams]="{id: activity.idActividad}" >{{activity.nombreActividad}}</a></h3>
+                            <h3><a routerLink="/listing-details"  [ngClass]="{'disabled': activity.estado != 1}" [queryParams]="{id: activity.idActividad}" >{{activity.nombreActividad}}</a></h3>
                             <span class="location"><i class='bx bx-map'></i>
                                 {{activity.nombreDepartamento}},
                                 {{activity.nombreSitioTuristico}}

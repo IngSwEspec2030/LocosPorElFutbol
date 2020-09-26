@@ -78,7 +78,6 @@
                     <li>IVA <span>{{ iva | currency: "COP ":false:"2.0" }}</span></li>
                     <li>Total <span>{{ total | currency: "COP ":false:"2.0" }}</span></li>
                 </ul>
-                <button class="btn btn-success" (click)="showSuccess(successTpl)" ngbTooltip="Will disappear in 10s">Success toast</button>&nbsp;
                 <button type="button" (click)="cotizar()" class="default-btn success">Cotizar</button>
                 <a routerLink="/" class="default-btn danger">Descartar</a>
                 <ng-template #successTpl>
