@@ -19,6 +19,7 @@ import { ListActivityComponent } from './components/pages/activity-list/list-act
 import { UserComponent } from './components/pages/user/user.component';
 import { UserListComponent } from './components/pages/user-list/user-list.component';
 import { TransportComponent } from './components/pages/transport/transport.component';
+import { TransportListComponent } from './components/pages/transport-list/transport-list.component';
 
 @NgModule({
     declarations: [
@@ -36,7 +37,8 @@ import { TransportComponent } from './components/pages/transport/transport.compo
         ListActivityComponent,
         UserComponent,
         UserListComponent,
-        TransportComponent
+        TransportComponent,
+        TransportListComponent
     ],
     imports: [
         BrowserModule,

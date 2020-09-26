@@ -10,6 +10,7 @@ import {ListActivityComponent} from './components/pages/activity-list/list-activ
 import {UserComponent} from './components/pages/user/user.component';
 import {UserListComponent} from './components/pages/user-list/user-list.component';
 import {TransportComponent} from './components/pages/transport/transport.component';
+import {TransportListComponent} from './components/pages/transport-list/transport-list.component';
 
 const routes: Routes = [
     {path: '', component: DashboardComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
     {path: 'user-list', component: UserListComponent},
     {path: 'transport', component: TransportComponent},
     {path: 'transport-edit/:id', component: TransportComponent},
+    {path: 'transport-list', component: TransportListComponent},
     {path: 'app-todo', component: AppTodoComponent},
     {path: 'my-profile', component: MyProfileComponent},
     {path: 'invoice', component: InvoiceComponent},
