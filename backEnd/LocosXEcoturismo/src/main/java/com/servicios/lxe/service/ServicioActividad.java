@@ -92,6 +92,7 @@ public class ServicioActividad {
 	}
 	
 	public Void eliminarActividad(int id) {
+		imageDao.deleteByActivityId(id);
 		iActividadTuristica.deleteById(id);
 		return null;
 	}	
