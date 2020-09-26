@@ -1,12 +1,14 @@
 <div class="breadcrumb-area">
-    <h1>Agregar Usuario</h1>
+    <h1 *ngIf="!userId">Agregar Usuario</h1>
+    <h1 *ngIf="userId">Actualizar Usuario</h1>
 
     <ol class="breadcrumb">
         <li class="item"><a routerLink="/"><i class='bx bx-home-alt'></i></a></li>
 
         <li class="item">Dashboard</li>
 
-        <li class="item">Agregar Usuario</li>
+        <li class="item" *ngIf="!userId">Agregar Usuario</li>
+        <li class="item" *ngIf="userId">Actualizar Usuario</li>
     </ol>
 </div>
 
@@ -21,33 +23,33 @@
 
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <div class="form-group">
+                <div class="form-group" [ngClass]="{'noEvents': userId}">
                     <ul class="facilities-list">
                         <li>
                             <label class="checkbox">
-                                <input type="radio" formControlName="tipousuario" name="tipousuario" value=1
+                                <input type="radio" formControlName="tipoUsuario" name="tipoUsuario" value=1
                                        (click)="changeUserType(1)"
-                                       [checked]="form.get('tipousuario').value == 1" checked>
+                                       [checked]="form.get('tipoUsuario').value == 1" checked>
                                 <span>Cliente</span>
                             </label>
                         </li>
                         <li>
                             <label class="checkbox">
-                                <input type="radio" formControlName="tipousuario" name="tipousuario" value=2
+                                <input type="radio" formControlName="tipoUsuario" name="tipoUsuario" value=2
                                        (click)="changeUserType(2)"
-                                       [checked]="form.get('tipousuario').value == 0">
+                                       [checked]="form.get('tipoUsuario').value == 2">
                                 <span>Proveedor</span>
                             </label>
                         </li>
 
-                        <li>
+                        <!--<li>
                             <label class="checkbox">
                                 <input type="radio" formControlName="tipousuario" name="tipousuario" value=3
                                        (click)="changeUserType(3)"
                                        [checked]="form.get('tipousuario').value == 0">
                                 <span>Administrador</span>
                             </label>
-                        </li>
+                        </li>-->
 
                     </ul>
                 </div>
@@ -107,7 +109,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-12 col-md-12" *ngIf="isProvider">
+            <div class="col-lg-12 col-md-12">
                 <div class="form-group">
                     <label><i class='bx bx-face'></i> Teléfono:</label>
                     <input formControlName="telefono" type="text" class="form-control"
@@ -137,7 +139,7 @@
                 <div class="form-group">
                     <label><i class='bx bx-mail-send'></i> Email:</label>
                     <input formControlName="email" type="email" class="form-control"
-                           placeholder="test@gmail.com">
+                           placeholder="email@gmail.com">
                     <div *ngIf="submitted && form.controls.email.errors" class="error-form">
                         <div class="error-message" *ngIf="form.controls.email.errors.required">Campo requerido</div>
                         <div class="error-message" *ngIf="form.controls.email.errors.email">No es un email valido</div>
@@ -161,6 +163,9 @@
                         <div class="error-message" *ngIf="form.controls.password.errors.minlength">Campo debe tener mínimo 8 caracteres</div>
                     </div>
                 </div>
+                <div class="error-message" *ngIf="submitted && form.controls.password.value != form.controls.password2.value">
+                    Contraseñas deben concidir
+                </div>
             </div>
 
             <div class="col-lg-6 col-md-6">
@@ -171,6 +176,9 @@
                         <div class="error-message" *ngIf="form.controls.password2.errors.required">Campo requerido</div>
                         <div class="error-message" *ngIf="form.controls.password2.errors.minlength">Campo debe tener mínimo 8 caracteres</div>
                     </div>
+                </div>
+                <div class="error-message" *ngIf="submitted && form.controls.password.value != form.controls.password2.value">
+                    Contraseñas deben concidir
                 </div>
             </div>
         </div>
