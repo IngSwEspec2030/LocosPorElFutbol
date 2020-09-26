@@ -8,9 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.servicios.lxe.dao.ActividadesDAO;
+import com.servicios.lxe.dao.ImageDao;
 import com.servicios.lxe.dto.ActividadDto;
 import com.servicios.lxe.interfaces.IActividadTuristica;
+import com.servicios.lxe.interfaces.IImage;
 import com.servicios.lxe.model.ActividadTuristica;
+import com.servicios.lxe.model.Imagen;
 
 @Service
 public class ServicioActividad {
@@ -21,6 +24,12 @@ public class ServicioActividad {
 	@Autowired
 	private ActividadesDAO actividadesDAO;	
 	
+	@Autowired
+	private IImage iImage;
+	
+	@Autowired
+	private ImageDao imageDao;
+	
 	protected ServicioActividad(){
 		
 	} 
@@ -29,6 +38,16 @@ public class ServicioActividad {
 		ActividadTuristica activity = new ActividadTuristica(newActivity);
 		System.out.println(activity);
 		iActividadTuristica.save(activity);
+		
+		List<String> images = newActivity.getImages();
+		for (String imagePath : images) {
+			Imagen imagen = new Imagen();
+			imagen.setRutaImagen(imagePath);
+			imagen.setTipoImagen("actividad");
+			imagen.setIdEntidad(activity.getId_actividad());
+			iImage.save(imagen);
+		}		
+		
 		return activity;
 	}
 	
@@ -37,6 +56,18 @@ public class ServicioActividad {
 		ActividadTuristica activity = iActividadTuristica.getOne(activityId);
 		activity.setAll(activityToUpdate);
 		iActividadTuristica.save(activity);
+		
+		imageDao.deleteByActivityId(activityId);
+		
+		List<String> images = activityToUpdate.getImages();
+		for (String imagePath : images) {
+			Imagen imagen = new Imagen();
+			imagen.setRutaImagen(imagePath);
+			imagen.setTipoImagen("actividad");
+			imagen.setIdEntidad(activity.getId_actividad());
+			iImage.save(imagen);
+		}			
+		
 		return activity;		
 	}	
 	
@@ -44,9 +75,20 @@ public class ServicioActividad {
 		return actividadesDAO.listarTodos();		
 	}	
 	
-	public Optional<ActividadTuristica> obtenerActividadPorId(int id) {
-		Optional<ActividadTuristica> activity = iActividadTuristica.findById(id);
-		return activity;
+	public ActividadDto obtenerActividadPorId(int id) {
+		ActividadTuristica activity = iActividadTuristica.getOne(id);
+		List<Object[]> images = imageDao.searchByActivityId(id);
+		
+		ActividadDto actividad = new ActividadDto();
+		actividad.setCategoria(activity.getCategoria());
+		actividad.setDescripcion(activity.getDescripcion());
+		actividad.setEstado(activity.getEstado());
+		actividad.setIdActividad(activity.getId_actividad());
+		actividad.setNombreActividad(activity.getNombreActividad());
+		actividad.setPrecioBase(activity.getPrecioBase());
+		actividad.setImagesObj(images);
+		actividad.setSitioTuristico(activity.getSitioTuristico());
+		return actividad;
 	}
 	
 	public Void eliminarActividad(int id) {

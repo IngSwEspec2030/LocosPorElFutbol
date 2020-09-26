@@ -40,7 +40,7 @@ public class ConsultaActividadesTuristicas {
 			actividad.setNombreActividad(ac.getNombreActividad());
 			actividad.setEstado(ac.getEstado());
 			actividad.setUbicacion(ac.getSitioTuristico().getIdLatitud() + "," + ac.getSitioTuristico().getIdLongitud());
-			actividad.setImagenesActividad(obtenerImagenes(ac.getSitioTuristico().getImagen()));
+			//actividad.setImagenesActividad(obtenerImagenes(ac.getSitioTuristico().getImagen()));
 			actividad.setCategoria(ac.getCategoria());
 			actividad.setPrecioBase(ac.getPrecioBase());
 			actividad.setReview(ac.getReview());
