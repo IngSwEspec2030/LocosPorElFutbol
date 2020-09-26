@@ -9,6 +9,7 @@ import {AddActivityComponent} from './components/pages/activity/add-activity.com
 import {ListActivityComponent} from './components/pages/activity-list/list-activity.component';
 import {UserComponent} from './components/pages/user/user.component';
 import {UserListComponent} from './components/pages/user-list/user-list.component';
+import {TransportComponent} from './components/pages/transport/transport.component';
 
 const routes: Routes = [
     {path: '', component: DashboardComponent},
@@ -20,6 +21,8 @@ const routes: Routes = [
     {path: 'user', component: UserComponent},
     {path: 'user-edit/:id', component: UserComponent},
     {path: 'user-list', component: UserListComponent},
+    {path: 'transport', component: TransportComponent},
+    {path: 'transport-edit/:id', component: TransportComponent},
     {path: 'app-todo', component: AppTodoComponent},
     {path: 'my-profile', component: MyProfileComponent},
     {path: 'invoice', component: InvoiceComponent},

@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ListActivityComponent } from './components/pages/activity-list/list-activity.component';
 import { UserComponent } from './components/pages/user/user.component';
 import { UserListComponent } from './components/pages/user-list/user-list.component';
+import { TransportComponent } from './components/pages/transport/transport.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import { UserListComponent } from './components/pages/user-list/user-list.compon
         AddActivityComponent,
         ListActivityComponent,
         UserComponent,
-        UserListComponent
+        UserListComponent,
+        TransportComponent
     ],
     imports: [
         BrowserModule,
