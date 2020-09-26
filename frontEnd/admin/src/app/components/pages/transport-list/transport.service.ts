@@ -28,4 +28,20 @@ export class TransportService {
                 });
         });
     }
+
+    deleteTransport(transportId: number) {
+        return new Promise((resolve, reject) => {
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            this.http.delete<any[]>(`${this.baseUrl}transport/delete/${transportId}/transporte`,
+                {headers}).subscribe(result => {
+                    resolve({status: 'ok'});
+                },
+                error => {
+                    console.info(error);
+                    reject(error);
+                });
+        });
+    }
 }

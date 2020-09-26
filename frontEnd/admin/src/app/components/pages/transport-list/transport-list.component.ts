@@ -37,20 +37,20 @@ export class TransportListComponent implements OnInit {
         this.transportId = transportId;
         this.modalService.open(content);
     }
-/*
+
     async delete() {
         const delResult = await this.transportService.deleteTransport(this.transportId);
         if (delResult['status']) {
             this.showMessage = true;
-            this.message = 'Servicio de transporte  eliminada exitosamente';
+            this.message = 'Servicio de transporte  eliminado exitosamente';
             window.scrollTo(0, 0);
             this.gettransports();
         } else {
             this.showMessage = true;
             this.errorMessage = true;
-            this.message = 'Ha ocurrido un error eliminando la actividad';
+            this.message = 'Ha ocurrido un error eliminando el servicio de transporte';
             window.scrollTo(0, 0);
         }
         this.modalService.dismissAll();
-    }*/
+    }
 }
