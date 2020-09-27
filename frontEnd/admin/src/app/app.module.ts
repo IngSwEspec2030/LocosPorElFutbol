@@ -20,6 +20,8 @@ import { UserComponent } from './components/pages/user/user.component';
 import { UserListComponent } from './components/pages/user-list/user-list.component';
 import { TransportComponent } from './components/pages/transport/transport.component';
 import { TransportListComponent } from './components/pages/transport-list/transport-list.component';
+import { LodgingComponent } from './components/pages/lodging/lodging/lodging.component';
+import { LodgingListComponent } from './components/pages/lodging-list/lodging-list.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +40,9 @@ import { TransportListComponent } from './components/pages/transport-list/transp
         UserComponent,
         UserListComponent,
         TransportComponent,
-        TransportListComponent
+        TransportListComponent,
+        LodgingComponent,
+        LodgingListComponent
     ],
     imports: [
         BrowserModule,

@@ -11,6 +11,8 @@ import {UserComponent} from './components/pages/user/user.component';
 import {UserListComponent} from './components/pages/user-list/user-list.component';
 import {TransportComponent} from './components/pages/transport/transport.component';
 import {TransportListComponent} from './components/pages/transport-list/transport-list.component';
+import { LodgingComponent } from './components/pages/lodging/lodging/lodging.component';
+import { LodgingListComponent } from './components/pages/lodging-list/lodging-list.component';
 
 const routes: Routes = [
     {path: '', component: DashboardComponent},
@@ -25,6 +27,9 @@ const routes: Routes = [
     {path: 'transport', component: TransportComponent},
     {path: 'transport-edit/:id', component: TransportComponent},
     {path: 'transport-list', component: TransportListComponent},
+    {path: 'lodging', component: LodgingComponent},
+    {path: 'lodging-edit/:id', component: LodgingComponent},
+    {path: 'lodging-list', component: LodgingListComponent},
     {path: 'app-todo', component: AppTodoComponent},
     {path: 'my-profile', component: MyProfileComponent},
     {path: 'invoice', component: InvoiceComponent},

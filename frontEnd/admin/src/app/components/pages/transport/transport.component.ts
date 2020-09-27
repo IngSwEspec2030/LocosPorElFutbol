@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {TransportService} from '../transport/transport.service';
-import {ActivatedRoute} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TransportService } from '../transport/transport.service';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-transport',

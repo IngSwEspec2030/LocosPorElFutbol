@@ -9,7 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import com.servicios.lxe.dto.HospedajeDTO;
 
+@SuppressWarnings("serial")
 @Entity
 public class Hospedaje implements Serializable{
 
@@ -31,6 +33,28 @@ public class Hospedaje implements Serializable{
 	private BigDecimal costo_persona;
 	@Column(name = "telefono")
 	private String telefono;
+	
+	public Hospedaje(HospedajeDTO newHospedaje) {
+		super();
+		this.id_hospedaje=newHospedaje.getIdHospedaje();
+		this.tipo=newHospedaje.getTipo();
+		this.nombre = newHospedaje.getNombre();
+		this.costo_persona = newHospedaje.getCostoPersona();
+		this.telefono = newHospedaje.getTelefono();
+		this.direccion = newHospedaje.getDireccion();
+		this.estado = newHospedaje.getEstado();
+	}
+	
+	public void setAll(HospedajeDTO hospedajeToUpdate) {
+		this.id_hospedaje = hospedajeToUpdate.getIdHospedaje();
+		this.tipo = hospedajeToUpdate.getTipo();
+		this.nombre = hospedajeToUpdate.getNombre();
+		this.costo_persona = hospedajeToUpdate.getCostoPersona();
+		this.telefono = hospedajeToUpdate.getTelefono();
+		this.direccion = hospedajeToUpdate.getDireccion();	
+		this.estado = hospedajeToUpdate.getEstado();	
+	}
+	
 	
 	public int getId_hospedaje() {
 		return id_hospedaje;
