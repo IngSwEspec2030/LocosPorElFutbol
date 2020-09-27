@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.servicios.lxe.dao.ImageDao;
 import com.servicios.lxe.dto.InformacionActividadTuristicaDto;
 import com.servicios.lxe.dto.ProveedorHospedajeDto;
 import com.servicios.lxe.dto.ProveedorTransporteDto;
@@ -34,6 +35,9 @@ public class InformacionActividad {
 	@Autowired
 	private IHospedaje hospedaje;
 	
+	@Autowired
+	private ImageDao imageDao;		
+	
 	@GetMapping("/informacionActividad")
 	public InformacionActividadTuristicaDto consultarInformacionActividad(@RequestParam Integer idActividad) {
 		InformacionActividadTuristicaDto result = new InformacionActividadTuristicaDto();
@@ -48,8 +52,8 @@ public class InformacionActividad {
 		result.setNombreActividad(actividad.getNombreActividad());
 		result.setDescripcionActividad(actividad.getDescripcion());		
 		result.setPrecioBase(actividad.getPrecioBase());
-		result.setReview(actividad.getReview());
-		//result.setImagenesActividad(obtenerImagenes(actividad.getSitioTuristico().getImagen()));
+		result.setReview(actividad.getReview());		
+		result.setImagenesActividad(obtenerImagenes(actividad.getId_actividad()));
 		result.setEstado(actividad.getEstado());
 		result.setProvedoresHospedaje(obtenerProveedoresHospedaje(actividad));
 		result.setProvedoresTransporte(obtenerProveedoresTransporte(actividad));
@@ -97,11 +101,13 @@ public class InformacionActividad {
 		return resulProveedoresHospedaje;
 	}
 
-	private List<String> obtenerImagenes(List<Imagen> listaActividad) {
-		List<String> listaActividades = new ArrayList<>();
-		for (Imagen ima : listaActividad) {
-			listaActividades.add(ima.getRutaImagen());
+	private List<String> obtenerImagenes(int idActividad) {		
+		List<Object[]> imagesObj = imageDao.searchByEntityId(idActividad);
+		
+		List<String> images = new ArrayList<>();
+		for(Object[] imageObj: imagesObj) {
+			images.add((String) imageObj[1]);
 		}
-		return listaActividades;
+		return images;
 	}
 }
