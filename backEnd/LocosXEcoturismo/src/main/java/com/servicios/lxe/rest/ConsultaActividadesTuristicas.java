@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.servicios.lxe.dao.ActividadesDAO;
+import com.servicios.lxe.dao.ImageDao;
 import com.servicios.lxe.dto.ActividadTuristicaDto;
 import com.servicios.lxe.interfaces.IActividadTuristica;
 import com.servicios.lxe.model.ActividadTuristica;
@@ -26,6 +27,9 @@ public class ConsultaActividadesTuristicas {
 	@Autowired
 	private ActividadesDAO actividadesDAO;
 	
+	@Autowired
+	private ImageDao imageDao;	
+	
 	@GetMapping("/getActivities")
 	private List<ActividadTuristicaDto> consultaPaquetes(){
 		List<ActividadTuristica> listaActividadTuristicas =  actividadTuristica.findAll();
@@ -40,7 +44,7 @@ public class ConsultaActividadesTuristicas {
 			actividad.setNombreActividad(ac.getNombreActividad());
 			actividad.setEstado(ac.getEstado());
 			actividad.setUbicacion(ac.getSitioTuristico().getIdLatitud() + "," + ac.getSitioTuristico().getIdLongitud());
-			//actividad.setImagenesActividad(obtenerImagenes(ac.getSitioTuristico().getImagen()));
+			actividad.setImagenesActividad(obtenerImagenes(ac.getId_actividad()));
 			actividad.setCategoria(ac.getCategoria());
 			actividad.setPrecioBase(ac.getPrecioBase());
 			actividad.setReview(ac.getReview());
@@ -49,12 +53,14 @@ public class ConsultaActividadesTuristicas {
 		return listaActividadesDto;		
 	}
 	
-	private List<String> obtenerImagenes(List<Imagen> listaActividad) {
-		List<String> listaActividades = new ArrayList<>();
-		for (Imagen ima : listaActividad) {
-			listaActividades.add(ima.getRutaImagen());
+	private List<String> obtenerImagenes(int idActividad) {		
+		List<Object[]> imagesObj = imageDao.searchByEntityId(idActividad);
+		
+		List<String> images = new ArrayList<>();
+		for(Object[] imageObj: imagesObj) {
+			images.add((String) imageObj[1]);
 		}
-		return listaActividades;
+		return images;
 	}
 	
 	@GetMapping("/getActivities/{keyword}")
