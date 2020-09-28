@@ -53,6 +53,11 @@ public class ConsultaActividadesTuristicas {
 		return listaActividadesDto;		
 	}
 	
+	@GetMapping("/getCategories")
+	private List<String> consultaCategorias(){
+		return actividadesDAO.buscarCategorias();	
+	}
+	
 	private List<String> obtenerImagenes(int idActividad) {		
 		List<Object[]> imagesObj = imageDao.searchByEntityId(idActividad);
 		
