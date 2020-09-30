@@ -38,7 +38,12 @@ export class LoginComponent {
         this.usuario = await this.loginService.getAtutenticar(this.form.value.email, this.form.value.password);
         localStorage.setItem('userAutenticado', JSON.stringify(this.usuario));
         setTimeout(() => {
-            window.location.href = CONFIG.adminPath;
+
+            if (this.usuario.roles['id_rol'] === 1) {
+                window.location.href = CONFIG.userLoggedPath;
+            } else {
+                window.location.href = CONFIG.adminPath;
+            }
         }, 1000);
 
         return this.usuario;
