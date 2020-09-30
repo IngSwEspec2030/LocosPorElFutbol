@@ -28,7 +28,10 @@
                                     <input type="password" formControlName="password" placeholder="Contraseña"
                                         class="form-control">
                                 </div>
-
+                                <p>
+                                    <ngb-progressbar value="1000" type="info" *ngIf="isLoad"></ngb-progressbar>
+                                  </p>
+                                  <br>
                                 <div class="main-search-btn">
                                     <button type="submit">
                                         Iniciar Sesión

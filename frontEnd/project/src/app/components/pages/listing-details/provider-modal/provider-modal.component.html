@@ -17,6 +17,7 @@
                     </div>
 
                     <span *ngIf="!isLodging" class="d-inline-block">Representante: {{name.representante}} </span>
+                    <span *ngIf="isLodging" class="d-block sub-comment">{{name.direccion}}</span>
                     <p>{{name.descripcion}}</p>
                 </div>
             </div>

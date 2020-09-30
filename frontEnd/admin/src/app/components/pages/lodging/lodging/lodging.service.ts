@@ -32,7 +32,7 @@ export class LodgingService {
         lodgingId: number,
         images?: Array<string>
     ) {
-
+        return new Promise((resolve, reject) => {
       const lodgingSave = lodging;
 
       const path = lodgingId ? "lodging/update" : "lodging/create";
@@ -41,13 +41,17 @@ export class LodgingService {
             "Content-Type": "application/json",
         };
 
+        const logguedUser = JSON.parse(localStorage.getItem('logguedUser'));
+
+
         const formData = {
             nombre: lodgingSave.nombre,
             costoPersona: parseInt(String(lodgingSave.costoPersona), 10),
             direccion: lodgingSave.direccion,
             telefono: lodgingSave.telefono,
+            estado : lodgingSave.estado,
             tipo: "hospedaje",
-            userId: 3, //TODO ADMIN
+            userId: logguedUser.id_usuario,
             idActividades: lodgingSave["actividades"].map((tr) =>
                 parseInt(tr.id, 10)
             ),
@@ -60,6 +64,12 @@ export class LodgingService {
 
         const vUrl = `${this.baseUrl}${path}`;
 
-        return this.http.post(vUrl,formData,{headers});
+        return this.http.post<any>(vUrl,formData,{headers}).subscribe(response => {
+            resolve({status: 201});
+        },
+        error => {
+            reject(error);
+        });;
+    });
     }
 }

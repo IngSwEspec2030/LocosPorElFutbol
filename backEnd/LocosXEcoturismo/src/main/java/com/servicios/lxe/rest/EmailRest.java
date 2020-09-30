@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.servicios.lxe.email.rest;
+package com.servicios.lxe.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.servicios.lxe.dto.EmailBody;
+import com.servicios.lxe.interfaces.IEmailPort;
 
 
 /**
@@ -22,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmailRest {
 
 	@Autowired
-	private EmailPort emailPort;
+	private IEmailPort emailPort;
 	
 	@PostMapping("/send")
 	@ResponseBody

@@ -19,6 +19,7 @@ import com.servicios.lxe.interfaces.IImage;
 import com.servicios.lxe.interfaces.IProveedorActividad;
 import com.servicios.lxe.model.ActividadTuristica;
 import com.servicios.lxe.model.Hospedaje;
+import com.servicios.lxe.model.Imagen;
 import com.servicios.lxe.model.ProveedoresActividad;
 import com.servicios.lxe.model.Transporte;
 @Service
@@ -50,6 +51,15 @@ public class ServicioHospedaje {
 		Hospedaje hospedaje = new Hospedaje(newHospedaje);
 		iHospedaje.save(hospedaje);
 		
+		List<String> images = newHospedaje.getImages();
+		for (String imagePath : images) {
+			Imagen imagen = new Imagen();
+			imagen.setRutaImagen(imagePath);
+			imagen.setTipoImagen("hospedaje");
+			imagen.setIdEntidad(hospedaje.getId_hospedaje());
+			iImage.save(imagen);
+		}		
+				
 		updateProvidersActivities(newHospedaje, hospedaje);
 		return hospedaje;
 	}

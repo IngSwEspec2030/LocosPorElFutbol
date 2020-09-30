@@ -24,10 +24,12 @@ public class Hospedaje implements Serializable{
 	@Column(name = "direccion")
 	private String direccion;
 	@Column(name = "estado")
-	private String estado;
+	private int estado;
 	/*@OneToOne
 	@Column(name = "id_municipio")
 	private Municipio municipio;*/
+	@Column(name = "idUsuario")
+	private int idUsuario;
 	@Column(name = "costo_persona")
 	private BigDecimal costo_persona;
 	@Column(name = "telefono")
@@ -43,6 +45,7 @@ public class Hospedaje implements Serializable{
 		this.costo_persona = newHospedaje.getCostoPersona();
 		this.telefono = newHospedaje.getTelefono();
 		this.direccion = newHospedaje.getDireccion();
+		this.idUsuario = newHospedaje.getUserId();
 		this.estado = newHospedaje.getEstado();
 	}
 	
@@ -53,6 +56,7 @@ public class Hospedaje implements Serializable{
 		this.costo_persona = hospedajeToUpdate.getCostoPersona();
 		this.telefono = hospedajeToUpdate.getTelefono();
 		this.direccion = hospedajeToUpdate.getDireccion();	
+		this.idUsuario = hospedajeToUpdate.getUserId();
 		this.estado = hospedajeToUpdate.getEstado();	
 	}
 	
@@ -81,10 +85,10 @@ public class Hospedaje implements Serializable{
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public String getEstado() {
+	public int getEstado() {
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(int estado) {
 		this.estado = estado;
 	}
 	/*public Municipio getMunicipio() {
@@ -104,5 +108,11 @@ public class Hospedaje implements Serializable{
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 }

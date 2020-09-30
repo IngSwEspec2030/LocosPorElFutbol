@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.servicios.lxe.email.rest;
+package com.servicios.lxe.dto;
 
 /**
  * @author rodri

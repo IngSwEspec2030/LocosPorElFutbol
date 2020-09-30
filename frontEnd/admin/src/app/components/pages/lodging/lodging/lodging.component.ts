@@ -36,6 +36,7 @@ export class LodgingComponent implements OnInit {
         this.form = this.formBuilder.group({
             nombre: [null, [Validators.required]],
             telefono: [null, [Validators.required]],
+            estado: ['1', Validators.required],
             direccion: [null, [Validators.required]],
             actividades: [null, [Validators.required]],
             descripcion: [null, [Validators.required]],
@@ -123,18 +124,18 @@ export class LodgingComponent implements OnInit {
           return;
       }
       this.lodgingService.upsertLodging(this.form.value, this.lodgingId, this.images)
-          .subscribe(result => {
+          .then(result => {
               if (result['status']) {
                   this.showMessage = true;
                   this.errorMessage = false;
-                  this.message = 'Servicio de transporte guardado exitosamente';
+                  this.message = 'Servicio de hospedaje guardado exitosamente';
                   window.scrollTo(0, 0);
               }
           }),
           (error => {
               this.showMessage = true;
               this.errorMessage = true;
-              this.message = 'Ha ocurrido un error en la creación del servicio de transporte';
+              this.message = 'Ha ocurrido un error en la creación del servicio de hospedaje';
               window.scrollTo(0, 0);
           });
   }

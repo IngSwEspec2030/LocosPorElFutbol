@@ -17,7 +17,7 @@ public class HospedajeDTO {
 
 	private String direccion;
 
-	private String estado;
+	private int estado;
 
 	private String tipo;
 
@@ -29,13 +29,18 @@ public class HospedajeDTO {
 	
 	private List<Integer> idActividades;
 	
+	@NotNull()
+	private int userId;
+	
+
+
 	public HospedajeDTO() {
 		
 	}
 	
 	public HospedajeDTO(@NotNull int idHospedaje, @NotNull String nombre, @NotNull BigDecimal costoPersona,
-			@NotNull String telefono,@NotNull String tipo,@NotNull String estado,
-			@NotNull String direccion , int idMunicipio, List<Integer> idActividades, List<String> images) {
+			@NotNull String telefono,@NotNull String tipo,@NotNull int estado,
+			@NotNull String direccion , int idMunicipio, List<Integer> idActividades, List<String> images, @NotNull int userId) {
 		super();
 		this.idHospedaje = idHospedaje;
 		this.nombre = nombre;
@@ -44,6 +49,7 @@ public class HospedajeDTO {
 		this.tipo = tipo;
 		this.estado = estado;
 		this.direccion = direccion;
+		this.userId = userId;
 		this.idMunicipio = idMunicipio;
 		this.idActividades = idActividades;
 		this.images = images;
@@ -83,11 +89,11 @@ public class HospedajeDTO {
 		this.direccion = direccion;
 	}
 
-	public String getEstado() {
+	public int getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(int estado) {
 		this.estado = estado;
 	}
 
@@ -138,6 +144,13 @@ public class HospedajeDTO {
 		}
 		
 		this.setImages(images);
-	}	
+	}
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 }

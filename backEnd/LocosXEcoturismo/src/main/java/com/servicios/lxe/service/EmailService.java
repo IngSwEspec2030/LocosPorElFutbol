@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.servicios.lxe.email.rest;
+package com.servicios.lxe.service;
 
 import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import javax.mail.MessagingException;
@@ -11,12 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+
+import com.servicios.lxe.dto.EmailBody;
+import com.servicios.lxe.interfaces.IEmailPort;
 /**
  * @author rodri
  *
  */
 @Service
-public class EmailService implements EmailPort {
+public class EmailService implements IEmailPort {
 
 
 	@Autowired
