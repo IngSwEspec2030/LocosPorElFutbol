@@ -4,6 +4,7 @@ import {HomeService} from './home.service';
 import {Activity} from '../../interfaces/activity.interface';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {CONFIG} from '../../../../assets/config';
 
 @Component({
     selector: 'app-one-four',
@@ -18,6 +19,7 @@ export class HomeOneComponent implements OnInit {
     @ViewChild('actividades') actividades: ElementRef;
 
     places = JSON.parse(localStorage.getItem('places'));
+    imagePath = CONFIG.imagePath;
 
     form = new FormGroup({
         searchActivity: new FormControl('', Validators.minLength(2)),
