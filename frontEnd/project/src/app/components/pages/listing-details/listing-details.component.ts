@@ -44,6 +44,7 @@ export class ListingDetailsComponent implements OnInit {
         this.route.queryParams.subscribe((params) => {
             this.getDetails(params.id);
         });
+        this.setInfoProfile();
     }
 
     private async getDetails(id: number) {
@@ -63,6 +64,8 @@ export class ListingDetailsComponent implements OnInit {
             txtMessage: [null],
         });
     }
+
+    
 
     calculateTotalPrice(item: any, type: string) {
         this.base=true;
@@ -88,6 +91,14 @@ export class ListingDetailsComponent implements OnInit {
         return;
       }
       this.getQuotation();
+    }
+
+    setInfoProfile(){
+        if (localStorage.getItem("userAutenticado")) {
+            let user = JSON.parse(localStorage.getItem("userAutenticado"));
+            this.frmGroup.get("txtName").setValue(user.nombreUsuario + " " + user.apellidosUsuario);
+            this.frmGroup.get("txtEmail").setValue(user.emailUsuario);
+          } 
     }
  
     getQuotation() {

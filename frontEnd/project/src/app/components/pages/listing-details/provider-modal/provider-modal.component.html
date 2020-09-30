@@ -11,11 +11,13 @@
                     <img src="assets/img/user1.jpg" alt="image">
                     
                     <div class="review-rating">
-                        <span class="d-inline-block">Hotel 1</span>
+                        <span *ngIf="!isLodging" class="d-block sub-comment">{{name.transportadora}}</span>
+                        <span *ngIf="isLodging" class="d-block sub-comment">{{name.nombre}}</span>
+
                     </div>
 
-                    <span class="d-block sub-comment">Id : 12333</span>
-                    <p>Very well built theme, couldn't be happier with it. Can't wait for future updates to see what else they add in.</p>
+                    <span *ngIf="!isLodging" class="d-inline-block">Representante: {{name.representante}} </span>
+                    <p>{{name.descripcion}}</p>
                 </div>
             </div>
     </div>

@@ -9,10 +9,21 @@ import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class ProviderModalComponent implements OnInit {
   
-  @Input() item;
+  @Input() name: any;
+  isLodging:boolean;
   constructor (public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
+    this.checkProvider();
+  }
+
+
+  checkProvider() {
+    if (this.name.idHospedaje != undefined) {
+      this.isLodging=true;
+    } else {
+      this.isLodging=false;
+    }
   }
 
 
