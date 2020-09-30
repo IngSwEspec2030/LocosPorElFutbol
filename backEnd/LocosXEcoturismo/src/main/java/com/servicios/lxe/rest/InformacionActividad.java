@@ -96,6 +96,7 @@ public class InformacionActividad {
 				 proveedorHospedaje.setCostoPersona(hospe.getCosto_persona());
 				 proveedorHospedaje.setTipo(hospe.getTipo());
 				 proveedorHospedaje.setNombre(hospe.getNombre());
+				 proveedorHospedaje.setDireccion(hospe.getDireccion());
 				 proveedorHospedaje.setImagenesHospedaje(obtenerImagenes(hospe.getId_hospedaje()));
 				 resulProveedoresHospedaje.add(proveedorHospedaje);
 			 }

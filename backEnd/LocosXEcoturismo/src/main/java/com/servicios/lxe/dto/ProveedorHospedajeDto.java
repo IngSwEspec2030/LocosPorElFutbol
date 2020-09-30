@@ -12,6 +12,7 @@ public class ProveedorHospedajeDto implements Serializable{
 	private String tipo;
 	private String nombre;
 	private List<String> imagenesHospedaje;
+	private String direccion;
 	
 	public Integer getIdHospedaje() {
 		return idHospedaje;
@@ -42,5 +43,11 @@ public class ProveedorHospedajeDto implements Serializable{
 	}
 	public void setImagenesHospedaje(List<String> imagenesHospedaje) {
 		this.imagenesHospedaje = imagenesHospedaje;
+	}
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 }
