@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { QuotationDetails } from "../../interfaces/ctemporal.interface";
 import { DomSanitizer } from '@angular/platform-browser';
 import { ProviderSelection } from '../../interfaces/providerSelection..interface'
+import { ToastService } from '../Toast/toast-container/toast.service';
 
 @Component({
     selector: "app-listing-details",
@@ -34,7 +35,8 @@ export class ListingDetailsComponent implements OnInit {
         private modalService: NgbModal,
         private formBuilder: FormBuilder,
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        public toastService: ToastService
 
     ) {
         this.loadContent();
@@ -87,7 +89,7 @@ export class ListingDetailsComponent implements OnInit {
       this.submitted = true;  
       this.frmGroup.updateValueAndValidity();
       if (this.frmGroup.invalid) {
-        this.showToast=true;
+        this.toastService.show("Faltan datos por completar", { classname: 'bg-danger text-light', delay: 15000 });
         return;
       }
       this.getQuotation();
@@ -110,7 +112,6 @@ export class ListingDetailsComponent implements OnInit {
         this.quotation.seleccionProvedores = this.arryPrices
         this.quotation.fechaCotizacion = new Date();
         localStorage.setItem("Cotizacion",JSON.stringify(this.quotation))
-
         this.router.navigate(['/cart']);
    }
 

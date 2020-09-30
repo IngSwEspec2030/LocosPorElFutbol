@@ -11,6 +11,7 @@ export class ProviderModalComponent implements OnInit {
   
   @Input() name: any;
   isLodging:boolean;
+  arryImg: [];
   constructor (public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
@@ -21,8 +22,11 @@ export class ProviderModalComponent implements OnInit {
   checkProvider() {
     if (this.name.idHospedaje != undefined) {
       this.isLodging=true;
+      this.arryImg=this.name.imagenesHospedaje;
     } else {
       this.isLodging=false;
+      this.arryImg=this.name.imagenesTransporte;
+
     }
   }
 

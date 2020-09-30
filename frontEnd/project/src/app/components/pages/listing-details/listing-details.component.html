@@ -236,7 +236,6 @@
                                     rows="5"
                                 ></textarea>
                             </div>
-
                             <button
                                 type="button"
                                 (click)="submit()"
@@ -244,12 +243,9 @@
                             >
                                 Cotizar ahora!
                             </button>
-                            <ngb-toast
-                                header="Faltan datos por completar"
-                                *ngIf="showToast"
-                                (hide)="showToast = false"
-                            >
-                            </ngb-toast>
+
+                            <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+
                         </form>
                     </div>
 
