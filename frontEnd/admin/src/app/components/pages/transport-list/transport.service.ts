@@ -20,6 +20,8 @@ export class TransportService {
             };
             this.http.get<any[]>(`${this.baseUrl}transport/list`,
                 {headers}).subscribe(result => {
+                    const logguedUser = JSON.parse(localStorage.getItem('logguedUser'));
+                    result = result.filter(transport => transport.idUsuario === logguedUser.id_usuario);
                     resolve(result);
                 },
                 error => {

@@ -53,6 +53,8 @@ export class TransportService {
                 'Content-Type': 'application/json'
             };
 
+            const logguedUser = JSON.parse(localStorage.getItem('logguedUser'));
+
             const formData = {
                 nombreRepresentante: transportSave.nombreRepresentante,
                 descripcion: transportSave.descripcion,
@@ -60,7 +62,7 @@ export class TransportService {
                 telefono: transportSave.telefono,
                 tipo: 'transporte',
                 transportadora: transportSave.transportadora,
-                userId: 3, //TODO ADMIN
+                userId: logguedUser.id_usuario,
                 idActividades: transportSave['actividades'].map( tr => parseInt(tr.id, 10) ),
                 images
             };
