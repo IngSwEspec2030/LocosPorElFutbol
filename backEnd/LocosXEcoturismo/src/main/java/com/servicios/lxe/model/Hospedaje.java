@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import com.servicios.lxe.dto.HospedajeDTO;
 
 @SuppressWarnings("serial")
@@ -34,6 +33,8 @@ public class Hospedaje implements Serializable{
 	@Column(name = "telefono")
 	private String telefono;
 	
+	public Hospedaje() {}
+		
 	public Hospedaje(HospedajeDTO newHospedaje) {
 		super();
 		this.id_hospedaje=newHospedaje.getIdHospedaje();
