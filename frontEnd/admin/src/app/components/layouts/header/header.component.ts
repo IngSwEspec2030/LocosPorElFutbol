@@ -1,15 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AppServiceService} from '../../../app-service.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+    public email = null;
+    public userName = null;
 
-  constructor() { }
+    public loginUrl = 'http://localhost:4201/login';
 
-  ngOnInit(): void {
-  }
+    constructor(private appServiceService: AppServiceService) {
+    }
+
+    ngOnInit(): void {
+        this.appServiceService.sessionEmitter.subscribe(session => {
+            if (session) {
+                session = JSON.parse(session);
+                this.email = session['emailUsuario'];
+                this.userName = session['nombreUsuario'] + ' ' + session['apellidosUsuario'];
+                if (session.roles.id_rol === 3) {
+
+                } else {
+
+                }
+            }
+        });
+    }
+
+    logOut() {
+        this.appServiceService.logOut().then(result => {
+            window.location.href = this.loginUrl;
+        });
+    }
 
 }
