@@ -46,11 +46,14 @@ public class ConsultaUsuariosRoles {
 	@Autowired
 	private IRoles IRoles;
 	
+	private Usuario userSession; 
+	
 	@GetMapping("/getAutenticacion")
 	public ResponseEntity<Usuario> consultarUsuario(@RequestParam String email, @RequestParam String passWord ){
 		Usuario user = null;
 		try{
 			user =  usuario.consultarUsuarioXEmailPassWord(email, passWord);
+			this.userSession = user;
 		}catch(NoResultException ex) {
 			return new ResponseEntity<>(user, HttpStatus.NOT_FOUND);
 		}
@@ -61,6 +64,16 @@ public class ConsultaUsuariosRoles {
 	public UsuarioDto getUserById(@PathVariable int id) {
 		UsuarioDto user = servicioUsuario.getUserById(id);
 		return user;
+	}	
+	
+	@GetMapping("/userLogged")
+	public Usuario logged() {		
+		return this.userSession;
+	}
+	
+	@GetMapping("/logout")
+	public void logout() {		
+		this.userSession = null;
 	}	
 	
 	@PostMapping("/user/create")
