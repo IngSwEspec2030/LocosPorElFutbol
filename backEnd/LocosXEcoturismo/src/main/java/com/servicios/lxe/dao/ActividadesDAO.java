@@ -57,4 +57,14 @@ public class ActividadesDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}	
+	
+	public List<String> buscarCategorias(){
+		List<String> categoriasR = new ArrayList<>();
+		Query q = entityManager.createNativeQuery("SELECT DISTINCT(CATEGORIA) FROM actividad_turistica;");
+		List<Object> categorias = q.getResultList();
+		for (Object categoria : categorias) {
+			categoriasR.add(String.valueOf(categoria));
+		}	
+		return categoriasR;
+	}
 }

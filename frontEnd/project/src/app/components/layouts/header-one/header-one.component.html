@@ -24,22 +24,31 @@
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-md navbar-light">
                     <a class="navbar-brand" routerLink="/">
-                        <img src="assets/img/logo.png" alt="logo" width="200">
+                        <img src="assets/img
+                        /logo.png" alt="logo" width="200">
                     </a>
 
                     <div class="collapse navbar-collapse mean-menu">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="javascript:void(0)" class="nav-link" routerLink="/">Home</a></li>
 
                             <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Destinos <i class='bx bx-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
-                                    <!--<li class="nav-item"><a routerLink="/listing-five" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">Listing Layout 5</a></li>-->
+                                     <li class="nav-item">
+                                        <a routerLink="/listing-five" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">                                        
+                                            <option *ngFor="let place of places" [ngValue]="place" (click)="setNombreDestino(place.nombreDepartamento)">{{place.nombreDepartamento}}</option> 
+                                        </a>
+                                    </li>                                    
                                 </ul>
                             </li>
 
                             <li class="nav-item"><a href="javascript:void(0)" class="nav-link">Categorias <i class='bx bx-chevron-down'></i></a>
                                 <ul class="dropdown-menu">
-                                   <!-- <li class="nav-item"><a routerLink="/blog-one" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">Grid (2 in Row)</a></li>-->
+                                    <li class="nav-item">
+                                        <a routerLink="/blog-one" class="nav-link" routerLinkActive="active"[routerLinkActiveOptions]="{exact: true}">                                        
+                                            <option *ngFor="let categoria of categorias" [ngValue]="categoria" (click)="setNombreCategoria(categoria)">{{categoria}}</option> 
+                                        </a>
+                                    </li>                                    
                                 </ul>
                             </li>
 
