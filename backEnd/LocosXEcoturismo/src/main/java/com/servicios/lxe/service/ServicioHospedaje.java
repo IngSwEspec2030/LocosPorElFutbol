@@ -100,7 +100,7 @@ public class ServicioHospedaje {
 		hospedajeDTO.setTelefono(hospedaje.getTelefono());
 		hospedajeDTO.setTipo(hospedaje.getTipo());
 		hospedajeDTO.setDireccion(hospedaje.getDireccion());
-		
+		hospedajeDTO.setEstado(hospedaje.getEstado());
 		List<Integer> activityIds = iTransportDao.getActivitiesProvider(hospedaje.getTipo(), id);
 		hospedajeDTO.setIdActividades(activityIds);
 		

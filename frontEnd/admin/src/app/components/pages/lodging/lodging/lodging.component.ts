@@ -61,6 +61,7 @@ export class LodgingComponent implements OnInit {
             this.form.controls['actividades'].setValue(lodging['idActividades']);
             this.form.controls['descripcion'].setValue(lodging['descripcion']);
             this.form.controls['costoPersona'].setValue(lodging['costoPersona']);
+            this.form.controls['estado'].setValue(lodging['estado']);
             this.images = lodging['images'];
             setTimeout(() => {
                 const filteredSites = this.activities.filter(activity => lodging['idActividades'].includes(parseInt(activity.id, 10)));

@@ -135,6 +135,35 @@
         </div>
     </div>
 
+    
+    <div class="add-listing-box mb-30">
+        <h3>Estado</h3>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <ul class="facilities-list">
+                        <li>
+                            <label class="checkbox">
+                                <input type="radio" formControlName="estado" name="estado" value=1
+                                       [checked]="form.get('estado').value == 1">
+                                <span>Activo</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="checkbox">
+                                <input type="radio" formControlName="estado" name="estado" value=0
+                                       [checked]="form.get('estado').value == 0">
+                                <span>Inactivo</span>
+                            </label>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="add-listing-box mb-30">
         <div class="row">
             <div class="col-lg-12 col-md-12">
