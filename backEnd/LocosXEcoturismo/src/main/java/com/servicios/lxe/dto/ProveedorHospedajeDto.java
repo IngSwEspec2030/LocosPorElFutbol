@@ -11,8 +11,8 @@ public class ProveedorHospedajeDto implements Serializable{
 	private BigDecimal costoPersona;
 	private String tipo;
 	private String nombre;
-	private List<String> imagenesHospedaje;
 	private String direccion;
+	private List<String> imagenesHospedaje;	
 	
 	public Integer getIdHospedaje() {
 		return idHospedaje;

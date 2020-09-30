@@ -75,6 +75,7 @@ public class InformacionActividad {
 				 proveedorTransporte.setTipo(trans.getTipo());				 
 				 proveedorTransporte.setTransportadora(trans.getTransportadora());	
 				 proveedorTransporte.setDescripcion(trans.getDescripcion());
+				 proveedorTransporte.setNombreRepresentante(trans.getNombreRepresentante());
 				 proveedorTransporte.setImagenesTransporte(obtenerImagenes(trans.getId_transporte()));
 				 resulProveedoresTransporte.add(proveedorTransporte);
 			 }
