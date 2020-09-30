@@ -10,8 +10,9 @@ public class ProveedorTransporteDto implements Serializable{
 	private BigDecimal costoPersona;
 	private String tipo;
 	private String transportadora;
-	private List<String> imagenesTransporte;
 	private String descripcion;
+	private String nombreRepresentante;
+	private List<String> imagenesTransporte;	
 	
 	public Integer getIdTransportadora() {
 		return idTransportadora;
@@ -48,5 +49,11 @@ public class ProveedorTransporteDto implements Serializable{
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}	
+	}
+	public String getNombreRepresentante() {
+		return nombreRepresentante;
+	}
+	public void setNombreRepresentante(String nombreRepresentante) {
+		this.nombreRepresentante = nombreRepresentante;
+	}		
 }
