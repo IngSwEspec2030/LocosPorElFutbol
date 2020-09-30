@@ -40,10 +40,7 @@ public class UsuarioDao {
 			usuarioRes.setNombreUsuario(user[4].toString());
 			usuarioRes.setPassword(passWord);
 			usuarioRes.setTelefonoUsuario(user[6].toString());
-
-			roles.findById(Integer.valueOf(user[0].toString()));
-
-			usuarioRes.setRoles(roles.findById(Integer.valueOf(user[0].toString())).get());
+			usuarioRes.setRoles(roles.findById(Integer.valueOf(user[7].toString())).get());
 		} catch (NoResultException ex) {
 			throw ex;
 		}
