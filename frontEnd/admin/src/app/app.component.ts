@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationStart, NavigationCancel, NavigationEnd } from '@angular/router';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { filter } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {Router, NavigationStart, NavigationCancel, NavigationEnd} from '@angular/router';
+import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import {filter} from 'rxjs/operators';
+import {AppServiceService} from './app-service.service';
+
 declare let $: any;
 
 @Component({
@@ -18,24 +20,31 @@ declare let $: any;
 export class AppComponent implements OnInit {
     location: any;
     routerSubscription: any;
+    private loginUrl = 'http://localhost:4201/login';
 
-    constructor(private router: Router) {
+    constructor(
+        private router: Router,
+        private appServiceService: AppServiceService) {
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.recallJsFuntions();
+        this.appServiceService.getSession().then( result => {
+        }).catch( error => {
+            window.location.href = this.loginUrl;
+        });
     }
 
     recallJsFuntions() {
         this.routerSubscription = this.router.events
-        .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
-        .subscribe(event => {
-            $.getScript('../assets/js/custom.js');
-            this.location = this.router.url;
-            if (!(event instanceof NavigationEnd)) {
-                return;
-            }
-            window.scrollTo(0, 0);
-        });
+            .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
+            .subscribe(event => {
+                $.getScript('../assets/js/custom.js');
+                this.location = this.router.url;
+                if (!(event instanceof NavigationEnd)) {
+                    return;
+                }
+                window.scrollTo(0, 0);
+            });
     }
 }
