@@ -72,8 +72,10 @@ public class InformacionActividad {
 				 proveedorTransporte = new ProveedorTransporteDto();
 				 proveedorTransporte.setIdTransportadora(trans.getId_transporte());
 				 proveedorTransporte.setCostoPersona(trans.getCostoPersona());
-				 proveedorTransporte.setTipo(trans.getTipo());
-				 proveedorTransporte.setTransportadora(trans.getTransportadora());
+				 proveedorTransporte.setTipo(trans.getTipo());				 
+				 proveedorTransporte.setTransportadora(trans.getTransportadora());	
+				 proveedorTransporte.setDescripcion(trans.getDescripcion());
+				 proveedorTransporte.setImagenesTransporte(obtenerImagenes(trans.getId_transporte()));
 				 resulProveedoresTransporte.add(proveedorTransporte);
 			 }
 		 }
@@ -94,6 +96,7 @@ public class InformacionActividad {
 				 proveedorHospedaje.setCostoPersona(hospe.getCosto_persona());
 				 proveedorHospedaje.setTipo(hospe.getTipo());
 				 proveedorHospedaje.setNombre(hospe.getNombre());
+				 proveedorHospedaje.setImagenesHospedaje(obtenerImagenes(hospe.getId_hospedaje()));
 				 resulProveedoresHospedaje.add(proveedorHospedaje);
 			 }
 		 }
@@ -101,8 +104,8 @@ public class InformacionActividad {
 		return resulProveedoresHospedaje;
 	}
 
-	private List<String> obtenerImagenes(int idActividad) {		
-		List<Object[]> imagesObj = imageDao.searchByEntityId(idActividad);
+	private List<String> obtenerImagenes(int idEntidad) {		
+		List<Object[]> imagesObj = imageDao.searchByEntityId(idEntidad);
 		
 		List<String> images = new ArrayList<>();
 		for(Object[] imageObj: imagesObj) {

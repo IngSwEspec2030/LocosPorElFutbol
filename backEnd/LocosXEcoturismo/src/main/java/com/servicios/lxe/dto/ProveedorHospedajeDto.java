@@ -2,6 +2,7 @@ package com.servicios.lxe.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class ProveedorHospedajeDto implements Serializable{
 
@@ -10,7 +11,7 @@ public class ProveedorHospedajeDto implements Serializable{
 	private BigDecimal costoPersona;
 	private String tipo;
 	private String nombre;
-	
+	private List<String> imagenesHospedaje;
 	
 	public Integer getIdHospedaje() {
 		return idHospedaje;
@@ -35,5 +36,11 @@ public class ProveedorHospedajeDto implements Serializable{
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	public List<String> getImagenesHospedaje() {
+		return imagenesHospedaje;
+	}
+	public void setImagenesHospedaje(List<String> imagenesHospedaje) {
+		this.imagenesHospedaje = imagenesHospedaje;
 	}
 }
