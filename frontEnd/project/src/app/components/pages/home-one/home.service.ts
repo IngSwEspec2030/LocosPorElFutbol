@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Activity} from '../../interfaces/activity.interface';
 import {HttpClient} from '@angular/common/http';
-
-
+import { environment } from "src/environments/environment";
 @Injectable({
     providedIn: 'root'
 })
 export class HomeService {
 
-    private url = 'http://localhost:8080/getActivities';
+    private url = environment.APIEndPoint+'getActivities';
 
     constructor(private http: HttpClient) {
     }

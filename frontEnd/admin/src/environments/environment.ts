@@ -2,8 +2,15 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+var ip = window.location.hostname;
+var protocol= window.location.protocol;
+var port = "8080"
+
 export const environment = {
-  production: false
+  production: false,
+  APIEndPoint:  protocol+"//"+port+"",
+  ImgLinks:   "",
+
 };
 
 /*

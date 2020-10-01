@@ -1,13 +1,14 @@
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Usuario} from '../../interfaces/usuario.interface';
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class LoginService {
 
-    private url = 'http://localhost:8080/getAutenticacion';
+    private url = environment.APIEndPoint+'getAutenticacion';
 
 
     constructor(private http: HttpClient) {

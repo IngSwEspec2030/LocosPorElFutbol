@@ -1,12 +1,13 @@
 import {Injectable, EventEmitter} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {environment} from "./../environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AppServiceService {
 
-    private baseUrl = 'http://localhost:8080/';
+    private baseUrl = environment.APIEndPoint;
 
     sessionEmitter = new EventEmitter<string>();
 

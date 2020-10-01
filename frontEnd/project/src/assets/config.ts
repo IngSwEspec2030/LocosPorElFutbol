@@ -1,5 +1,7 @@
+import { environment } from 'src/environments/environment';
+
 export const CONFIG = {
-    imagePath: 'http://localhost:8080/public/images/',
+    imagePath: environment.APIEndPoint+'public/images/',
     adminPath: 'http://localhost:4202',
     userLoggedPath: 'http://localhost:4201'
 };

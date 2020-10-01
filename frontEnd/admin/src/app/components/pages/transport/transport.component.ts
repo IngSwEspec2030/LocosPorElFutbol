@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TransportService } from '../transport/transport.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'app-transport',
@@ -22,7 +23,7 @@ export class TransportComponent implements OnInit {
     public activities = [];
     public images = [];
 
-    public urlPath = 'http://localhost:8080/public/images/';
+    public urlPath = environment.APIEndPoint+'public/images/';
 
     constructor(
         private transportService: TransportService,
@@ -98,7 +99,7 @@ export class TransportComponent implements OnInit {
         const uploadImageData = new FormData();
         uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
 
-        this.httpClient.post('http://localhost:8080/image/upload', uploadImageData, {observe: 'response'})
+        this.httpClient.post(environment.APIEndPoint+'image/upload', uploadImageData, {observe: 'response'})
             .subscribe((response) => {
                     if (response.status === 201) {
                         this.images.push(response.body['file']);
