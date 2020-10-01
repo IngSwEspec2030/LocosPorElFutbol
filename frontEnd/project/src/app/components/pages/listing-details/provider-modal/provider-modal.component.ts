@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { CONFIG } from 'src/assets/config';
  
 
 @Component({
@@ -8,7 +9,7 @@ import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./provider-modal.component.scss']
 })
 export class ProviderModalComponent implements OnInit {
-  
+  imagePath = CONFIG.imagePath;
   @Input() name: any;
   isLodging:boolean;
   arryImg: [];
