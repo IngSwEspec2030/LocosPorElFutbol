@@ -8,7 +8,7 @@ import { ActivityDetails } from '../../interfaces/activityDetails.interface';
 })
 export class ListingDetailsService {
 
-  private url = "http://lxecoturismo-env.eba-5ftwjd2p.us-east-1.elasticbeanstalk.com/informacionActividad"
+  private url = "http://13.67.185.229/informacionActividad"
 
   constructor(private http: HttpClient) { }
 

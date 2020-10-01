@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
     providedIn: "root",
 })
 export class CartService {
-    private url = "http://lxecoturismo-env.eba-5ftwjd2p.us-east-1.elasticbeanstalk.com/";
+    private url = "http://13.67.185.229/";
 
     constructor(private http: HttpClient) {}
 
