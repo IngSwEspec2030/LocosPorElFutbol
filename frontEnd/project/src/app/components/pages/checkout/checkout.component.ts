@@ -1,26 +1,79 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Email } from "../../interfaces/email.interface";
-import { CartService } from '../cart/cart.service'
-import { ToastService } from '../Toast/toast-container/toast.service';
+import { CartService } from "../cart/cart.service";
+import { ToastService } from "../Toast/toast-container/toast.service";
+import { NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-checkout',
-  templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.scss']
+    selector: "app-checkout",
+    templateUrl: "./checkout.component.html",
+    styleUrls: ["./checkout.component.scss"],
 })
 export class CheckoutComponent implements OnInit {
-  email: Email = new Email();
+    email: Email = new Email();
+    frmGroup: FormGroup;
+    loggedIn: boolean;
+  isPaying: boolean;
 
-  constructor(private cartService:CartService,
-              public toastService: ToastService) { }
+    constructor(
+      private router: Router,
+        private cartService: CartService,
+        public toastService: ToastService,
+        private formBuilder: FormBuilder,
+        config: NgbProgressbarConfig
 
-  ngOnInit(): void { 
-  }
-  
+    ) {
+      config.max = 1000;
+      config.striped = true;
+      config.animated = true;
+      config.type = "info";
+      config.height = "6px";
+        this.loadContent();
+    }
 
-  sendEmail(){
-    this.email.email='rodrigo2bastidas_@hotmail.com'
-    this.email.content=`
+    loadContent() {
+        this.frmGroup = this.formBuilder.group({
+            txtName: [null, [Validators.required]],
+            txtLastName: [null, [Validators.required]],
+            txtAddress: [null, [Validators.required]],
+            txtCity: [null, [Validators.required]],
+            txtState: [null, [Validators.required]],
+            txtEmail: [null, [Validators.required]],
+            txtPhone: [null, [Validators.required]],
+        });
+    }
+
+    ngOnInit(): void {
+        this.setInfoProfile();
+    }
+
+    setInfoProfile() {
+        if (localStorage.getItem("userAutenticado")) {
+            let user = JSON.parse(localStorage.getItem("userAutenticado"));
+            this.frmGroup.get("txtName").setValue(user.nombreUsuario);
+            this.frmGroup.get("txtLastName").setValue(user.apellidosUsuario);
+            this.frmGroup.get("txtEmail").setValue(user.emailUsuario);
+            this.frmGroup.get("txtPhone").setValue(user.telefonoUsuario);
+            this.frmGroup.get("txtCity").setValue("Bogotá");
+            this.frmGroup.get("txtState").setValue("D.C");
+            this.loggedIn = true;
+        }
+    }
+
+    simularPago() {
+      setTimeout(() => {
+        this.isPaying=true;
+    }, 1000);
+     this.toastService
+     .show("!Pago éxitoso!, se ha enviado los detalles de la reserva a su correo", { classname: 'bg-danger text-light', delay: 15000 });
+      this.sendEmail();
+    }
+
+    sendEmail() {
+        this.email.email =  this.frmGroup.get("txtEmail").value;
+        this.email.content = `
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="width:100%;font-family:arial, 'helvetica neue', helvetica, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
      <head> 
@@ -517,10 +570,12 @@ export class CheckoutComponent implements OnInit {
      </body>
     </html>
    
-  `
-    this.email.subject='Resumen cotización';
-    this.cartService.sendEmail(this.email).subscribe(result => {
-  });
-  }
+  `;
+        this.email.subject = "Resumen cotización";
+        this.cartService.sendEmail(this.email).subscribe((result) => {
+          this.isPaying=false;
+          this.router.navigate(["/"]);
 
+        });
+    }
 }

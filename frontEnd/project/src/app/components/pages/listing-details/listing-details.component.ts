@@ -85,11 +85,11 @@ export class ListingDetailsComponent implements OnInit {
         );
     }
 
-    public submit(): void {
+    public submit(dangerTpl): void {
       this.submitted = true;  
       this.frmGroup.updateValueAndValidity();
       if (this.frmGroup.invalid) {
-        this.toastService.show("Faltan datos por completar", { classname: 'bg-danger text-light', delay: 15000 });
+        this.toastService.show(dangerTpl, { classname: 'bg-danger text-light', delay: 15000 });
         return;
       }
       this.getQuotation();

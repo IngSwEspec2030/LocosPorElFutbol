@@ -8,6 +8,23 @@
     </div>
 </div>
 
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Generar cotización</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>¿Está seguro que desea generar una cotización con este paquete y proceder al pago?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Cross click')">Cancelar</button>
+        <button type="button" class="btn btn-outline-dark" (click)="cotizar()">Ir a pagar</button>
+    </div>
+</ng-template>
+
 <section class="cart-area ptb-100">
     <div class="container">
         <form>
@@ -78,7 +95,7 @@
                     <li>IVA <span>{{ iva | currency: "COP ":false:"2.0" }}</span></li>
                     <li>Total <span>{{ total | currency: "COP ":false:"2.0" }}</span></li>
                 </ul>
-                <button type="button" (click)="cotizar()" class="default-btn success">Cotizar</button>
+                <button type="button" (click)="open(content)" class="default-btn success">Cotizar</button>
                 <a routerLink="/" class="default-btn danger">Descartar</a>
                 <app-toast-container aria-live="polite" aria-atomic="true"></app-toast-container>
 

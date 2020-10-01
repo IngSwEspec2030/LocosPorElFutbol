@@ -1,9 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service'
 import { QuotationDetails } from '../../interfaces/ctemporal.interface';
 import { Quotation } from '../../interfaces/quotation.interface';
 import { ToastService } from '../Toast/toast-container/toast.service';
 import { Email } from "../../interfaces/email.interface";
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -17,7 +19,10 @@ export class CartComponent implements OnInit {
   quotation: Quotation = new Quotation();
   email: Email = new Email();
   constructor( private cartService:CartService,
-               public toastService: ToastService) {
+               public toastService: ToastService,
+               private modalService: NgbModal,
+               private router: Router
+               ) {
 
   }
 
@@ -53,9 +58,15 @@ export class CartComponent implements OnInit {
     );
   }
 
+  open(content) {
+    this.modalService.open(content);
+}
 
   showSuccess() {
+    
     this.toastService.show("Se ha generado una cotización", { classname: 'bg-success text-light', delay: 15000 });
+    this.router.navigate(["/checkout"]);
+    this.modalService.dismissAll();
   }
 
 }

@@ -10,12 +10,12 @@
 
 <section class="checkout-area ptb-100">
     <div class="container">
-        <div class="user-actions">
+        <div  *ngIf="!loggedIn" class="user-actions">
             <i class='bx bx-log-in'></i>
             <span>Retornar a la página principal? <a routerLink="/login">Clic para iniciar sesión</a></span>
         </div>
 
-        <form>
+        <form  [formGroup]="frmGroup">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="billing-details">
@@ -29,11 +29,6 @@
                                     <div class="select-box">
                                         <select class="form-control">
                                             <option>Colombia</option>
-                                            <option>Brazil</option>
-                                            <option>United Kingdom</option>
-                                            <option>Germany</option>
-                                            <option>France</option>
-                                            <option>Japan</option>
                                         </select>
                                     </div>
                                 </div>
@@ -42,14 +37,14 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Nombres <span class="required">*</span></label>
-                                    <input type="text" class="form-control">
+                                    <input type="text"  formControlName="txtName" class="form-control">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Apellidos <span class="required">*</span></label>
-                                    <input type="text" class="form-control">
+                                    <input type="text"  formControlName="txtLastName" class="form-control">
                                 </div>
                             </div>
 
@@ -63,39 +58,39 @@
                             <div class="col-lg-12 col-md-6">
                                 <div class="form-group">
                                     <label>Dirección <span class="required">*</span></label>
-                                    <input type="text" class="form-control">
+                                    <input type="text"  formControlName="txtAddress" class="form-control">
                                 </div>
                             </div>
 
                             <div class="col-lg-12 col-md-6">
                                 <div class="form-group">
                                     <label>Ciudad / Municipio <span class="required">*</span></label>
-                                    <input type="text" class="form-control">
+                                    <input type="text"   formControlName="txtCity" class="form-control">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Estado / Departamento <span class="required">*</span></label>
-                                    <input type="text" class="form-control">
+                                    <input type="text"  formControlName="txtState" class="form-control">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Correo Electrónico <span class="required">*</span></label>
-                                    <input type="email" class="form-control">
+                                    <input type="email"  formControlName="txtEmail" class="form-control">
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
                                     <label>Teléfono <span class="required">*</span></label>
-                                    <input type="text" class="form-control">
+                                    <input type="text"  formControlName="txtPhone" class="form-control">
                                 </div>
                             </div>
 
-                            <div class="col-lg-12 col-md-12">
+                            <div *ngIf="!loggedIn" class="col-lg-12 col-md-12">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="create-an-account">
                                     <label class="form-check-label" for="create-an-account">Crear una cuenta?</label>
@@ -111,7 +106,7 @@
 
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <textarea name="notes" id="notes" cols="30" rows="5" placeholder="Order Notes" class="form-control"></textarea>
+                                    <textarea name="notes" id="notes" cols="30" rows="5" placeholder="Notas adicionales" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +115,7 @@
 
                 <div class="col-lg-6 col-md-12">
                     <div class="order-details">
-                        <h3 class="title">Tu orden</h3>
+                        <h3 class="title">Su cotización</h3>
 
                         <div class="order-table table-responsive">
                             <table class="table table-bordered">
@@ -210,11 +205,11 @@
                                 <p>
                                     <input type="radio" id="direct-bank-transfer" name="radio-group" checked>
                                     <label for="direct-bank-transfer">Transferencia bancaria</label>
-                                    Realice su pago directamente en nuestra cuenta bancaria. Utilice su ID de pedido como referencia de pago. Su pedido no se enviará hasta que los fondos se hayan liquidado en nuestra cuenta.
+                                    Realice su pago directamente en nuestra cuenta bancaria. Utilice su ID de cotización como referencia de pago. Su reserva no se enviará hasta que los fondos se hayan liquidado en nuestra cuenta.
                                 </p>
                                 <p>
                                     <input type="radio" id="paypal" name="radio-group">
-                                    <label for="paypal">PayPal</label>
+                                    <label for="paypal">PayU</label>
                                 </p>
                                 <p>
                                     <input type="radio" id="cash-on-delivery" name="radio-group">
@@ -222,7 +217,10 @@
                                 </p>
                             </div>
 
-                            <a routerLink="/checkout" class="default-btn">Realizar pago</a>
+                            <button (click)="simularPago()" class="default-btn">Realizar pago</button>
+                            <br>
+                            <ngb-progressbar  value="1000" *ngIf="isPaying" type="sucess"></ngb-progressbar>
+
                         </div>
                     </div>
                 </div>
