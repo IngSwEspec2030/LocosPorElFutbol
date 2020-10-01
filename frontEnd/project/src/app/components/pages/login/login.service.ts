@@ -13,23 +13,13 @@ export class LoginService {
     constructor(private http: HttpClient) {
     }
 
-    getAtutenticar(email?: string, password?: string): Promise<Usuario> {
-        const params = new HttpParams().set('email', email).set('passWord', password)
+    public getAtutenticar(email?: string, password?: string){
+        let params = new HttpParams().set('email', email).set('passWord', password)
+        const headers = {
+            "Content-Type": "application/json",
+        };
+        return this.http.get<Usuario>(this.url, {params, headers});
 
-        return new Promise((resolve, reject) => {
-            const url = `${this.url}`;
-            const headers = {
-                'Content-Type': 'application/json'
-            };
-            this.http.get<Usuario>(url,
-                {params, headers}).subscribe(result => {
-                    resolve(result);
-                },
-                error => {
-                    console.info(error);
-                    reject(error);
-                });
-        });
     }
 }
 
