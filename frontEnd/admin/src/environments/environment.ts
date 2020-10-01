@@ -8,9 +8,7 @@ var port = "8080"
 
 export const environment = {
   production: false,
-  APIEndPoint:  "http://13.67.185.229/",
-  ImgLinks:   "http://13.67.185.229/",
-
+  APIEndPoint:  protocol+"//"+port+""
 };
 
 /*

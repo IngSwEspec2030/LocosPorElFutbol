@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AppServiceService} from '../../../app-service.service';
+import { CONFIG } from 'src/assets/config';
 
 @Component({
     selector: 'app-sidebar',
@@ -10,7 +11,7 @@ export class SidebarComponent implements OnInit {
 
     public role = null;
 
-    private loginUrl = 'http://localhost:4201/login';
+    private loginUrl = CONFIG.userLoggedPath+"login";
 
     constructor(private appServiceService: AppServiceService) {
     }
