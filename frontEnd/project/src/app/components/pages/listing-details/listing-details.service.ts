@@ -8,7 +8,7 @@ import { ActivityDetails } from '../../interfaces/activityDetails.interface';
 })
 export class ListingDetailsService {
 
-  private url = "http://localhost:8080/informacionActividad"
+  private url = "http://lxecoturismo-env.eba-5ftwjd2p.us-east-1.elasticbeanstalk.com/informacionActividad"
 
   constructor(private http: HttpClient) { }
 
@@ -41,7 +41,7 @@ export class ListingDetailsService {
             {idHospedaje:2, costoPersona: 60000, tipo: 'Cabañas', nombre:'Hotel 2'},
             {idHospedaje:3, costoPersona: 44000, tipo: 'Hotel', nombre:'Hotel 3'},
           ]
-          
+
         }
     ]
   }

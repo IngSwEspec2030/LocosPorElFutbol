@@ -7,7 +7,7 @@ var port = "8080"
 
 export const environment = {
   production: false,
-  APIEndPoint:  protocol+"//"+ip+":"+port+"/",
+  APIEndPoint:  "http://lxecoturismo-env.eba-5ftwjd2p.us-east-1.elasticbeanstalk.com/",
 
 };
 

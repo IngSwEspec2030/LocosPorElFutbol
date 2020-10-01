@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
     providedIn: "root",
 })
 export class CartService {
-    private url = "http://localhost:8080";
+    private url = "http://lxecoturismo-env.eba-5ftwjd2p.us-east-1.elasticbeanstalk.com/";
 
     constructor(private http: HttpClient) {}
 

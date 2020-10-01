@@ -8,8 +8,8 @@ var port = "8080"
 
 export const environment = {
   production: false,
-  APIEndPoint:  protocol+"//"+port+"",
-  ImgLinks:   "",
+  APIEndPoint:  "http://lxecoturismo-env.eba-5ftwjd2p.us-east-1.elasticbeanstalk.com/",
+  ImgLinks:   "http://lxecoturismo-env.eba-5ftwjd2p.us-east-1.elasticbeanstalk.com/public/images/",
 
 };
 
