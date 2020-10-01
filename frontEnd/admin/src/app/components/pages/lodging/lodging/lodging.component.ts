@@ -22,7 +22,8 @@ export class LodgingComponent implements OnInit {
     public activities = [];
     public images = [];
 
-    public urlPath = environment.APIEndPoint+"public/images/";
+
+    public urlPath = environment.APIEndPoint+"images/";
 
     constructor(
         private lodgingService: LodgingService,
@@ -70,7 +71,7 @@ export class LodgingComponent implements OnInit {
                 this.form.controls['actividades'].setValue(filteredSites);
             }, 1000);
         }
-    
+
         async getActivities() {
           let activities: any = await this.lodgingService
               .getActivities()
@@ -104,7 +105,10 @@ export class LodgingComponent implements OnInit {
             })
             .subscribe((response) => {
                 if (response.status === 201) {
-                    this.images.push(response.body["file"]);
+
+                    setTimeout(() => {
+                        this.images.push(response.body['file']);
+                    }, 2500);
                 } else {
                     console.info(response);
                 }

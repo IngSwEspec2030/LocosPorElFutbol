@@ -23,7 +23,7 @@ export class TransportComponent implements OnInit {
     public activities = [];
     public images = [];
 
-    public urlPath = environment.APIEndPoint+'public/images/';
+    public urlPath = environment.APIEndPoint+'images/';
 
     constructor(
         private transportService: TransportService,
@@ -102,7 +102,9 @@ export class TransportComponent implements OnInit {
         this.httpClient.post(environment.APIEndPoint+'image/upload', uploadImageData, {observe: 'response'})
             .subscribe((response) => {
                     if (response.status === 201) {
-                        this.images.push(response.body['file']);
+                        setTimeout(() => {
+                            this.images.push(response.body['file']);
+                        }, 2500);
                     } else {
                         console.info(response);
                     }

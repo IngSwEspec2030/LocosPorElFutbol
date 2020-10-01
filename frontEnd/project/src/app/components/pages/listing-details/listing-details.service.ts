@@ -42,7 +42,7 @@ export class ListingDetailsService {
             {idHospedaje:2, costoPersona: 60000, tipo: 'Cabañas', nombre:'Hotel 2'},
             {idHospedaje:3, costoPersona: 44000, tipo: 'Hotel', nombre:'Hotel 3'},
           ]
-          
+
         }
     ]
   }
