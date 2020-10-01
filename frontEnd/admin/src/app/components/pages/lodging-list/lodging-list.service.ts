@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LodgingListService {
- 
+
   private baseUrl = 'http://localhost:8080/';
-  
+
   constructor(
     private http: HttpClient
   ) { }
@@ -19,6 +19,8 @@ export class LodgingListService {
       };
       this.http.get<any[]>(`${this.baseUrl}lodging/list`,
           {headers}).subscribe(result => {
+              const logguedUser = JSON.parse(localStorage.getItem('logguedUser'));
+              result = result.filter(lodging => lodging.idUsuario === logguedUser.id_usuario);
               resolve(result);
           },
           error => {
