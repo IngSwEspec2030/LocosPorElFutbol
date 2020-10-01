@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivityService} from './activity-service.service';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import { environment } from "src/environments/environment";
+import {environment} from "src/environments/environment";
 
 @Component({
     selector: 'app-add-listing',
@@ -22,7 +22,7 @@ export class AddActivityComponent implements OnInit {
     public sites = [];
     public images = [];
 
-    public urlPath = environment.APIEndPoint+'public/images/';
+    public urlPath = environment.APIEndPoint + 'images/';
 
     constructor(
         private activityService: ActivityService,
@@ -95,10 +95,13 @@ export class AddActivityComponent implements OnInit {
         const uploadImageData = new FormData();
         uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
 
-        this.httpClient.post(environment.APIEndPoint+'image/upload', uploadImageData, {observe: 'response'})
+        this.httpClient.post(environment.APIEndPoint + 'image/upload', uploadImageData, {observe: 'response'})
             .subscribe((response) => {
                     if (response.status === 201) {
-                        this.images.push(response.body['file']);
+                        setTimeout(() => {
+                            this.images.push(response.body['file']);
+                        }, 2500);
+
                     } else {
                         console.info(response);
                     }

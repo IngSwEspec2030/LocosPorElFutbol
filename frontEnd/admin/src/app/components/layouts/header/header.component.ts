@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AppServiceService} from '../../../app-service.service';
+import { CONFIG } from 'src/assets/config';
 
 @Component({
     selector: 'app-header',
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
     public email = null;
     public userName = null;
 
-    public loginUrl = 'http://localhost:4201/login';
+    public loginUrl = CONFIG.userLoggedPath+"login";
 
     constructor(private appServiceService: AppServiceService) {
     }

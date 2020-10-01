@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { LodgingService } from "./lodging.service";
+import { environment } from "src/environments/environment";
 
 @Component({
     selector: "app-lodging",
@@ -21,7 +22,8 @@ export class LodgingComponent implements OnInit {
     public activities = [];
     public images = [];
 
-    public urlPath = "http://localhost:8080/public/images/";
+
+    public urlPath = environment.APIEndPoint+"images/";
 
     constructor(
         private lodgingService: LodgingService,
@@ -69,7 +71,7 @@ export class LodgingComponent implements OnInit {
                 this.form.controls['actividades'].setValue(filteredSites);
             }, 1000);
         }
-    
+
         async getActivities() {
           let activities: any = await this.lodgingService
               .getActivities()
@@ -98,12 +100,15 @@ export class LodgingComponent implements OnInit {
         );
 
         this.httpClient
-            .post("http://localhost:8080/image/upload", uploadImageData, {
+            .post(environment.APIEndPoint+"image/upload", uploadImageData, {
                 observe: "response",
             })
             .subscribe((response) => {
                 if (response.status === 201) {
-                    this.images.push(response.body["file"]);
+
+                    setTimeout(() => {
+                        this.images.push(response.body['file']);
+                    }, 2500);
                 } else {
                     console.info(response);
                 }

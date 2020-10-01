@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ActivityDetails } from '../../interfaces/activityDetails.interface';
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListingDetailsService {
 
-  private url = "http://localhost:8080/informacionActividad"
+  private url = environment.APIEndPoint+"/informacionActividad"
 
   constructor(private http: HttpClient) { }
 
@@ -41,7 +42,7 @@ export class ListingDetailsService {
             {idHospedaje:2, costoPersona: 60000, tipo: 'Cabañas', nombre:'Hotel 2'},
             {idHospedaje:3, costoPersona: 44000, tipo: 'Hotel', nombre:'Hotel 3'},
           ]
-          
+
         }
     ]
   }

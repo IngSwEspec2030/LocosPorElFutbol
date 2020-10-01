@@ -2,12 +2,13 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { LodgingInterface } from "src/app/components/interfaces/lodging.interface";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: "root",
 })
 export class LodgingService {
-    private baseUrl = "http://localhost:8080/";
+    private baseUrl = environment.APIEndPoint;
 
     constructor(private http: HttpClient) {}
 

@@ -60,7 +60,7 @@
                             *ngFor="let img of details?.imagenesActividad"
                         >
                             <div class="picsum-img-wrapper">
-                                <img src="{{ img }}" alt="Random first slide" />
+                                <img src="{{imagePath}}{{ img }}" alt="Random first slide" />
                             </div>
                         </ng-template>
                     </ngb-carousel>

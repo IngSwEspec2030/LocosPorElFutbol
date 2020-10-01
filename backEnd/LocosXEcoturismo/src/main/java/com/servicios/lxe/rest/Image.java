@@ -32,6 +32,8 @@ public class Image {
     @PostMapping("/image/upload")
     public ResponseEntity<Object> uplaodImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
         System.out.println("Original Image Byte Size - " + file.getBytes().length);
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+
                          
          int rand = ThreadLocalRandom.current().nextInt(1,100);
          String fileName = Math.ceil(rand) + "_" + file.getOriginalFilename();

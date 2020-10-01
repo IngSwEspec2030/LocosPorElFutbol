@@ -7,7 +7,7 @@ var port = "8080"
 
 export const environment = {
   production: false,
-  APIEndPoint:  protocol+"//"+ip+":"+port+"/",
+  APIEndPoint:  "http://13.67.185.229/",
 
 };
 
