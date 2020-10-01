@@ -3,6 +3,7 @@ import {Router, NavigationStart, NavigationCancel, NavigationEnd} from '@angular
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {filter} from 'rxjs/operators';
 import {AppServiceService} from './app-service.service';
+import { CONFIG } from 'src/assets/config';
 
 declare let $: any;
 
@@ -20,7 +21,7 @@ declare let $: any;
 export class AppComponent implements OnInit {
     location: any;
     routerSubscription: any;
-    private loginUrl = 'http://localhost:4201/login';
+    private loginUrl = CONFIG.userLoggedPath+"login";
 
     constructor(
         private router: Router,

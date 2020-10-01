@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { LodgingService } from "./lodging.service";
+import { environment } from "src/environments/environment";
 
 @Component({
     selector: "app-lodging",
@@ -21,7 +22,7 @@ export class LodgingComponent implements OnInit {
     public activities = [];
     public images = [];
 
-    public urlPath = "http://localhost:8080/public/images/";
+    public urlPath = environment.APIEndPoint+"public/images/";
 
     constructor(
         private lodgingService: LodgingService,
@@ -98,7 +99,7 @@ export class LodgingComponent implements OnInit {
         );
 
         this.httpClient
-            .post("http://localhost:8080/image/upload", uploadImageData, {
+            .post(environment.APIEndPoint+"image/upload", uploadImageData, {
                 observe: "response",
             })
             .subscribe((response) => {
