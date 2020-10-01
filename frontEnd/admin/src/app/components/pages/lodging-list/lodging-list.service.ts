@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LodgingListService {
-
-  private baseUrl = 'http://localhost:8080/';
-
+ 
+  private baseUrl = environment.APIEndPoint;
+  
   constructor(
     private http: HttpClient
   ) { }
