@@ -20,6 +20,8 @@ export class LodgingListService {
       };
       this.http.get<any[]>(`${this.baseUrl}lodging/list`,
           {headers}).subscribe(result => {
+              const logguedUser = JSON.parse(localStorage.getItem('logguedUser'));
+              result = result.filter(lodging => lodging.idUsuario === logguedUser.id_usuario);
               resolve(result);
           },
           error => {
